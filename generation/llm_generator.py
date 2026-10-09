@@ -79,9 +79,10 @@ LECTURE CONTENT:
 """
 
 GEMINI_MODEL_CANDIDATES = [
-    "gemini-flash-latest",
-    "gemini-flash-lite-latest",
     "gemini-2.5-flash",
+    "gemini-flash-latest",
+    "gemini-2.5-flash-lite",
+    "gemini-flash-lite-latest",
     "gemini-pro-latest",
 ]
 
@@ -398,28 +399,47 @@ class LLMGenerator:
                     })
 
         # Build MCQs from chunk headings and statements
+        # Pull sentences from all chunks to build diverse, plausible distractors
+        all_sentences = []
+        for c in chunks:
+            sents = [s.strip() for s in re.split(r"(?<=[.!?])\s+", c.text) if len(s.strip()) > 30]
+            all_sentences.extend(sents)
+
         for idx, chunk in enumerate(chunks[:12]):
             heading = chunk.heading or f"Concept {idx+1}"
-            first_sentence = chunk.text.split(".")[0].strip() if "." in chunk.text else chunk.text[:100]
-            if len(first_sentence) < 15:
+            chunk_sents = [s.strip() for s in re.split(r"(?<=[.!?])\s+", chunk.text) if len(s.strip()) > 30]
+            if len(chunk_sents) < 2:
                 continue
+            first_sentence = chunk_sents[0][:120]
 
-            question = f"According to {chunk.source_tag}, what is the primary role or definition associated with {heading}?"
-            correct_ans = first_sentence[:120]
-            distractor1 = f"It replaces {heading} entirely to avoid computational overhead."
-            distractor2 = f"It operates as a deprecated secondary mechanism only."
-            distractor3 = f"It is only applicable in unconstrained, static environments."
+            # Build plausible distractors from OTHER chunks' sentences
+            other_sents = [s[:120] for s in all_sentences if s not in chunk_sents and len(s) > 30]
+            if len(other_sents) < 3:
+                continue  # Not enough material for plausible distractors
 
-            options = [correct_ans, distractor1, distractor2, distractor3]
+            import random
+            rng = random.Random(idx)  # deterministic seed per question
+            distractors = rng.sample(other_sents, min(3, len(other_sents)))
+
+            question = f"What best describes the fundamental concept of {heading} in this context?"
+            options = [first_sentence] + distractors[:3]
+
             # Deterministic rotation so answer isn't always 0
             ans_idx = idx % 4
             options[0], options[ans_idx] = options[ans_idx], options[0]
+
+            # Ensure all options are reasonably sized and distinct
+            opt_lens = [len(o) for o in options]
+            if max(opt_lens) > 150 and min(opt_lens) < 6:
+                continue
+            if len(set(options)) < 4:
+                continue
 
             mcqs.append({
                 "q": question,
                 "options": options,
                 "answer": ans_idx,
-                "explanation": f"Grounded in {chunk.source_tag}: '{first_sentence}'.",
+                "explanation": f"Based on {chunk.source_tag}: '{first_sentence}'.",
                 "source": chunk.source_tag,
                 "topic": heading,
                 "generated_by": "heuristic"
