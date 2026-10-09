@@ -1,0 +1,226 @@
+What is Reminder?	Pointers are a topic where doing lots of exercises is more important than ever in order to get comfortable	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Pointers_and_Arrays
+What is An array?	variable that is able to hold multiple values of some type. An array is made up of cells. Each cell holds a	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Today's_lecture_quiz_(super_important!).
+What is Style Note?	Pointer Declarations	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Style_Note:_Pointer_Declarations
+What is The Ampersand Operator?	Different Things in Different Contexts!	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Style_Note:_Pointer_Declarations
+What is The Asterisk Operator?	Different Things in Different Contexts!	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::main():
+What is COURSE OUTLINE?	CS250 Data Structures and Algorithms	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::COURSE_OUTLINE-_CS250_Data_Structures_and_Algorithms
+What is Gain hands?	on experience in programming using the latest Integrated	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::COURSE_OUTLINE-_CS250_Data_Structures_and_Algorithms
+What is Conducted through in?	class or lab activities.	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Mapping_of_the_Course_Learning_Outcomes_(CLO)_to_the_Programme_Learning
+What is Introduction?	What is a Data Structure?	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::3.
+What is Stacks?	Concept, Implementation, Applications	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::3.
+What is Queues?	Concept, Implementation, Applications	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::3.
+What is Time Complexity II?	Loops and Nested Structures	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::3.
+What is Non-Linear Data Structures I?	Introduction to Trees	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::3.
+What is Tree Traversals?	Inorder, Preorder, Postorder	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::3.
+What is AVL Trees?	Rotations and Balancing	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::3.
+What is Applications of Trees?	Heaps and Priority Queues	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::3.
+What is Sorting I?	Bubble Sort, Selection Sort	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::3.
+What is Sorting V?	Counting Sort and Radix Sort	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::3.
+What is Graphs I?	Introduction and Applications	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Week_14
+What is Graphs II?	Representations (Adjacency Matrix/List)	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Week_14
+Explain the principle of Dynamic Allocation: The Basics	Dynamic Allocation: The Basics	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Dynamic_Allocation:_The_Basics
+Explain the principle of string* ptr;	string* ptr;         ptr The variable ptr has type string* rather than string. We’ll explain this in a moment.	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::string*_ptr;
+Explain the principle of int* ptr = new int[4];	int* ptr = new int[4]; ptr Arrays of ints, doubles, chars, or bools initially have garbage values. Other types use good defaults.	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::int*_ptr_=_new_int[4];
+Explain the principle of string* ptr = new string[3];	string* ptr = new string[3]; ptr	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::string*_ptr_=_new_string[3];
+Explain the principle of Coffee Shop	Coffee Shop Office Space Residential            ! ptr string* ptr = new string[3]; ptr[0] = "Coffee Shop"; ptr[1] = "Office Space"; ptr[2] = "Residential";	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Coffee_Shop
+Explain the principle of void makeAnArray() {	void makeAnArray() {     string* ptr = new string[3]; }   int main() {     for (int i = 0; i < 5; i++) {         makeAnArray();     } }	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::void_makeAnArray()_{
+Explain the principle of // Sean's CS106B Pointers Worksheet! Show the contents of variables a, b, p, and	// Sean's CS106B Pointers Worksheet! Show the contents of variables a, b, p, and q // at the various stages of the program's execution where I've drawn the boxes. #include <iostream> #include "console.h" using namespace 	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2:://_Sean's_CS106B_Pointers_Worksheet!_Show_the_contents_of_variables_a,_b,_p,_and
+What is A recursive function?	loop in disguise. Count how many calls happen, and	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::The_one_idea
+What is The tree?	single line. Each node does constant work c, and	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Pattern_1_·_one_call,_shrink_by_1
+What is Equal levels?	log n of them, cn each.	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::The_classic_trap
+What is Doubling levels?	1 + 2 + 4 + … + n = 2n − 1.	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::The_classic_trap
+What is Root vs leaves?	who does more work?	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Shortcut_·_the_master_theorem
+What is Part A?	Simplify the expression	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Answers_&_Explanations
+What is Part B?	Order the growth rates	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Answers_&_Explanations
+What is Why?	constants never grow. Logs grow very slowly (doubling n adds just 1). √n is slower	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Answers_&_Explanations
+What is See the jump?	going from O(n log n) to O(n²) multiplies the work by about 100.	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::See_the_jump:_going_from_O(n_log_n)_to_O(n²)_multiplies_the_work_by_about_100.
+What is Part F?	Quadratic and cubic time	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::E4._About_20_steps;_O(log_n)._1,000,000_halved_20_times_is_less_than_1,_because_
+What is Part K?	Best case and worst case	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Part_J:_Recursion
+What is Key idea?	best and worst cases are about which input you get, for the same n. The best	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Part_J:_Recursion
+What is Part L?	Data-structure operations	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::K4._(i)_Big-O_=_at_most._(ii)_Big-Omega_(Ω)_=_at_least._(iii)_Big-Theta_(Θ)_=_ex
+What is Part M?	Reading real timings	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Part_M:_Reading_real_timings
+What is The trick?	look at what happens to the time when n doubles.	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Part_M:_Reading_real_timings
+What is This is why Big?	O matters. The same computer, the same n, and the difference is one	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Part_M:_Reading_real_timings
+What is Big?	O describes large n. Constants still matter for	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Part_N:_True_or_false?
+What is Gain hands?	on experience in programming using the latest Integrated Development	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Mapping_of_the_Course_Learning_Outcomes_(CLO)_to_the_Programme_Learning_Outcomes
+What is Conducted through in?	class or lab activities.	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Details_on_Innovative_T&L_practices:
+What is Introduction?	What is a Data Structure?	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Details_on_Innovative_T&L_practices:
+What is Stacks?	Concept, Implementation, Applications	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Details_on_Innovative_T&L_practices:
+What is Queues?	Concept, Implementation, Applications	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Details_on_Innovative_T&L_practices:
+What is Time Complexity II?	Loops and Nested Structures	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Details_on_Innovative_T&L_practices:
+What is Non-Linear Data Structures I?	Introduction to Trees	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Details_on_Innovative_T&L_practices:
+What is Tree Traversals?	Inorder, Preorder, Postorder	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Lab_Experiments_(if_applicable):
+What is AVL Trees?	Rotations and Balancing	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Lab_Experiments_(if_applicable):
+What is Applications of Trees?	Heaps and Priority Queues	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Lab_Experiments_(if_applicable):
+What is Sorting I?	Bubble Sort, Selection Sort	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Lab_Experiments_(if_applicable):
+What is Sorting V?	Counting Sort and Radix Sort	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Lab_Experiments_(if_applicable):
+What is Graphs I?	Introduction and Applications	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Lab_Experiments_(if_applicable):
+What is Graphs II?	Representations (Adjacency Matrix/List)	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Lab_Experiments_(if_applicable):
+What is Graphs III?	Breadth-First Search (BFS)	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Lab_Experiments_(if_applicable):
+What is Student A?	search the list as it came	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Slide_4
+What is That gap?	1,000,000 against 20 — is the entire subject of this course.	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Slide_5
+What is A data structure?	way of organising data in memory so that it can be used efficiently.	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Slide_8
+What is Every row?	genuine trade. There is no column of all wins. Choosing a data structure means deciding which operations you will do most often.	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Slide_13
+What is The obvious algorithm?	and exactly how much it costs.	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Slide_18
+What is Best case?	1 comparison  (it is first)	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Slide_19
+What is Worst case?	n comparisons  (last, or absent)	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Slide_19
+What is Average?	about n/2 comparisons	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Slide_19
+What is The pattern?	the work is directly proportional to n. Ten times the data, ten times the time. We will give this pattern a name in Week 5 — O(n) — but you can already see the shape of it.	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Slide_24
+What is Ask?	how many times can I halve n before only one element is left?	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Slide_30
+What is Hour 1?	what you should now be able to say	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Slide_31
+What is A type?	set of values, together with the operations allowed on those values.	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Slide_33
+What is Values?	−2,147,483,648 … 2,147,483,647	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Slide_33
+What is Operations?	+ − × / %  < >  == !=	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Slide_33
+What is An ADT?	description of a set of values and the operations on them,	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Slide_38
+What is CS-250 Big?	O Worksheet: Every Kind of	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::CS-250_Big-O_Worksheet:_Every_Kind_of
+What is What Big?	O means, in one sentence	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::CS-250_Big-O_Worksheet:_Every_Kind_of
+What is Big?	O tells you how fast the work grows when the input gets bigger. It does not tell you	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::CS-250_Big-O_Worksheet:_Every_Kind_of
+What is Tip?	when you are not sure, pick a small n (like 8 or 16) and count the steps by hand. Then	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Recipes_for_reading_code
+What is Part A?	Simplify the expression	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Recipes_for_reading_code
+What is Use the two rules?	drop constants, keep the biggest term. Write the Big-O.	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Recipes_for_reading_code
+What is Part B?	Order the growth rates	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Part_B:_Order_the_growth_rates
+What is Answer?	______________________________________________	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Part_B:_Order_the_growth_rates
+What is Part C?	Constant time, O(1)	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Part_B:_Order_the_growth_rates
+What is Part E?	Logarithmic time, O(log n)	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Part_E:_Logarithmic_time,_O(log_n)
+What is Part F?	Quadratic and cubic time, O(n²) and O(n³)	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Part_E:_Logarithmic_time,_O(log_n)
+What is Part G?	n log n time, O(n log n)	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::F4._How_many_times_does_the_inner_line_run_when_n_=_10?________Big-O:___________
+What is Part H?	Add or multiply? Two different inputs	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::F4._How_many_times_does_the_inner_line_run_when_n_=_10?________Big-O:___________
+What is Part I?	Square-root time, O(√n)	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::for_(int_i_=_0;_i_<_n;_i++)
+What is Part K?	Best case and worst case	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::int_fib(int_n)_{
+Explain the principle of Google Interview Prep	Google Interview Prep  https://igotanoffer.com/blogs/tech/coding-interview-prep  https://www.youtube.com/c/neetcode  https://neetcode.io/roadmap	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Google_Interview_Prep
+What is An Application?	Balanced Parentheses	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::An_Application:_Balanced_Parentheses
+What is Time?	Out for Announcements!	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Time-Out_for_Announcements!
+What is Important?	Please note the Stanford Computer Forum policies regarding no-	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Upcoming_Career_Fair
+Explain the principle of Collections, Part Two	Collections, Part Two	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Collections,_Part_Two
+Explain the principle of Outline for Today	Outline for Today ●Stacks ●Pancakes meets parsing! ●Queues ●Playing some music!	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Outline_for_Today
+Explain the principle of Stack	Stack	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Stack
+Explain the principle of Car 1	Car 1 Car 2 Car 3 This car  can’t leave… … until these  two do. Thanks to Nick Troccoli for this example!	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Car_1
+What is The way out?	ask for memory while the program is running. To do that we first need to be able to talk about memory at all.	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Slide_4
+What is The star?	two different things	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Slide_11
+What is It says?	p is a pointer to int.	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Slide_11
+What is Hour 1?	what you should now be able to say	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Slide_16
+What is The stack?	automatic, and unforgiving	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Slide_19
+What is Disaster 2?	the dangling pointer	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Slide_29
+What is Match the form?	new/delete, new[]/delete[].	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Slide_33
+What is Hour 2?	what you should now be able to say	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Slide_34
+What is Deep?	what you must write	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Slide_43
+What is It cannot be copied?	only moved. That makes double free impossible by construction.	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Slide_46
+What is ADDRESSSANITIZER?	ADD TWO FLAGS, CATCH ALMOST EVERYTHING	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Slide_47
+What is WHAT IT TELLS YOU?	THE EXACT LINE, AND WHERE IT WAS FREED	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Slide_47
+What is Hour 3?	what you should now be able to say	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Slide_48
+What is Next week?	your first real data structure	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Slide_50
+What is Week 3?	Arrays, Strings and Linked Lists	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Slide_50
+Explain the principle of // Sean's CS106B Pointers Worksheet! Show the contents of variables a, b, p, and	// Sean's CS106B Pointers Worksheet! Show the contents of variables a, b, p, and q // at the various stages of the program's execution where I've drawn the boxes. #include <iostream> #include "console.h" using namespace 	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2:://_Sean's_CS106B_Pointers_Worksheet!_Show_the_contents_of_variables_a,_b,_p,_and
+What is Reminder?	Pointers are a topic where doing lots of exercises is more important than ever in order to get comfortable	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Pointers_and_Arrays
+What is An array?	variable that is able to hold multiple values of some type. An array is made up of cells. Each cell holds a	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Today's_lecture_quiz_(super_important!).
+What is Style Note?	Pointer Declarations	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Style_Note:_Pointer_Declarations
+What is The Ampersand Operator?	Different Things in Different Contexts!	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Style_Note:_Pointer_Declarations
+What is The Asterisk Operator?	Different Things in Different Contexts!	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::main():
+What is COURSE OUTLINE?	CS250 Data Structures and Algorithms	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::COURSE_OUTLINE-_CS250_Data_Structures_and_Algorithms
+What is Gain hands?	on experience in programming using the latest Integrated	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::COURSE_OUTLINE-_CS250_Data_Structures_and_Algorithms
+What is Conducted through in?	class or lab activities.	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Mapping_of_the_Course_Learning_Outcomes_(CLO)_to_the_Programme_Learning
+What is Introduction?	What is a Data Structure?	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::3.
+What is Stacks?	Concept, Implementation, Applications	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::3.
+What is Queues?	Concept, Implementation, Applications	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::3.
+What is Time Complexity II?	Loops and Nested Structures	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::3.
+What is Non-Linear Data Structures I?	Introduction to Trees	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::3.
+What is Tree Traversals?	Inorder, Preorder, Postorder	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::3.
+What is AVL Trees?	Rotations and Balancing	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::3.
+What is Applications of Trees?	Heaps and Priority Queues	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::3.
+What is Sorting I?	Bubble Sort, Selection Sort	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::3.
+What is Sorting V?	Counting Sort and Radix Sort	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::3.
+What is Graphs I?	Introduction and Applications	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Week_14
+What is Graphs II?	Representations (Adjacency Matrix/List)	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Week_14
+Explain the principle of Dynamic Allocation: The Basics	Dynamic Allocation: The Basics	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Dynamic_Allocation:_The_Basics
+Explain the principle of string* ptr;	string* ptr;         ptr The variable ptr has type string* rather than string. We’ll explain this in a moment.	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::string*_ptr;
+Explain the principle of int* ptr = new int[4];	int* ptr = new int[4]; ptr Arrays of ints, doubles, chars, or bools initially have garbage values. Other types use good defaults.	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::int*_ptr_=_new_int[4];
+Explain the principle of string* ptr = new string[3];	string* ptr = new string[3]; ptr	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::string*_ptr_=_new_string[3];
+Explain the principle of Coffee Shop	Coffee Shop Office Space Residential            ! ptr string* ptr = new string[3]; ptr[0] = "Coffee Shop"; ptr[1] = "Office Space"; ptr[2] = "Residential";	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Coffee_Shop
+Explain the principle of void makeAnArray() {	void makeAnArray() {     string* ptr = new string[3]; }   int main() {     for (int i = 0; i < 5; i++) {         makeAnArray();     } }	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::void_makeAnArray()_{
+Explain the principle of // Sean's CS106B Pointers Worksheet! Show the contents of variables a, b, p, and	// Sean's CS106B Pointers Worksheet! Show the contents of variables a, b, p, and q // at the various stages of the program's execution where I've drawn the boxes. #include <iostream> #include "console.h" using namespace 	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2:://_Sean's_CS106B_Pointers_Worksheet!_Show_the_contents_of_variables_a,_b,_p,_and
+What is A recursive function?	loop in disguise. Count how many calls happen, and	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::The_one_idea
+What is The tree?	single line. Each node does constant work c, and	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Pattern_1_·_one_call,_shrink_by_1
+What is Equal levels?	log n of them, cn each.	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::The_classic_trap
+What is Doubling levels?	1 + 2 + 4 + … + n = 2n − 1.	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::The_classic_trap
+What is Root vs leaves?	who does more work?	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Shortcut_·_the_master_theorem
+What is Part A?	Simplify the expression	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Answers_&_Explanations
+What is Part B?	Order the growth rates	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Answers_&_Explanations
+What is Why?	constants never grow. Logs grow very slowly (doubling n adds just 1). √n is slower	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Answers_&_Explanations
+What is See the jump?	going from O(n log n) to O(n²) multiplies the work by about 100.	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::See_the_jump:_going_from_O(n_log_n)_to_O(n²)_multiplies_the_work_by_about_100.
+What is Part F?	Quadratic and cubic time	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::E4._About_20_steps;_O(log_n)._1,000,000_halved_20_times_is_less_than_1,_because_
+What is Part K?	Best case and worst case	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Part_J:_Recursion
+What is Key idea?	best and worst cases are about which input you get, for the same n. The best	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Part_J:_Recursion
+What is Part L?	Data-structure operations	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::K4._(i)_Big-O_=_at_most._(ii)_Big-Omega_(Ω)_=_at_least._(iii)_Big-Theta_(Θ)_=_ex
+What is Part M?	Reading real timings	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Part_M:_Reading_real_timings
+What is The trick?	look at what happens to the time when n doubles.	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Part_M:_Reading_real_timings
+What is This is why Big?	O matters. The same computer, the same n, and the difference is one	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Part_M:_Reading_real_timings
+What is Big?	O describes large n. Constants still matter for	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Part_N:_True_or_false?
+What is Gain hands?	on experience in programming using the latest Integrated Development	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Mapping_of_the_Course_Learning_Outcomes_(CLO)_to_the_Programme_Learning_Outcomes
+What is Conducted through in?	class or lab activities.	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Details_on_Innovative_T&L_practices:
+What is Introduction?	What is a Data Structure?	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Details_on_Innovative_T&L_practices:
+What is Stacks?	Concept, Implementation, Applications	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Details_on_Innovative_T&L_practices:
+What is Queues?	Concept, Implementation, Applications	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Details_on_Innovative_T&L_practices:
+What is Time Complexity II?	Loops and Nested Structures	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Details_on_Innovative_T&L_practices:
+What is Non-Linear Data Structures I?	Introduction to Trees	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Details_on_Innovative_T&L_practices:
+What is Tree Traversals?	Inorder, Preorder, Postorder	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Lab_Experiments_(if_applicable):
+What is AVL Trees?	Rotations and Balancing	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Lab_Experiments_(if_applicable):
+What is Applications of Trees?	Heaps and Priority Queues	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Lab_Experiments_(if_applicable):
+What is Sorting I?	Bubble Sort, Selection Sort	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Lab_Experiments_(if_applicable):
+What is Sorting V?	Counting Sort and Radix Sort	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Lab_Experiments_(if_applicable):
+What is Graphs I?	Introduction and Applications	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Lab_Experiments_(if_applicable):
+What is Graphs II?	Representations (Adjacency Matrix/List)	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Lab_Experiments_(if_applicable):
+What is Graphs III?	Breadth-First Search (BFS)	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Lab_Experiments_(if_applicable):
+What is Student A?	search the list as it came	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Slide_4
+What is That gap?	1,000,000 against 20 — is the entire subject of this course.	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Slide_5
+What is A data structure?	way of organising data in memory so that it can be used efficiently.	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Slide_8
+What is Every row?	genuine trade. There is no column of all wins. Choosing a data structure means deciding which operations you will do most often.	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Slide_13
+What is The obvious algorithm?	and exactly how much it costs.	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Slide_18
+What is Best case?	1 comparison  (it is first)	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Slide_19
+What is Worst case?	n comparisons  (last, or absent)	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Slide_19
+What is Average?	about n/2 comparisons	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Slide_19
+What is The pattern?	the work is directly proportional to n. Ten times the data, ten times the time. We will give this pattern a name in Week 5 — O(n) — but you can already see the shape of it.	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Slide_24
+What is Ask?	how many times can I halve n before only one element is left?	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Slide_30
+What is Hour 1?	what you should now be able to say	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Slide_31
+What is A type?	set of values, together with the operations allowed on those values.	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Slide_33
+What is Values?	−2,147,483,648 … 2,147,483,647	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Slide_33
+What is Operations?	+ − × / %  < >  == !=	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Slide_33
+What is An ADT?	description of a set of values and the operations on them,	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Slide_38
+What is CS-250 Big?	O Worksheet: Every Kind of	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::CS-250_Big-O_Worksheet:_Every_Kind_of
+What is What Big?	O means, in one sentence	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::CS-250_Big-O_Worksheet:_Every_Kind_of
+What is Big?	O tells you how fast the work grows when the input gets bigger. It does not tell you	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::CS-250_Big-O_Worksheet:_Every_Kind_of
+What is Tip?	when you are not sure, pick a small n (like 8 or 16) and count the steps by hand. Then	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Recipes_for_reading_code
+What is Part A?	Simplify the expression	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Recipes_for_reading_code
+What is Use the two rules?	drop constants, keep the biggest term. Write the Big-O.	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Recipes_for_reading_code
+What is Part B?	Order the growth rates	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Part_B:_Order_the_growth_rates
+What is Answer?	______________________________________________	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Part_B:_Order_the_growth_rates
+What is Part C?	Constant time, O(1)	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Part_B:_Order_the_growth_rates
+What is Part E?	Logarithmic time, O(log n)	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Part_E:_Logarithmic_time,_O(log_n)
+What is Part F?	Quadratic and cubic time, O(n²) and O(n³)	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Part_E:_Logarithmic_time,_O(log_n)
+What is Part G?	n log n time, O(n log n)	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::F4._How_many_times_does_the_inner_line_run_when_n_=_10?________Big-O:___________
+What is Part H?	Add or multiply? Two different inputs	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::F4._How_many_times_does_the_inner_line_run_when_n_=_10?________Big-O:___________
+What is Part I?	Square-root time, O(√n)	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::for_(int_i_=_0;_i_<_n;_i++)
+What is Part K?	Best case and worst case	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::int_fib(int_n)_{
+Explain the principle of Google Interview Prep	Google Interview Prep  https://igotanoffer.com/blogs/tech/coding-interview-prep  https://www.youtube.com/c/neetcode  https://neetcode.io/roadmap	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Google_Interview_Prep
+What is An Application?	Balanced Parentheses	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::An_Application:_Balanced_Parentheses
+What is Time?	Out for Announcements!	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Time-Out_for_Announcements!
+What is Important?	Please note the Stanford Computer Forum policies regarding no-	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Upcoming_Career_Fair
+Explain the principle of Collections, Part Two	Collections, Part Two	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Collections,_Part_Two
+Explain the principle of Outline for Today	Outline for Today ●Stacks ●Pancakes meets parsing! ●Queues ●Playing some music!	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Outline_for_Today
+Explain the principle of Stack	Stack	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Stack
+Explain the principle of Car 1	Car 1 Car 2 Car 3 This car  can’t leave… … until these  two do. Thanks to Nick Troccoli for this example!	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Car_1
+What is The way out?	ask for memory while the program is running. To do that we first need to be able to talk about memory at all.	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Slide_4
+What is The star?	two different things	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Slide_11
+What is It says?	p is a pointer to int.	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Slide_11
+What is Hour 1?	what you should now be able to say	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Slide_16
+What is The stack?	automatic, and unforgiving	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Slide_19
+What is Disaster 2?	the dangling pointer	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Slide_29
+What is Match the form?	new/delete, new[]/delete[].	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Slide_33
+What is Hour 2?	what you should now be able to say	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Slide_34
+What is Deep?	what you must write	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Slide_43
+What is It cannot be copied?	only moved. That makes double free impossible by construction.	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Slide_46
+What is ADDRESSSANITIZER?	ADD TWO FLAGS, CATCH ALMOST EVERYTHING	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Slide_47
+What is WHAT IT TELLS YOU?	THE EXACT LINE, AND WHERE IT WAS FREED	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Slide_47
+What is Hour 3?	what you should now be able to say	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Slide_48
+What is Next week?	your first real data structure	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Slide_50
+What is Week 3?	Arrays, Strings and Linked Lists	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2::Slide_50
+Explain the principle of // Sean's CS106B Pointers Worksheet! Show the contents of variables a, b, p, and	// Sean's CS106B Pointers Worksheet! Show the contents of variables a, b, p, and q // at the various stages of the program's execution where I've drawn the boxes. #include <iostream> #include "console.h" using namespace 	CS-250-Data_Structures__amp__Algorithms_A_2K25-BSAI-2:://_Sean's_CS106B_Pointers_Worksheet!_Show_the_contents_of_variables_a,_b,_p,_and

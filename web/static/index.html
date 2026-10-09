@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Automated Study System - Synchronizes LMS slides, generates spaced-repetition flashcards, MCQs with slide citations, and targeted weak-topic quizzes.">
+  <title>SynapseAI | Automated LMS Study System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Ambient Gradient Glows -->
+  <div class="ambient-glow glow-top"></div>
+  <div class="ambient-glow glow-bottom"></div>
+
+  <!-- Header Section -->
+  <header class="app-header">
+    <div class="header-left">
+      <div class="logo-badge">
+        <span class="logo-icon">⚡</span>
+      </div>
+      <div>
+        <h1 class="logo-title">Synapse<span class="gradient-text">LMS</span></h1>
+        <p class="logo-subtitle">Automated Lecture-to-Mastery Pipeline</p>
+      </div>
+    </div>
+
+    <div class="header-center">
+      <div class="course-picker-wrap">
+        <label for="courseSelector" class="sr-only">Select Course</label>
+        <select id="courseSelector" class="custom-select" title="Filter by Course">
+          <option value="all">📚 All Enrolled Courses</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="header-right">
+      <button id="btnNustModal" class="btn btn-outline" title="Connect your NUST LMS account">
+        <span class="btn-icon">🏛️</span> NUST LMS
+      </button>
+      <button id="btnSyncNow" class="btn btn-primary glow-button" title="Synchronize files from LMS">
+        <span class="btn-icon">🔄</span> Sync Pipeline
+      </button>
+      <button id="btnRegenAI" class="btn btn-accent" title="Delete all MCQs and regenerate using Gemini AI">
+        <span class="btn-icon">🤖</span> AI Regen
+      </button>
+      <button id="btnDeleteLowQuality" class="btn btn-danger" title="Delete all template-generated MCQs and flashcards (keep only AI ones)">
+        <span class="btn-icon">🗑️</span> Delete Low-Quality
+      </button>
+      <button id="btnUploadModal" class="btn btn-secondary" title="Upload new lecture slides">
+        <span class="btn-icon">📤</span> Ingest Slides
+      </button>
+    </div>
+
+  </header>
+
+  <!-- Urgent Announcement & Deadline Ribbon -->
+  <div id="deadlineBanner" class="deadline-banner" style="display: none;">
+    <div class="banner-content">
+      <span class="banner-badge">🚨 DEADLINE ALERT</span>
+      <span id="bannerText">Assignment due soon</span>
+    </div>
+  </div>
+
+  <!-- Primary Metrics Statbar -->
+  <section class="stat-bar" aria-label="System Metrics">
+    <div class="stat-card">
+      <div class="stat-icon-wrap icon-cyan">📁</div>
+      <div class="stat-info">
+        <span class="stat-value" id="statFiles">0</span>
+        <span class="stat-label">Ingested Lectures</span>
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon-wrap icon-indigo">📝</div>
+      <div class="stat-info">
+        <span class="stat-value" id="statMCQs">0</span>
+        <span class="stat-label">Banked MCQs</span>
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon-wrap icon-purple">🗂️</div>
+      <div class="stat-info">
+        <span class="stat-value" id="statCards">0</span>
+        <span class="stat-label">Active Flashcards</span>
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon-wrap icon-emerald">🎯</div>
+      <div class="stat-info">
+        <span class="stat-value" id="statAccuracy">0%</span>
+        <span class="stat-label">Diagnostic Accuracy</span>
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon-wrap icon-amber">⏳</div>
+      <div class="stat-info">
+        <span class="stat-value" id="statExams">0</span>
+        <span class="stat-label">Upcoming Exams</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Workspace Layout -->
+  <main class="main-container">
+    <!-- Navigation Tabs -->
+    <nav class="nav-tabs" role="tablist">
+      <button class="tab-btn active" data-tab="tab-overview" role="tab" id="tabBtnOverview">
+        <span class="tab-icon">📊</span> Overview & HQ
+      </button>
+      <button class="tab-btn" data-tab="tab-mcq" role="tab" id="tabBtnMCQ">
+        <span class="tab-icon">🎯</span> Daily Quiz
+      </button>
+      <button class="tab-btn" data-tab="tab-flashcards" role="tab" id="tabBtnFlashcards">
+        <span class="tab-icon">🗂️</span> Spaced Repetition (SM-2)
+      </button>
+      <button class="tab-btn" data-tab="tab-weak" role="tab" id="tabBtnWeak">
+        <span class="tab-icon">🔥</span> Weak-Topic Radar
+      </button>
+      <button class="tab-btn" data-tab="tab-exam" role="tab" id="tabBtnExam">
+        <span class="tab-icon">⏳</span> Exam Countdown & Mocks
+      </button>
+      <button class="tab-btn" data-tab="tab-audio" data-tab="tab-audio" role="tab" id="tabBtnAudio">
+        <span class="tab-icon">🎧</span> Audio Digest
+      </button>
+      <button class="tab-btn" data-tab="tab-vault" role="tab" id="tabBtnVault">
+        <span class="tab-icon">📚</span> Cheat-Sheets & Vault
+      </button>
+    </nav>
+
+    <!-- Tab 1: Overview & HQ -->
+    <section id="tab-overview" class="tab-content active">
+      <div class="grid-2-col">
+        <!-- Exam Countdown Spotlight -->
+        <div class="glass-panel countdown-spotlight">
+          <div class="panel-header">
+            <h3>⏳ Exam Countdown & Strategy Shift</h3>
+            <button class="btn btn-sm btn-outline" id="btnAddExamModalOpen">+ Add Exam</button>
+          </div>
+          <div id="overviewExamList" class="exam-cards-list">
+            <div class="empty-state">No exams configured. Click '+ Add Exam' to activate countdown mode.</div>
+          </div>
+        </div>
+
+        <!-- Today's Schedule & Automation Card -->
+        <div class="glass-panel">
+          <div class="panel-header">
+            <h3>⏰ Automation Status</h3>
+            <span class="pill pill-success">Pipeline Ready</span>
+          </div>
+          <div class="pipeline-status-card">
+            <div class="pipeline-step">
+              <span class="step-num">1</span>
+              <div>
+                <strong>LMS Sync Engine</strong>
+                <p>Monitors folders & university portal for new slide decks.</p>
+              </div>
+            </div>
+            <div class="pipeline-step">
+              <span class="step-num">2</span>
+              <div>
+                <strong>Slide Tagging & Chunking</strong>
+                <p>PyMuPDF & python-pptx tag slide citations (e.g., Lec 5, p.12).</p>
+              </div>
+            </div>
+            <div class="pipeline-step">
+              <span class="step-num">3</span>
+              <div>
+                <strong>Reliable LLM Core (Strict JSON)</strong>
+                <p>Generates 10 MCQs, 15 Flashcards, and executive summaries.</p>
+              </div>
+            </div>
+            <div class="pipeline-step">
+              <span class="step-num">4</span>
+              <div>
+                <strong>Spaced Repetition & Weak Tracker</strong>
+                <p>SM-2 scheduling + Saturday/Sunday targeted diagnostic review.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tab 2: Daily MCQs -->
+    <section id="tab-mcq" class="tab-content">
+      <div class="panel-header-actions">
+        <div>
+          <h2>Daily Practice & Instant Check</h2>
+          <p class="text-muted">Questions grounded strictly in your lecture slides with verifiable citations.</p>
+        </div>
+        <div style="display:flex;gap:0.6rem;align-items:center;flex-wrap:wrap;">
+          <button id="btnGenerate10MCQs" class="btn btn-primary" title="Generate 10 fresh conceptual MCQs using AI for the current course">
+            <span class="btn-icon">⚡</span> Generate 10 AI MCQs
+          </button>
+          <button id="btnRefreshQuiz" class="btn btn-secondary">🎲 Load Questions</button>
+          <button id="btnRevisionMode" class="btn btn-outline" title="Browse all previously generated AI MCQs for revision">
+            📚 Practice Old MCQs
+          </button>
+        </div>
+      </div>
+
+      <div id="revisionModeBanner" style="display:none;" class="glass-panel">
+        <p style="margin:0;font-size:0.88rem;">🔄 <strong>Revision Mode</strong> — Browsing all <span id="revisionCount">0</span> AI-generated MCQs from your question bank. <button class="btn btn-sm btn-outline" onclick="exitRevisionMode()">← Back to Daily Quiz</button></p>
+      </div>
+
+      <div id="quizContainer" class="quiz-container">
+        <!-- Injected Quiz Cards -->
+      </div>
+    </section>
+
+    <!-- Tab 3: Spaced Repetition Flashcards -->
+    <section id="tab-flashcards" class="tab-content">
+      <div class="flashcard-hq">
+        <div class="flashcard-header">
+          <div>
+            <h2>SuperMemo SM-2 Active Recall</h2>
+            <p class="text-muted">Flashcards engineered to resurface right before you forget them.</p>
+          </div>
+          <div style="display:flex;gap:0.6rem;align-items:center;">
+            <div id="flashcardCounter" class="counter-badge">0 cards due</div>
+            <button id="btnReviewAllCards" class="btn btn-sm btn-outline" title="Browse all flashcards for a revision session">
+              🔁 Review All Cards
+            </button>
+          </div>
+        </div>
+
+        <div id="flashcardModeBanner" style="display:none;margin-bottom:0.8rem;" class="glass-panel">
+          <p style="margin:0;font-size:0.88rem;">📖 <strong>Revision Mode</strong> — Showing all <span id="flashcardRevCount">0</span> cards. SM-2 ratings still apply! <button class="btn btn-sm btn-outline" onclick="exitFlashcardRevisionMode()">← Due Cards Only</button></p>
+        </div>
+
+        <div class="flashcard-stage">
+          <div id="flipCard" class="flip-card">
+            <div class="flip-card-inner" id="flipCardInner">
+              <div class="flip-card-front">
+                <span class="card-topic-tag" id="cardTopicFront">General</span>
+                <p class="card-text" id="cardFrontText">No flashcards currently due for review!</p>
+                <span class="flip-instruction">👆 Click anywhere to flip</span>
+              </div>
+              <div class="flip-card-back">
+                <span class="card-topic-tag" id="cardTopicBack">Answer</span>
+                <p class="card-text" id="cardBackText">Upload or sync a lecture to populate flashcards.</p>
+                <span class="flip-instruction">Rate your recall below</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- SM-2 Quality Controls -->
+          <div class="sm2-controls" id="sm2Controls" style="display: none;">
+            <button class="btn btn-sm2 btn-again" data-quality="1">
+              <span>Again (1)</span>
+              <small>&lt; 1 day</small>
+            </button>
+            <button class="btn btn-sm2 btn-hard" data-quality="2">
+              <span>Hard (2)</span>
+              <small>1-2 days</small>
+            </button>
+            <button class="btn btn-sm2 btn-good" data-quality="4">
+              <span>Good (4)</span>
+              <small>3-6 days</small>
+            </button>
+            <button class="btn btn-sm2 btn-easy" data-quality="5">
+              <span>Easy (5)</span>
+              <small>&gt; 1 week</small>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tab 4: Weak-Topic Radar -->
+    <section id="tab-weak" class="tab-content">
+      <div class="panel-header-actions">
+        <div>
+          <h2>🎯 Weak-Topic Radar & Error Analytics</h2>
+          <p class="text-muted">Tracks every question attempt and flags conceptual vulnerabilities.</p>
+        </div>
+        <button id="btnStartWeekendQuiz" class="btn btn-primary glow-button">
+          🔥 Launch Targeted Diagnostic Quiz (15 Qs)
+        </button>
+      </div>
+
+      <div class="glass-panel">
+        <div id="weakTopicsList" class="weak-topics-list">
+          <!-- Injected Weak Topics -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Tab 5: Exam Mode & Mocks -->
+    <section id="tab-exam" class="tab-content">
+      <div class="panel-header-actions">
+        <div>
+          <h2>⏳ Exam Countdown & Timed Mock Simulator</h2>
+          <p class="text-muted">Past-paper emulation under authentic timed exam conditions.</p>
+        </div>
+        <button id="btnOpenMockConfig" class="btn btn-accent">⚡ Start Timed Mock Exam</button>
+      </div>
+
+      <div class="mock-exam-container" id="mockExamContainer" style="display: none;">
+        <div class="mock-header">
+          <div class="mock-timer" id="mockTimer">25:00</div>
+          <button id="btnSubmitMock" class="btn btn-success">Finish & Grade Exam</button>
+        </div>
+        <div id="mockQuestionsArea"></div>
+      </div>
+
+      <div id="examScheduleGrid" class="exam-grid">
+        <!-- Rendered Exam Cards -->
+      </div>
+    </section>
+
+    <!-- Tab 6: Audio Digest -->
+    <section id="tab-audio" class="tab-content">
+      <div class="panel-header-actions">
+        <div>
+          <h2>🎧 Daily 5-Minute Audio Digest</h2>
+          <p class="text-muted">Listen to concise audio briefings on your daily commute.</p>
+        </div>
+      </div>
+
+      <div class="glass-panel audio-player-panel">
+        <div id="audioDigestsContainer" class="audio-list">
+          <!-- Injected audio items -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Tab 7: Cheat-Sheets & Vault -->
+    <section id="tab-vault" class="tab-content">
+      <div class="panel-header-actions">
+        <div>
+          <h2>📚 Knowledge Vault & Export Suite</h2>
+          <p class="text-muted">One-page formula sheets and universal backups for Obsidian, Notion & Anki.</p>
+        </div>
+        <div class="export-actions">
+          <a id="btnExportAnki" class="btn btn-secondary" href="/api/export/anki" download>📥 Export Anki TSV</a>
+          <a id="btnExportMarkdown" class="btn btn-secondary" href="/api/export/markdown" download>📝 Export Obsidian MD</a>
+        </div>
+      </div>
+
+      <div class="glass-panel">
+        <div class="vault-course-select">
+          <label>View Cheat Sheet For:</label>
+          <select id="cheatSheetCourseSelect" class="custom-select"></select>
+          <button id="btnLoadCheatSheet" class="btn btn-primary btn-sm">Generate / Load Sheet</button>
+        </div>
+
+        <div id="cheatSheetContent" class="markdown-preview">
+          <div class="empty-state">Select a course above to view its auto-compiled cheat-sheet.</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Explain Like I'm Stuck Modal -->
+  <div id="stuckModal" class="modal-backdrop" style="display: none;">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>💡 Explain Like I'm Stuck</h3>
+        <button class="modal-close" id="btnCloseStuckModal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div id="stuckLoading" class="loading-spinner">Generating intuitive breakdown & analogy...</div>
+        <div id="stuckContent" class="stuck-explanation-text"></div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" id="btnGotItStuck">Got It, Thanks!</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add Exam Modal -->
+  <div id="addExamModal" class="modal-backdrop" style="display: none;">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>📅 Register Upcoming Exam</h3>
+        <button class="modal-close" id="btnCloseExamModal">&times;</button>
+      </div>
+      <form id="addExamForm" class="modal-form">
+        <div class="form-group">
+          <label for="modalExamCourse">Course Code</label>
+          <input type="text" id="modalExamCourse" required placeholder="e.g. CS101, MATH201">
+        </div>
+        <div class="form-group">
+          <label for="modalExamTitle">Exam Title</label>
+          <input type="text" id="modalExamTitle" required placeholder="e.g. Midterm Assessment, Final Exam">
+        </div>
+        <div class="form-group">
+          <label for="modalExamDate">Date of Exam</label>
+          <input type="date" id="modalExamDate" required>
+        </div>
+        <div class="form-group">
+          <label for="modalExamScore">Target Score (%)</label>
+          <input type="number" id="modalExamScore" value="85" min="50" max="100">
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary">Save Exam</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Ingest Slides Modal -->
+  <div id="uploadModal" class="modal-backdrop" style="display: none;">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>📤 Ingest Lecture Slide Deck</h3>
+        <button class="modal-close" id="btnCloseUploadModal">&times;</button>
+      </div>
+      <form id="uploadForm" class="modal-form">
+        <div class="form-group">
+          <label for="uploadCourse">Course Code</label>
+          <input type="text" id="uploadCourse" required placeholder="e.g. CS101">
+        </div>
+        <div class="form-group">
+          <label for="uploadWeek">Week Number</label>
+          <input type="number" id="uploadWeek" value="1" min="1" max="20">
+        </div>
+        <div class="form-group">
+          <label for="uploadFile">Lecture File (PDF, PPTX)</label>
+          <input type="file" id="uploadFile" required accept=".pdf,.pptx,.ppt,.txt">
+        </div>
+        <div id="uploadProgress" style="display:none;" class="loading-spinner">Processing slides & generating study material...</div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary" id="btnSubmitUpload">Upload & Generate</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- NUST LMS Direct Connect Modal -->
+  <div id="nustModal" class="modal-backdrop" style="display: none;">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div>
+          <h3>🏛️ Connect NUST LMS</h3>
+          <p class="text-muted" style="font-size:0.8rem; margin-top:2px;">https://lms.nust.edu.pk</p>
+        </div>
+        <button class="modal-close" id="btnCloseNustModal">&times;</button>
+      </div>
+      <form id="nustLoginForm" class="modal-form">
+        <div class="form-group">
+          <label for="nustUsername">Qalam / LMS Username</label>
+          <input type="text" id="nustUsername" required placeholder="e.g. 123456 or your CMS ID">
+        </div>
+        <div class="form-group">
+          <label for="nustPassword">LMS Password</label>
+          <input type="password" id="nustPassword" required placeholder="Your Qalam / LMS password">
+        </div>
+        <div class="pipeline-step" style="margin-bottom: 1.2rem; font-size:0.82rem;">
+          <span class="step-num">🔒</span>
+          <div>
+            <strong>Direct Web Services Auth</strong>
+            <p>Authenticates against <code>https://lms.nust.edu.pk/login/token.php</code> to discover courses and download active slide decks automatically.</p>
+          </div>
+        </div>
+        <div id="nustProgress" style="display:none;" class="loading-spinner">Connecting to NUST LMS & syncing course materials...</div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary glow-button" id="btnSubmitNust">Connect & Sync Courses</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

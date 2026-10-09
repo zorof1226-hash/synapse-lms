@@ -1,0 +1,35 @@
+# Environment and sensitive keys
+.env
+.env.local
+*.key
+*.token
+
+# Python cache & virtual environments
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+ENV/
+env/
+
+# Database and local downloads
+*.db
+*.sqlite
+*.sqlite3
+data/cache/
+data/*.db
+data/lms_downloads/
+data/audio_digests/
+*.wav
+*.mp3
+
+# IDE and Editor
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db

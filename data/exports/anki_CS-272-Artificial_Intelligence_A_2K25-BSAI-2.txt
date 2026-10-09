@@ -1,0 +1,286 @@
+What is Lecture 3?	Agents, Rationality & PEAS  |  1	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Slide_1
+What is Small world?	candies, turns, win/lose	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Slide_2
+What is Expected answer?	Because even a simple game has state, actions, goal, and a decision strategy.	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Slide_2
+What is AI goal?	build agents that can act in the real world	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Slide_3
+What is Before we continue?	what does PEAS stand for?	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Slide_3
+What is The core idea?	an agent receives information and takes action.	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Slide_4
+What is For Candy Game?	what is the environment, percept, and action?	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Slide_4
+What is Candy example?	"7 candies remain".	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Slide_5
+What is Example?	robotic vacuum-cleaning agent	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Slide_6
+What is Yes?	because the outcome may depend on hidden information, chance, or another agent.	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Slide_8
+What is Non?	consequentialist view	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Slide_9
+What is Question?	Did the agent mean to do the right thing?	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Slide_9
+What is Candy Game?	what is the performance measure?	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Slide_10
+What is A real?	world AI task has many goals, inputs, and possible actions.	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Slide_13
+What is Answer?	number of candies remaining	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Slide_15
+What is CS272?	Artificial Intelligence	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Page_1
+What is Lab 5?	Informed Search (CLO 4)	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Page_1
+What is Note?	You can work in groups of 2 but not more than 2.	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Page_2
+What is Deliverables?	Submit search.py and a report document with screenshots of your results (see	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Page_2
+What is Deadline?	Will be decided at the end of the lab	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Page_2
+What is a heuristic?	function heuristic(state, problem) that returns a number. nullHeuristic in search.py	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Page_5
+What is Priority?	the fringe is now a util.PriorityQueue, which always gives back the state with the lowest	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Page_5
+What is Greedy search?	priority = h(n)	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Page_5
+What is Admissible heuristic?	a heuristic that never overestimates the true remaining cost. When every step	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Page_5
+What is Consistent heuristic?	a heuristic where, for every step from n to n', h(n) is no more than the step cost	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Page_6
+What is That is expected?	it shows that the agent found your function, and it will start working once you	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Page_6
+What is S --2-?	D   (D is a dead end)	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Page_8
+What is Step 1?	pop S. Add A(1), B(2), D(2).   Fringe: [A1, B2, D2]	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Page_8
+What is Step 2?	pop A. Add G(7).               Fringe: [B2, D2, G7]	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Page_8
+What is Step 3?	pop B. Add C(4).               Fringe: [D2, C4, G7]	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Page_8
+What is Main question?	How does an agent choose an action?	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Slide_1
+What is Built from W1-L3 ideas?	utility, PEAS, rationality, beliefs, bounded rationality and environment axes.	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Slide_1
+What is Opening prompt?	Which type would you trust most for urban driving — and why?	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Slide_1
+What is Predict?	Which type would you trust most for urban driving? Defend your reason.	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Slide_2
+What is Activity?	write a reflex rule	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Slide_6
+What is Uses memory?	current percept + internal model → updated state → action.	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Slide_7
+What is Rules?	Start with 11 candies. Count is hidden. Each player still takes 1 or 2.	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Slide_8
+What is Chooses actions by asking?	“Which future gets me to the goal?”	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Slide_9
+What is Route A?	20min, Route B:10 Min	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Slide_9
+What is A goal?	based agent knows that both routes reach home. But to compare speed, cost, safety, or comfort, we need something more — utility	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Slide_9
+What is Limitation?	a goal says what we want, but not how to choose between multiple good paths.	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Slide_9
+What is Probability?	weighted average utility when outcomes are uncertain.	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Slide_10
+What is Why is a utility?	based taxi better than a pure goal-based taxi?	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Slide_10
+What is Interactive sorting game?	choose the agent type	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Slide_11
+What is Worked example?	rational ≠ omniscient	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Slide_12
+What is CS272?	Artificial Intelligence	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Page_1
+What is Lab 4?	Uninformed Search (CLO 4)	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Page_1
+What is Date?	September 29th, 2026	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Page_1
+What is Note?	You can work in groups of 2 but not more than 2.	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Page_2
+What is Deliverables?	Submit search.py and a report document with screenshots of your results (see	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Page_2
+What is Deadline?	Will be decided at the end of the lab	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Page_2
+What is State?	a compact description of one situation in the search. For the basic maze problems in this lab, a	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Page_5
+What is Example?	if Pacman is at (5, 5) and can only move South or West, getSuccessors((5, 5)) would return	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Page_6
+What is Search node?	a state together with the path of actions used to reach it, for example ((5, 4), ["South"]).	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Page_6
+What is Expanding a state?	removing it from the fringe, checking whether it is the goal, and adding its	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Page_6
+What is Return value?	a list of actions such as ["South", "South", "West"], not a list of states or positions.	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Page_6
+What is Running the commands?	open a terminal inside the folder that contains pacman.py and run one	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Page_6
+What is Depth?	First Search (DFS): always expands the state that was added most recently (a Stack). It follows	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Page_8
+What is Breadth?	First Search (BFS): always expands the state that was added earliest (a Queue). It first	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Page_8
+What is Step 1?	pop S. Add B, then A.          Stack: [B, A]	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Page_8
+What is CS 272?	Artificial Intelligence	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::CS_272:_Artificial_Intelligence
+What is Date?	September 8th, 2026	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::CS_272:_Artificial_Intelligence
+What is Lab 1 and 2?	Introduction to Python	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::CS_272:_Artificial_Intelligence
+What is Note?	you may have to type python3.11 or python3.10 rather than python, depending on your	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::CS_272:_Artificial_Intelligence
+What is There are many built?	in methods which allow you to manipulate strings.	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::CS_272:_Artificial_Intelligence
+What is TypeError?	'tuple' object does not support item assignment	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::CS_272:_Artificial_Intelligence
+What is The last built?	in data structure is the dictionary which stores a map from one type of object (the key)	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::CS_272:_Artificial_Intelligence
+What is The file?	reading techniques here work for plain text, but later labs in this course will often load	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::CS_272:_Artificial_Intelligence
+What is Many AI algorithms?	dynamic programming tables, search-state grids, cost matrices, and adjacency	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::CS_272:_Artificial_Intelligence
+What is ModuleNotFoundError?	No module named 'shop'	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::CS_272:_Artificial_Intelligence
+What is NameError?	name 'MY_VARIABLE' is not defined	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::CS_272:_Artificial_Intelligence
+What is ValueError?	too many values to unpack	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::CS_272:_Artificial_Intelligence
+What is Here?	problematic scenario involving a for loop:	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::CS_272:_Artificial_Intelligence
+What is AttributeError?	'list' object has no attribute 'length'	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::CS_272:_Artificial_Intelligence
+What is Task 1?	Write a Python program called text_analyzer.	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::CS_272:_Artificial_Intelligence
+What is CS272?	Artificial Intelligence	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::CS272_Artificial_Intelligence
+What is Key idea?	search algorithms mainly differ in how they organize and select nodes from the fringe/frontier.	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::CS272_Artificial_Intelligence
+What is Recap?	Uninformed Search (DFS vs BFS)	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::CS272_Artificial_Intelligence
+What is Memory contrast?	DFS stores a narrow path plus siblings; BFS stores a broad level of the tree.	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::CS272_Artificial_Intelligence
+What is Primary source?	UC Berkeley CS188 Introduction to Artificial Intelligence lecture material by Dan Klein, Pieter Abbeel,	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::CS272_Artificial_Intelligence
+What is Course site?	ai.berkeley.edu / inst.eecs.berkeley.edu/~cs188	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::CS272_Artificial_Intelligence
+What is Lecture theme?	Informed Search — Heuristics, Greedy Search, A* Search, Admissibility, Consistency, and Graph Search.	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::CS272_Artificial_Intelligence
+What is CS272?	Artificial Intelligence	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::CS272_Artificial_Intelligence
+What is US Berkley Course?	CS 188 Spring 2026 | Introduction to Artificial Intelligence at UC Berkeley	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::CS272_Artificial_Intelligence
+What is Common thread?	using machine learning to extract structure from complex biomedical and	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::CS272_Artificial_Intelligence
+What is Website?	Home | Biosignal Processing and Computational Neuroscience Lab	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::CS272_Artificial_Intelligence
+What is A solution?	sequence of actions (a plan) which transforms the	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::CS272_Artificial_Intelligence
+What is Example?	Traveling in Romania	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::CS272_Artificial_Intelligence
+What is Note?	State space are not moving all the positions on a grid, and they don’t include the history of all the	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::CS272_Artificial_Intelligence
+What is Quiz?	State Space Graphs vs Search Trees	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::CS272_Artificial_Intelligence
+What is Since a state?	space graph counts unique state, whereas a search tree counts paths.	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::CS272_Artificial_Intelligence
+What is Depth?	First Search (DFS): expands the deepest node first	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::CS272_Artificial_Intelligence
+What is Breadth?	First Search (BFS): expands the shallowest node first	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::CS272_Artificial_Intelligence
+What is Uniform?	Cost Search (UCS): expands the node with the lowest cumulative path cost	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::CS272_Artificial_Intelligence
+What is Iterative Deepening Search?	repeatedly applies depth-limited DFS with increasing depth	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::CS272_Artificial_Intelligence
+What is CS 272?	Artificial Intelligence	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::CS_272:_Artificial_Intelligence
+What is Lab Week 3?	Python Libraries and NumPy Foundation	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::CS_272:_Artificial_Intelligence
+What is Date?	September 22nd, 2026	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::CS_272:_Artificial_Intelligence
+What is Perform element?	wise arithmetic and understand basic broadcasting	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::CS_272:_Artificial_Intelligence
+What is A library?	broader term for a large suite of code - a toolkit built to solve bigger, higher-level	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::CS_272:_Artificial_Intelligence
+What is Standard Library?	built-in tools that ship with Python (os, sys, datetime)	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::CS_272:_Artificial_Intelligence
+What is Third-party libraries?	external tools built by the community (requests, Django,	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::CS_272:_Artificial_Intelligence
+What is Note?	You will see import numpy as np and import pandas as pd in almost every notebook you ever read.	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::CS_272:_Artificial_Intelligence
+What is Example 3?	Importing specific names	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::CS_272:_Artificial_Intelligence
+What is Example 4?	More from the random module	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::CS_272:_Artificial_Intelligence
+What is Two built?	in functions help you explore any library once it is imported:	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::CS_272:_Artificial_Intelligence
+What is Example 5?	Peeking inside a library	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::CS_272:_Artificial_Intelligence
+What is Help on built?	in function sqrt in module math:	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::CS_272:_Artificial_Intelligence
+What is Example 6?	Lists vs. arrays: the same operation, two different results	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::CS_272:_Artificial_Intelligence
+What is Example 7?	Proving the speed difference	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::CS_272:_Artificial_Intelligence
+What is Lecture Day?	Monday (1400 to 1600 hrs in CR#23 Acad Block)	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::COURSE_OUTLINE
+What is Lab Day?	Tuesday (1400 to 1700 hrs in CR#12 Acad Block)	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::COURSE_OUTLINE
+What is Conducted through in?	class or lab activities.	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::CLO
+What is Game Theory - I?	Zero-Sum Games, Minimax,	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::CLO
+What is Game Theory - II?	Simultaneous Games, Non-Zero-Sum	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::CLO
+What is Responsible and Ethical AI?	Explainability, Uncertainty,	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Week_6
+What is Mid?	Semester Exam / No Regular Lab	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Week_6
+What is End?	Semester Exam (40-50%)	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Assessment_Methods:
+What is Quiz Policy?	The quizzes will be unannounced / announced and normally last for ten minutes. The question	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Grading_Policy:
+What is Project Policy?	Students will be required to develop a project during the course which should be completed	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Grading_Policy:
+What is Assignment Policy?	In order to develop comprehensive understanding of the subject, assignments will be	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Grading_Policy:
+What is Plagiarism?	SEECS maintains a zero-tolerance policy towards plagiarism. While collaboration in this course is	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Grading_Policy:
+What is Goal of AI?	To build robust, fully autonomous agents in the real world.	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Slide_2
+What is Definition of AI?	It is a science and a set of computational technologies that are inspired by – but typically operate quite differently from – the ways people use their nervous systems and bodies to sense, learn, reason, and take action.	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Slide_2
+What is Use PEAS and task?	environment properties.	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Slide_3
+What is Warm-up?	Sci‑Fi AI vs Real AI	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Slide_4
+What is AI in movies?	hook; AI in this course is about decisions, goals, and environments.	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Slide_4
+What is Human?	like robots, emotions, consciousness, super-intelligence, dramatic autonomy.	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Slide_4
+What is Use two rounds?	first discover, then explain, then replay.	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Slide_6
+What is Round 2?	use a planned strategy.	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Slide_6
+What is Lose?	any move gives opponent a win	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Slide_10
+What is Winning idea?	always leave a multiple of 3.	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Slide_10
+What is Quick poll?	which agent is most “intelligent”?	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Slide_13
+What is Performance measure?	safe arrival, travel time, obeying laws.	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Slide_21
+What is Available actions?	accelerate, brake, steer.	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Slide_21
+What is Percepts?	cameras, radar, GPS, etc.	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Slide_21
+What is Part 3?	Agents and Environments	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Slide_23
+What is Autonomy?	A human acts and make decisions on their own	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::What_makes_humans_intelligent?
+What is Adaptivity?	A human learns from experience and improves	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::What_makes_humans_intelligent?
+What is Generates complete songs?	including vocals, instruments, lyrics, and even artwork—from simple text prompts.	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Create_Music
+What is Making a website?	lot easier now, thanks to AI website builders. Big players in the industry, such as Wix and Hostinger, have started offering services to streamline the process. You can answer a few questions through Wix and have a custom website in a few minutes. Ot	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Build_Websites
+What is Bottom left?	act like people --- actually very early definition, dating back to Alan Turing --- Turing test;  problem to do really well you start focusing on things like don’t answer too quickly what the square root of 1412 is, don’t spell too well,  and make sur	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::What_is_AI?
+What is Problem?	Turing test is not reproducible or amenable to mathematical analysis	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Turing_Test
+What is Lecture 3?	Agents, Rationality & PEAS  |  1	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Slide_1
+What is Small world?	candies, turns, win/lose	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Slide_2
+What is Expected answer?	Because even a simple game has state, actions, goal, and a decision strategy.	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Slide_2
+What is AI goal?	build agents that can act in the real world	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Slide_3
+What is Before we continue?	what does PEAS stand for?	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Slide_3
+What is The core idea?	an agent receives information and takes action.	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Slide_4
+What is For Candy Game?	what is the environment, percept, and action?	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Slide_4
+What is Candy example?	"7 candies remain".	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Slide_5
+What is Example?	robotic vacuum-cleaning agent	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Slide_6
+What is Yes?	because the outcome may depend on hidden information, chance, or another agent.	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Slide_8
+What is Non?	consequentialist view	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Slide_9
+What is Question?	Did the agent mean to do the right thing?	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Slide_9
+What is Candy Game?	what is the performance measure?	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Slide_10
+What is A real?	world AI task has many goals, inputs, and possible actions.	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Slide_13
+What is Answer?	number of candies remaining	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Slide_15
+What is CS272?	Artificial Intelligence	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Page_1
+What is Lab 5?	Informed Search (CLO 4)	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Page_1
+What is Note?	You can work in groups of 2 but not more than 2.	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Page_2
+What is Deliverables?	Submit search.py and a report document with screenshots of your results (see	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Page_2
+What is Deadline?	Will be decided at the end of the lab	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Page_2
+What is a heuristic?	function heuristic(state, problem) that returns a number. nullHeuristic in search.py	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Page_5
+What is Priority?	the fringe is now a util.PriorityQueue, which always gives back the state with the lowest	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Page_5
+What is Greedy search?	priority = h(n)	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Page_5
+What is Admissible heuristic?	a heuristic that never overestimates the true remaining cost. When every step	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Page_5
+What is Consistent heuristic?	a heuristic where, for every step from n to n', h(n) is no more than the step cost	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Page_6
+What is That is expected?	it shows that the agent found your function, and it will start working once you	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Page_6
+What is S --2-?	D   (D is a dead end)	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Page_8
+What is Step 1?	pop S. Add A(1), B(2), D(2).   Fringe: [A1, B2, D2]	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Page_8
+What is Step 2?	pop A. Add G(7).               Fringe: [B2, D2, G7]	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Page_8
+What is Step 3?	pop B. Add C(4).               Fringe: [D2, C4, G7]	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Page_8
+What is Main question?	How does an agent choose an action?	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Slide_1
+What is Built from W1-L3 ideas?	utility, PEAS, rationality, beliefs, bounded rationality and environment axes.	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Slide_1
+What is Opening prompt?	Which type would you trust most for urban driving — and why?	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Slide_1
+What is Predict?	Which type would you trust most for urban driving? Defend your reason.	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Slide_2
+What is Activity?	write a reflex rule	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Slide_6
+What is Uses memory?	current percept + internal model → updated state → action.	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Slide_7
+What is Rules?	Start with 11 candies. Count is hidden. Each player still takes 1 or 2.	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Slide_8
+What is Chooses actions by asking?	“Which future gets me to the goal?”	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Slide_9
+What is Route A?	20min, Route B:10 Min	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Slide_9
+What is A goal?	based agent knows that both routes reach home. But to compare speed, cost, safety, or comfort, we need something more — utility	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Slide_9
+What is Limitation?	a goal says what we want, but not how to choose between multiple good paths.	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Slide_9
+What is Probability?	weighted average utility when outcomes are uncertain.	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Slide_10
+What is Why is a utility?	based taxi better than a pure goal-based taxi?	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Slide_10
+What is Interactive sorting game?	choose the agent type	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Slide_11
+What is Worked example?	rational ≠ omniscient	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Slide_12
+What is CS272?	Artificial Intelligence	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Page_1
+What is Lab 4?	Uninformed Search (CLO 4)	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Page_1
+What is Date?	September 29th, 2026	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Page_1
+What is Note?	You can work in groups of 2 but not more than 2.	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Page_2
+What is Deliverables?	Submit search.py and a report document with screenshots of your results (see	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Page_2
+What is Deadline?	Will be decided at the end of the lab	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Page_2
+What is State?	a compact description of one situation in the search. For the basic maze problems in this lab, a	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Page_5
+What is Example?	if Pacman is at (5, 5) and can only move South or West, getSuccessors((5, 5)) would return	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Page_6
+What is Search node?	a state together with the path of actions used to reach it, for example ((5, 4), ["South"]).	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Page_6
+What is Expanding a state?	removing it from the fringe, checking whether it is the goal, and adding its	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Page_6
+What is Return value?	a list of actions such as ["South", "South", "West"], not a list of states or positions.	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Page_6
+What is Running the commands?	open a terminal inside the folder that contains pacman.py and run one	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Page_6
+What is Depth?	First Search (DFS): always expands the state that was added most recently (a Stack). It follows	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Page_8
+What is Breadth?	First Search (BFS): always expands the state that was added earliest (a Queue). It first	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Page_8
+What is Step 1?	pop S. Add B, then A.          Stack: [B, A]	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Page_8
+What is CS 272?	Artificial Intelligence	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::CS_272:_Artificial_Intelligence
+What is Date?	September 8th, 2026	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::CS_272:_Artificial_Intelligence
+What is Lab 1 and 2?	Introduction to Python	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::CS_272:_Artificial_Intelligence
+What is Note?	you may have to type python3.11 or python3.10 rather than python, depending on your	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::CS_272:_Artificial_Intelligence
+What is There are many built?	in methods which allow you to manipulate strings.	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::CS_272:_Artificial_Intelligence
+What is TypeError?	'tuple' object does not support item assignment	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::CS_272:_Artificial_Intelligence
+What is The last built?	in data structure is the dictionary which stores a map from one type of object (the key)	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::CS_272:_Artificial_Intelligence
+What is The file?	reading techniques here work for plain text, but later labs in this course will often load	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::CS_272:_Artificial_Intelligence
+What is Many AI algorithms?	dynamic programming tables, search-state grids, cost matrices, and adjacency	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::CS_272:_Artificial_Intelligence
+What is ModuleNotFoundError?	No module named 'shop'	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::CS_272:_Artificial_Intelligence
+What is NameError?	name 'MY_VARIABLE' is not defined	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::CS_272:_Artificial_Intelligence
+What is ValueError?	too many values to unpack	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::CS_272:_Artificial_Intelligence
+What is Here?	problematic scenario involving a for loop:	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::CS_272:_Artificial_Intelligence
+What is AttributeError?	'list' object has no attribute 'length'	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::CS_272:_Artificial_Intelligence
+What is Task 1?	Write a Python program called text_analyzer.	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::CS_272:_Artificial_Intelligence
+What is CS272?	Artificial Intelligence	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::CS272_Artificial_Intelligence
+What is Key idea?	search algorithms mainly differ in how they organize and select nodes from the fringe/frontier.	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::CS272_Artificial_Intelligence
+What is Recap?	Uninformed Search (DFS vs BFS)	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::CS272_Artificial_Intelligence
+What is Memory contrast?	DFS stores a narrow path plus siblings; BFS stores a broad level of the tree.	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::CS272_Artificial_Intelligence
+What is Primary source?	UC Berkeley CS188 Introduction to Artificial Intelligence lecture material by Dan Klein, Pieter Abbeel,	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::CS272_Artificial_Intelligence
+What is Course site?	ai.berkeley.edu / inst.eecs.berkeley.edu/~cs188	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::CS272_Artificial_Intelligence
+What is Lecture theme?	Informed Search — Heuristics, Greedy Search, A* Search, Admissibility, Consistency, and Graph Search.	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::CS272_Artificial_Intelligence
+What is CS272?	Artificial Intelligence	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::CS272_Artificial_Intelligence
+What is US Berkley Course?	CS 188 Spring 2026 | Introduction to Artificial Intelligence at UC Berkeley	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::CS272_Artificial_Intelligence
+What is Common thread?	using machine learning to extract structure from complex biomedical and	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::CS272_Artificial_Intelligence
+What is Website?	Home | Biosignal Processing and Computational Neuroscience Lab	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::CS272_Artificial_Intelligence
+What is A solution?	sequence of actions (a plan) which transforms the	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::CS272_Artificial_Intelligence
+What is Example?	Traveling in Romania	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::CS272_Artificial_Intelligence
+What is Note?	State space are not moving all the positions on a grid, and they don’t include the history of all the	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::CS272_Artificial_Intelligence
+What is Quiz?	State Space Graphs vs Search Trees	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::CS272_Artificial_Intelligence
+What is Since a state?	space graph counts unique state, whereas a search tree counts paths.	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::CS272_Artificial_Intelligence
+What is Depth?	First Search (DFS): expands the deepest node first	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::CS272_Artificial_Intelligence
+What is Breadth?	First Search (BFS): expands the shallowest node first	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::CS272_Artificial_Intelligence
+What is Uniform?	Cost Search (UCS): expands the node with the lowest cumulative path cost	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::CS272_Artificial_Intelligence
+What is Iterative Deepening Search?	repeatedly applies depth-limited DFS with increasing depth	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::CS272_Artificial_Intelligence
+What is CS 272?	Artificial Intelligence	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::CS_272:_Artificial_Intelligence
+What is Lab Week 3?	Python Libraries and NumPy Foundation	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::CS_272:_Artificial_Intelligence
+What is Date?	September 22nd, 2026	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::CS_272:_Artificial_Intelligence
+What is Perform element?	wise arithmetic and understand basic broadcasting	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::CS_272:_Artificial_Intelligence
+What is A library?	broader term for a large suite of code - a toolkit built to solve bigger, higher-level	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::CS_272:_Artificial_Intelligence
+What is Standard Library?	built-in tools that ship with Python (os, sys, datetime)	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::CS_272:_Artificial_Intelligence
+What is Third-party libraries?	external tools built by the community (requests, Django,	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::CS_272:_Artificial_Intelligence
+What is Note?	You will see import numpy as np and import pandas as pd in almost every notebook you ever read.	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::CS_272:_Artificial_Intelligence
+What is Example 3?	Importing specific names	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::CS_272:_Artificial_Intelligence
+What is Example 4?	More from the random module	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::CS_272:_Artificial_Intelligence
+What is Two built?	in functions help you explore any library once it is imported:	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::CS_272:_Artificial_Intelligence
+What is Example 5?	Peeking inside a library	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::CS_272:_Artificial_Intelligence
+What is Help on built?	in function sqrt in module math:	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::CS_272:_Artificial_Intelligence
+What is Example 6?	Lists vs. arrays: the same operation, two different results	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::CS_272:_Artificial_Intelligence
+What is Example 7?	Proving the speed difference	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::CS_272:_Artificial_Intelligence
+What is Lecture Day?	Monday (1400 to 1600 hrs in CR#23 Acad Block)	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::COURSE_OUTLINE
+What is Lab Day?	Tuesday (1400 to 1700 hrs in CR#12 Acad Block)	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::COURSE_OUTLINE
+What is Conducted through in?	class or lab activities.	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::CLO
+What is Game Theory - I?	Zero-Sum Games, Minimax,	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::CLO
+What is Game Theory - II?	Simultaneous Games, Non-Zero-Sum	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::CLO
+What is Responsible and Ethical AI?	Explainability, Uncertainty,	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Week_6
+What is Mid?	Semester Exam / No Regular Lab	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Week_6
+What is End?	Semester Exam (40-50%)	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Assessment_Methods:
+What is Quiz Policy?	The quizzes will be unannounced / announced and normally last for ten minutes. The question	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Grading_Policy:
+What is Project Policy?	Students will be required to develop a project during the course which should be completed	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Grading_Policy:
+What is Assignment Policy?	In order to develop comprehensive understanding of the subject, assignments will be	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Grading_Policy:
+What is Plagiarism?	SEECS maintains a zero-tolerance policy towards plagiarism. While collaboration in this course is	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Grading_Policy:
+What is Goal of AI?	To build robust, fully autonomous agents in the real world.	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Slide_2
+What is Definition of AI?	It is a science and a set of computational technologies that are inspired by – but typically operate quite differently from – the ways people use their nervous systems and bodies to sense, learn, reason, and take action.	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Slide_2
+What is Use PEAS and task?	environment properties.	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Slide_3
+What is Warm-up?	Sci‑Fi AI vs Real AI	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Slide_4
+What is AI in movies?	hook; AI in this course is about decisions, goals, and environments.	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Slide_4
+What is Human?	like robots, emotions, consciousness, super-intelligence, dramatic autonomy.	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Slide_4
+What is Use two rounds?	first discover, then explain, then replay.	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Slide_6
+What is Round 2?	use a planned strategy.	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Slide_6
+What is Lose?	any move gives opponent a win	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Slide_10
+What is Winning idea?	always leave a multiple of 3.	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Slide_10
+What is Quick poll?	which agent is most “intelligent”?	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Slide_13
+What is Performance measure?	safe arrival, travel time, obeying laws.	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Slide_21
+What is Available actions?	accelerate, brake, steer.	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Slide_21
+What is Percepts?	cameras, radar, GPS, etc.	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Slide_21
+What is Part 3?	Agents and Environments	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Slide_23
+What is Autonomy?	A human acts and make decisions on their own	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::What_makes_humans_intelligent?
+What is Adaptivity?	A human learns from experience and improves	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::What_makes_humans_intelligent?
+What is Generates complete songs?	including vocals, instruments, lyrics, and even artwork—from simple text prompts.	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Create_Music
+What is Making a website?	lot easier now, thanks to AI website builders. Big players in the industry, such as Wix and Hostinger, have started offering services to streamline the process. You can answer a few questions through Wix and have a custom website in a few minutes. Ot	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Build_Websites
+What is Bottom left?	act like people --- actually very early definition, dating back to Alan Turing --- Turing test;  problem to do really well you start focusing on things like don’t answer too quickly what the square root of 1412 is, don’t spell too well,  and make sur	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::What_is_AI?
+What is Problem?	Turing test is not reproducible or amenable to mathematical analysis	CS-272-Artificial_Intelligence_A_2K25-BSAI-2::Turing_Test

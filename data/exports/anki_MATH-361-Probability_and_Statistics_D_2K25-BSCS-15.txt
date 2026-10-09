@@ -1,0 +1,169 @@
+What is the initial task for a researcher after collecting data?	To organize and simplify the data to get a general overview of the results.	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Data_Organization
+Define 'frequency' in the context of data representation.	The number of observations in each category (class).	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Key_Terms
+What is a 'frequency distribution'?	A listing of all values a variable can take with their frequencies, or an organization of data in a table by classes/groups with observation counts.	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Key_Terms
+What type of distribution groups data by quality or attribute?	Categorical distribution.	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Types_of_Distribution
+What is the trade-off when deciding the number of classes for a frequency distribution?	Between losing too much information with too few classes and defeating the purpose of grouping with too many classes.	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Constructing_Frequency_Distribution
+What are 'Class Boundaries'?	Points calculated from class limits that define the precise cut-off for each class interval.	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Key_Terms
+What are 'Class Marks'?	The midpoint of the class intervals.	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Key_Terms
+What is 'Class Interval'?	The range or width of values covered by each class.	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Key_Terms
+Explain the concept of 'Cumulative Frequency.'	A running total of frequencies, indicating the number of observations less than or equal to a certain point.	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Key_Terms
+What is the overall goal of descriptive statistical techniques mentioned in the lecture?	To organize and simplify data to get a general overview of the results.	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Descriptive_Statistics_Purpose
+Is there a fixed rule for the number of classes to be formed in a frequency distribution?	No, there is no fixed rule; it requires a trade-off.	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Constructing_Frequency_Distribution
+What does 'No. of students scored less than equal to 79 points (less than 79.5 points)=3' exemplify?	Cumulative frequency.	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Cumulative_Frequency
+Define 'Event.'	An outcome of an experiment OR a subset of a sample space.	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Definitions
+What is a 'Simple Event'?	An event that contains exactly one sample point and cannot be further decomposed.	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Types_of_Events
+What characterizes a 'Compound Event'?	An event that contains more than one sample point, produced by the union of simple events.	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Types_of_Events
+Define 'Impossible Event.'	An event that contains no sample points of the sample space.	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Types_of_Events
+Define 'Sure Event.'	An event that contains all the sample points of the sample space.	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Types_of_Events
+How is the 'Union of Two Events, A and B (A ∪ B),' defined?	The event that either A or B or both occur when the experiment is performed.	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Relationships_Between_Events
+What does 'A ∩ B' represent?	The intersection of two events, A and B, meaning the event that both A and B occur when the experiment is performed.	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Relationships_Between_Events
+When are two events A and B considered 'Mutually Exclusive'?	If and only if they cannot both occur at the same time, i.e., they have no points in common (A ∩ B = 0).	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Relationships_Between_Events
+State the 'Counting Rule for Multiplication' for an experiment with two stages.	If an experiment is performed in two stages, with m ways to accomplish the first stage and n ways to accomplish the second stage, then there are mn ways to accomplish the experiment.	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Counting_Rules
+What is the defining characteristic of a 'Permutation'?	An ordered subset from a set of n distinct objects (order matters).	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Counting_Rules
+What is the defining characteristic of a 'Combination'?	Any subset of r objects, selected without regard to their order, from a subset of n distinct objects (order does not matter).	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Counting_Rules
+How many outcomes are there when rolling a pair of dice?	36 Outcomes (6 × 6).	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Sample_Space_Examples
+What is the complement of event A (AC)?	All outcomes of the experiment that do not result in event A.	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Relationships_Between_Events
+What is the full title and edition of the textbook?	Miller & Freund’s Probability and Statistics for Engineers, Ninth Edition, Global Edition.	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Textbook_Overview
+Who is the author of Miller & Freund’s Probability and Statistics for Engineers?	Richard A. Johnson, from the University of Wisconsin–Madison.	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Textbook_Overview
+What is the broad definition of statistics given in Chapter 1?	Everything dealing with the collection, processing, analysis, and interpretation of numerical data.	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Definition_of_Statistics
+Name two historical origins of statistics mentioned in the text.	Games of chance and political science (numerical description of political units).	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::History_of_Statistics
+What is the main difference between descriptive statistics and statistical inference?	Descriptive statistics concerns the presentation and summarization of data, while statistical inference concerns generalizations based on sample data.	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Types_of_Statistics
+What is the first crucial step in any investigation, according to statistical ideas?	Set clearly defined goals for the investigation.	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Statistical_Process
+What is the philosophy of quality improvement based on?	'Make it right the first time' and a continuous effort to improve processes and products.	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Quality_Improvement
+What is an X-bar chart used for in quality control?	Plotting sample averages versus time order to indicate when changes have occurred and actions need to be taken to correct the process.	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Quality_Control_Tools
+What did the out-of-control value at the end of the day in the ceramic part case study ultimately lead to?	A broken die on Monday morning and the cancellation of a customer order.	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Case_Study:_Consequences_of_Inaction
+What is the purpose of setting key formulas, theorems, and rules apart in boxes in the textbook?	To highlight their importance and make them easily identifiable.	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Textbook_Structure
+How is the interpretation and calculation of the P-value reinforced in the Ninth Edition?	With many examples and new graphs illustrating P-values along with an interpretation.	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Textbook_Features
+What software packages are mentioned in the preface as being integrated or discussed in the textbook?	MINITAB, SAS, and R.	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Statistical_Software
+What is Statistics?	a discipline that includes procedures and techniques used to	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Meaning_of_Statistics
+What is Marketing?	Developing market surveys and strategies for marketing new products	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Applications_of_Statistics
+What is Economics?	Formation of economic policies	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Applications_of_Statistics
+What is Finance?	Helps in value at risk, stock market-derivative	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Applications_of_Statistics
+What is Public Health?	Identifying sources of diseases and ways to treat them	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Applications_of_Statistics
+What is Population?	The collection or set of all objects or measurements that are of interest to the experimenter	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Population_and_Sample
+What is Sample?	The subset or representative part of the population	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Population_and_Sample
+What is Parameter?	A numerical measurement or quantity describing some characteristic of a population	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Parameters_&_Statistics
+What is Statistic?	A numerical measurement or quantity describing some characteristics of a sample	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Parameters_&_Statistics
+What is Class standings?	freshman, sophomore, junior, senior	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Ordinal_Level_of_Measurement
+What is The?	scores and the number of students in three sections of a statistics class are given in the table.	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Combined_Mean;_Example_3
+What is Median?	a value which divides an ordered data into two equal parts, one part comprising of observations greater than and the other part smaller than it.	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Median
+What is Reference Book?	Probability and Statistics for Engineers, 9th  edition by Richard A. Johnson	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Slide_39
+Explain the principle of Measure of Central tendency	Measure of Central tendency Dr. Hina Dutt                                                                                       hina.dutt@seecs.edu.pk SEECS-NUST	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Measure_of_Central_tendency
+Explain the principle of Measures of Central Tendency	Measures of Central Tendency The tendency of observations to cluster in the central part of the data is called Central Tendency.  The value of data that summarizes the central tendency or locate in the middle of the data	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Measures_of_Central_Tendency
+Explain the principle of Slide 4	Mean	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Slide_4
+Explain the principle of Mean; Example 1 (Ungrouped Data)	Mean; Example 1 (Ungrouped Data)	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Mean;_Example_1_(Ungrouped_Data)
+Explain the principle of Mean as a Balancing Point	Mean as a Balancing Point Mean	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Mean_as_a_Balancing_Point
+Explain the principle of Weighted Mean	Weighted Mean	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Weighted_Mean
+Explain the principle of Weighted Mean; Example 2	Weighted Mean; Example 2 Calculate the weighted mean of expenditure from the following data.	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Weighted_Mean;_Example_2
+Explain the principle of Combined Mean	Combined Mean	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Combined_Mean
+Explain the principle of Combined Mean; Example 3	Combined Mean; Example 3 The means scores and the number of students in three sections of a statistics class are given in the table.	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Combined_Mean;_Example_3
+Explain the principle of Mean (Grouped Data)	Mean (Grouped Data)	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Mean_(Grouped_Data)
+What is Reference Book?	Probability and Statistics for Engineers, 9th  edition by Richard A. Johnson	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Slide_19
+Explain the principle of Measure of Non-Central tendency	Measure of Non-Central tendency Dr. Hina Dutt                                                                                       hina.dutt@seecs.edu.pk SEECS-NUST	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Measure_of_Non-Central_tendency
+Explain the principle of Quantiles	Quantiles	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Quantiles
+Explain the principle of How to Calculate Quantiles (For Individual Observations)	How to Calculate Quantiles (For Individual Observations)	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::How_to_Calculate_Quantiles_(For_Individual_Observations)
+Explain the principle of Quantiles; Example 1 (Individual Observations)	Quantiles; Example 1 (Individual Observations) The wheat production (in kgs) of 20 acres is given as: 1120 1240 1320 1040 1080 1200 1440 1360 1680 1730 1785 1342 1960 1880 1755 1720 1600 1470 1750 1885. Find the lower qu	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Quantiles;_Example_1_(Individual_Observations)
+Explain the principle of Quantiles; Example 2 (Ungrouped frequency Distribution)	Quantiles; Example 2 (Ungrouped frequency Distribution) The following distribution relates to the number of assistants in 50 retail establishments.	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Quantiles;_Example_2_(Ungrouped_frequency_Distribution)
+Explain the principle of How to Calculate Quantiles (Grouped Data)	How to Calculate Quantiles (Grouped Data)	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::How_to_Calculate_Quantiles_(Grouped_Data)
+Explain the principle of Quantiles; Example 3 (Grouped Data)	Quantiles; Example 3 (Grouped Data) Calculate upper quartile and 63th percentile for the distribution of examination marks given below:	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Quantiles;_Example_3_(Grouped_Data)
+Explain the principle of Exercise 1	Exercise 1	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Exercise_1
+Explain the principle of Exercise 2	Exercise 2 Calculate the median, upper and lower quartiles from the following data.	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Exercise_2
+Explain the principle of Exercise 3	Exercise 3	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Exercise_3
+Explain the principle of Slide 19	Reference Book: Probability and Statistics for Engineers, 9th  edition by Richard A. Johnson  Practice Questions: Q # 2.41, 2.55	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Slide_19
+What is A bar graph?	graph that displays the frequency or numerical distribution of a categorical variable, showing values for each bar next to each other for easy comparison.	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Bar_Chart
+What is A frequency polygon?	line graph to display and compare the distribution of quantitative data.	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Slide_16
+What is An Ogive?	graph obtained by plotting the cumulative frequencies of a distribution against the upper and lower class boundaries depending upon whether the cumulative frequency is of less than or more than type and the points are joined by straight line segments	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Slide_19
+What is A dot diagram?	graph that is constructed by placing a dot for each observation above its value on a number line.	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Dot_Diagram
+What is Stem and leaf display?	technique for simultaneously sorting and displaying data sets in which each number (value) in the data is divided into two parts; a Stem and a Leaf.	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Stem_and_Leaf_Display
+What is Make a stem and?	leaf table for the following data.	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Stem_and_Leaf_Display;_Example_6
+What is Double?	stem Display; Example 7	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Double-stem_Display;_Example_7
+What is Construct a double?	stem display for the following data	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Double-stem_Display;_Example_7
+What is Five?	Stem Display; Exercise 7	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Five-Stem_Display;_Exercise_7
+What is Skewness?	measure of symmetry, or more precisely, the lack of symmetry. A distribution, or data set, is symmetric if it looks the same to the left and right of the center point.	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Skewness
+Explain the principle of Box Plot, skewness, kurtosis	Box Plot, skewness, kurtosis Dr. Hina Dutt                                                                                       hina.dutt@seecs.edu.pk SEECS-NUST	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Box_Plot,_skewness,_kurtosis
+Explain the principle of Box Plot	Box Plot	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Box_Plot
+Explain the principle of Slide 4	Box Plot	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Slide_4
+Explain the principle of Slide 5	Box Plot 50% 50%	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Slide_5
+Explain the principle of How to Construct Box Plot	How to Construct Box Plot	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::How_to_Construct_Box_Plot
+Explain the principle of Example 1; Box Plot	Example 1; Box Plot The wheat production (in kgs) of 20 acres is given as: 1120 1240 1320 1040 1080 1200 1440 1360 1680 1730 1785 1342 1960 1880 1755 1720 1600 1470 1750 1885. Construct a box plot for the data.	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Example_1;_Box_Plot
+Explain the principle of Example 2; (Box Plot)	Example 2; (Box Plot) Construct the box plot for the distribution of the marks given below.	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Example_2;_(Box_Plot)
+Explain the principle of Comparison of Box Plots of Two Data Sets	Comparison of Box Plots of Two Data Sets A:  Min = 50             Q1 = 65             Med = 70             Q3 = 80             Max = 100 B:   Min = 40             Q1 = 60             Med = 70             Q3 = 85         	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Comparison_of_Box_Plots_of_Two_Data_Sets
+Explain the principle of Box Plot Vs Histogram	Box Plot Vs Histogram	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Box_Plot_Vs_Histogram
+Explain the principle of Exercise 1	Exercise 1 Match each histogram with its box plot.	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Exercise_1
+Explain the principle of Mean Moments	Mean Moments	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Mean_Moments
+Explain the principle of Skewness	Skewness Skewness is a measure of symmetry, or more precisely, the lack of symmetry. A distribution, or data set, is symmetric if it looks the same to the left and right of the center point. Positively-Skewed Negatively-	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Skewness
+Explain the principle of Measures of Skewness	Measures of Skewness	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Measures_of_Skewness
+Explain the principle of Kurtosis	Kurtosis Kurtosis characterizes the relative peakedness or flatness of a distribution compared to the normal distribution	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Kurtosis
+What is Consider these?	for hours worked each day:	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Mean
+What is Reference Book?	Probability and Statistics for Engineers, 9th  edition by Richard A. Johnson	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Slide_29
+Explain the principle of Measure of dispersion	Measure of dispersion Dr. Hina Dutt                                                                                       hina.dutt@seecs.edu.pk SEECS-NUST	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Measure_of_dispersion
+Explain the principle of Why study Dispersion?	Why study Dispersion?	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Why_study_Dispersion?
+Explain the principle of What is Dispersion	What is Dispersion	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::What_is_Dispersion
+Explain the principle of Dispersion	Dispersion	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Dispersion
+Explain the principle of Significance of Measuring Dispersion	Significance of Measuring Dispersion	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Significance_of_Measuring_Dispersion
+Explain the principle of Measures of Dispersion	Measures of Dispersion	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Measures_of_Dispersion
+Explain the principle of Range	Range	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Range
+Explain the principle of Variance	Variance	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Variance
+Explain the principle of Standard Deviation	Standard Deviation	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Standard_Deviation
+Explain the principle of Notation	Notation	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Notation
+Explain the principle of Interpreting the Standard Deviation	Interpreting the Standard Deviation The more variation in a data set, the greater the standard deviation.   The larger the standard deviation, the more “spread” in the shape of the histogram representing the data.   Stan	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Interpreting_the_Standard_Deviation
+Explain the principle of Alternate formulas for Variance and Standard Deviation	Alternate formulas for Variance and Standard Deviation	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Alternate_formulas_for_Variance_and_Standard_Deviation
+Explain the principle of Example 1; (Standard Deviations and Variance)      Formula 1	Example 1; (Standard Deviations and Variance)      Formula 1 Calculate the variance and standard deviations from the following marks obtained by 9 students. 45 32 37 46 39 36 41 48 36	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Example_1;_(Standard_Deviations_and_Variance)______Formula_1
+What is 'Central Tendency'?	The tendency of observations to cluster in the central part of the data.	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Measures_of_Central_Tendency
+What is a 'Measure of Central Tendency'?	The value of data that summarizes the central tendency or locates in the middle of the data (in some sense). Also known as a Measure of Location or Position.	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Measures_of_Central_Tendency
+What is another name for a Measure of Central Tendency?	Measure of Location or Position.	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Measures_of_Central_Tendency
+How is the Mean conceptually described in the lecture?	As a balancing point.	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Mean
+Define 'Median'.	A value which divides an ordered data into two equal parts, one part comprising of observations greater than and the other part smaller than it.	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Median
+What is one key characteristic of the Mode regarding its uniqueness?	It may not be unique (i.e., data can have more than one mode).	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Mode
+Which measure of central tendency is 'most stable'?	Mean.	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Comparison_of_Measures
+Which measure(s) of central tendency are 'unaffected by extreme values'?	Median and Mode.	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Comparison_of_Measures
+Which measure of central tendency is 'appropriate measure of average for a highly skewed data'?	Median.	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Comparison_of_Measures
+Can the Mean be calculated for qualitative data?	No, it is calculated only for quantitative data.	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Mean_Properties
+Can the Mode be calculated for qualitative data?	Yes.	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Mode_Properties
+Does the Mean always exist as a data point in the set?	No, it 'may not exist as data point in the set.'	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Mean_Properties
+What is the overarching topic of the lecture presented by Dr. Hina Dutt?	Measure of Non-Central tendency	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Lecture_Introduction
+What is the key concept introduced under 'Measure of Non-Central tendency'?	Quantiles	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Key_Concepts
+Name one type of data for which quantiles can be calculated, as shown in the lecture's examples.	Individual Observations (also Ungrouped frequency Distribution or Grouped Data)	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Quantile_Calculation_Data_Types
+Which specific quantiles were requested to be found in 'Quantiles; Example 1'?	Lower Quartile and the Seventh Decile	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Types_of_Quantiles
+In which example (by number) are quantiles calculated for an 'Ungrouped frequency Distribution'?	Example 2	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Quantile_Calculation_Data_Types
+What are the specific quantiles requested for calculation in 'Quantiles; Example 3'?	Upper Quartile and 63rd Percentile	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Types_of_Quantiles
+For what type of data is 'Quantiles; Example 3' designed to demonstrate calculations?	Grouped Data	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Quantile_Calculation_Data_Types
+Besides upper and lower quartiles, what other statistical measure is mentioned for calculation in 'Exercise 2'?	Median	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Related_Statistical_Measures
+Who is the lecturer for the 'Measure of Non-Central tendency' topic?	Dr. Hina Dutt	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Lecturer_Information
+What is the title and author of the reference book mentioned in the lecture?	Probability and Statistics for Engineers, 9th edition by Richard A. Johnson	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Course_Resources
+Which institution is Dr. Hina Dutt affiliated with?	SEECS-NUST	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Lecturer_Information
+What is the primary purpose of a Bar Chart?	To display the frequency or numerical distribution of a categorical variable, allowing values for each bar to be easily compared.	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Bar_Chart
+What type of data variable is typically displayed by a Bar Chart?	A categorical variable.	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Bar_Chart
+Describe the appearance of bars in a Histogram.	Bars are centered above each score (or class interval), their height corresponds to the frequency, and their width extends to the real limits, causing adjacent bars to touch.	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Histogram
+How does a Frequency Polygon visually represent data?	It is a line graph that uses straight line segments to connect points representing class frequencies and midpoints.	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Frequency_Polygon
+What information does an Ogive graph convey?	It plots the cumulative frequencies of a distribution against the upper and lower class boundaries, with points joined by straight line segments.	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Ogive
+Explain the construction of a Dot Diagram.	A dot diagram is constructed by placing a dot for each observation above its value on a number line.	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Dot_Diagram
+What are the two main parts of a number in a Stem and Leaf Display?	A Stem and a Leaf.	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Stem_and_Leaf_Display
+Define 'Stem' in the context of a Stem and Leaf Display.	The leading digit(s) of each number, used in sorting.	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Stem_and_Leaf_Display
+Define 'Leaf' in the context of a Stem and Leaf Display.	The rest of the number or the trailing digit(s).	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Stem_and_Leaf_Display
+Give an example of how the number 243 could be broken down into a Stem and Leaf.	One way: Stem 2, Leaf 43. Another way: Stem 24, Leaf 3.	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Stem_and_Leaf_Display
+What is Skewness?	Skewness is a measure of symmetry, or more precisely, the lack of symmetry, in a distribution or data set.	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Skewness
+How is a symmetric distribution defined?	A distribution is symmetric if it looks the same to the left and right of the center point.	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Skewness
+What is the relationship between Mean, Median, and Mode in a Positively-Skewed distribution?	Mean > Median > Mode	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Skewness
+What is the relationship between Mean, Median, and Mode in a Negatively-Skewed distribution?	Mode > Median > Mean	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Skewness
+What is the relationship between Mean, Median, and Mode in a Symmetric distribution?	Mean = Median = Mode	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Skewness
+What does Kurtosis characterize?	Kurtosis characterizes the relative peakedness or flatness of a distribution compared to the normal distribution.	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Kurtosis
+Who is the lecturer for 'Box Plot, Skewness, Kurtosis'?	Dr. Hina Dutt	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::General
+What data points are explicitly provided for comparing Box Plots of two data sets (A and B)?	Minimum (Min), First Quartile (Q1), Median (Med), Third Quartile (Q3), Maximum (Max).	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Box_Plot
+What kind of data was used in Example 1 for constructing a Box Plot?	Wheat production (in kgs) of 20 acres.	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Box_Plot
+What is mentioned as a comparison for Box Plots in the lecture?	Histograms ('Box Plot Vs Histogram').	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Box_Plot
+What is Consider these?	for hours worked each day:	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Mean
+What is Reference Book?	Probability and Statistics for Engineers, 9th  edition by Richard A. Johnson	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Slide_29
+Explain the principle of Measure of dispersion	Measure of dispersion Dr. Hina Dutt                                                                                       hina.dutt@seecs.edu.pk SEECS-NUST	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Measure_of_dispersion
+Explain the principle of Why study Dispersion?	Why study Dispersion?	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Why_study_Dispersion?
+Explain the principle of What is Dispersion	What is Dispersion	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::What_is_Dispersion
+Explain the principle of Dispersion	Dispersion	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Dispersion
+Explain the principle of Significance of Measuring Dispersion	Significance of Measuring Dispersion	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Significance_of_Measuring_Dispersion
+Explain the principle of Measures of Dispersion	Measures of Dispersion	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Measures_of_Dispersion
+Explain the principle of Range	Range	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Range
+Explain the principle of Variance	Variance	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Variance
+Explain the principle of Standard Deviation	Standard Deviation	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Standard_Deviation
+Explain the principle of Notation	Notation	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Notation
+Explain the principle of Interpreting the Standard Deviation	Interpreting the Standard Deviation The more variation in a data set, the greater the standard deviation.   The larger the standard deviation, the more “spread” in the shape of the histogram representing the data.   Stan	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Interpreting_the_Standard_Deviation
+Explain the principle of Alternate formulas for Variance and Standard Deviation	Alternate formulas for Variance and Standard Deviation	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Alternate_formulas_for_Variance_and_Standard_Deviation
+Explain the principle of Example 1; (Standard Deviations and Variance)      Formula 1	Example 1; (Standard Deviations and Variance)      Formula 1 Calculate the variance and standard deviations from the following marks obtained by 9 students. 45 32 37 46 39 36 41 48 36	MATH-361-Probability_and_Statistics_D_2K25-BSCS-15::Example_1;_(Standard_Deviations_and_Variance)______Formula_1

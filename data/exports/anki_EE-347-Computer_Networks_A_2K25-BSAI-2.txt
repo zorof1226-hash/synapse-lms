@@ -1,0 +1,168 @@
+What is Network edge?	hosts, access network, physical media	EE-347-Computer_Networks_A_2K25-BSAI-2::Chapter_1:_roadmap
+What is Network core?	packet/circuit switching, internet structure	EE-347-Computer_Networks_A_2K25-BSAI-2::Chapter_1:_roadmap
+What is Performance?	loss, delay, throughput	EE-347-Computer_Networks_A_2K25-BSAI-2::Chapter_1:_roadmap
+What is Packet-switching?	hosts break application-layer messages into packets	EE-347-Computer_Networks_A_2K25-BSAI-2::The_network_core
+What is Local action?	move arriving packets from router’s input link to appropriate router output link	EE-347-Computer_Networks_A_2K25-BSAI-2::Two_key_network-core_functions
+What is Global action?	determine source-destination paths taken by packets	EE-347-Computer_Networks_A_2K25-BSAI-2::Two_key_network-core_functions
+What is Packet?	switching: store-and-forward	EE-347-Computer_Networks_A_2K25-BSAI-2::Packet-switching:_store-and-forward
+What is Packet queuing and loss?	if arrival rate (in bps) to link exceeds transmission rate (bps) of link for some period of time:	EE-347-Computer_Networks_A_2K25-BSAI-2::Packet-switching:_queueing
+What is End-to?	end resources allocated to, reserved for “call” between source and destination	EE-347-Computer_Networks_A_2K25-BSAI-2::Alternative_to_packet_switching:_circuit_switching
+What is Excessive congestion possible?	packet delay and loss due to buffer overflow	EE-347-Computer_Networks_A_2K25-BSAI-2::Packet_switching_versus_circuit_switching
+What is Internet structure?	a “network of networks”	EE-347-Computer_Networks_A_2K25-BSAI-2::Internet_structure:_a_“network_of_networks”
+What is Question?	given millions of access ISPs, how to connect them together?	EE-347-Computer_Networks_A_2K25-BSAI-2::Internet_structure:_a_“network_of_networks”
+What is Option?	connect each access ISP to one global transit ISP?	EE-347-Computer_Networks_A_2K25-BSAI-2::Internet_structure:_a_“network_of_networks”
+What is Class Activity?	Understanding delays, bottlenecks, and routing	EE-347-Computer_Networks_A_2K25-BSAI-2::Slide_24
+What is Suppose?	cars now “propagate” at 1000 km/hr	EE-347-Computer_Networks_A_2K25-BSAI-2::Slide_30
+What is Real?	time video conferencing (e.g., Zoom)	EE-347-Computer_Networks_A_2K25-BSAI-2::Some_network_apps
+What is P2P?	students exchange notes among themselves.]	EE-347-Computer_Networks_A_2K25-BSAI-2::Peer-peer_architecture
+What is Process?	program running within a host	EE-347-Computer_Networks_A_2K25-BSAI-2::Processes_communicating
+What is Note?	Applications with P2P architectures have client processes & server processes	EE-347-Computer_Networks_A_2K25-BSAI-2::Processes_communicating
+What is UDP?	quickly dropping individually addressed postcards into the mail system.]	EE-347-Computer_Networks_A_2K25-BSAI-2::Internet_transport_protocols_services
+What is HTTP?	HyperText Transfer Protocol	EE-347-Computer_Networks_A_2K25-BSAI-2::HTTP_overview
+What is Non?	persistent HTTP: example	EE-347-Computer_Networks_A_2K25-BSAI-2::Slide_23
+What is Host?	www-net.cs.umass.edu\r\n	EE-347-Computer_Networks_A_2K25-BSAI-2::Slide_27
+What is User-Agent?	Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:80.0) Gecko/20100101 Firefox/80.0 \r\n	EE-347-Computer_Networks_A_2K25-BSAI-2::Slide_27
+What is Accept?	text/html,application/xhtml+xml\r\n	EE-347-Computer_Networks_A_2K25-BSAI-2::Slide_27
+What is Date?	Tue, 08 Sep 2020 00:53:20 GMT	EE-347-Computer_Networks_A_2K25-BSAI-2::Slide_30
+What is Server?	Apache/2.4.6 (CentOS) OpenSSL/1.0.2k-fips PHP/7.4.9 mod_perl/2.0.11 Perl/v5.16.3	EE-347-Computer_Networks_A_2K25-BSAI-2::Slide_30
+What is Last-Modified?	Tue, 01 Mar 2016 18:57:50 GMT	EE-347-Computer_Networks_A_2K25-BSAI-2::Slide_30
+What is ETag?	"a5b-52d015789ee9e"	EE-347-Computer_Networks_A_2K25-BSAI-2::Slide_30
+What is Content-Type?	text/html; charset=UTF-8	EE-347-Computer_Networks_A_2K25-BSAI-2::Slide_30
+What is Network edge?	hosts, access network, physical media	EE-347-Computer_Networks_A_2K25-BSAI-2::Overview
+What is Network core?	packet/circuit switching, internet structure	EE-347-Computer_Networks_A_2K25-BSAI-2::Overview
+What is Performance?	loss, delay, throughput	EE-347-Computer_Networks_A_2K25-BSAI-2::Overview
+What is The Internet?	a “nuts and bolts” view	EE-347-Computer_Networks_A_2K25-BSAI-2::Slide_3
+What is Internet?	“network of networks”	EE-347-Computer_Networks_A_2K25-BSAI-2::Slide_4
+What is RFC?	Request for Comments	EE-347-Computer_Networks_A_2K25-BSAI-2::Slide_4
+What is IETF?	Internet Engineering Task Force	EE-347-Computer_Networks_A_2K25-BSAI-2::Slide_4
+What is Access networks?	digital subscriber line (DSL)	EE-347-Computer_Networks_A_2K25-BSAI-2::Slide_16
+What is Ethernet?	wired access at 100Mbps, 1Gbps, 10Gbps	EE-347-Computer_Networks_A_2K25-BSAI-2::Slide_19
+What is WiFi?	wireless access points at 11, 54, 450 Mbps	EE-347-Computer_Networks_A_2K25-BSAI-2::Slide_19
+What is Courtesy?	Massachusetts Green High Performance Computing Center (mghpcc.org)	EE-347-Computer_Networks_A_2K25-BSAI-2::Slide_20
+What is Host?	send packets of data	EE-347-Computer_Networks_A_2K25-BSAI-2::Host:_send_packets_of_data
+What is Computer Networking?	A Top-Down Approach 8th Edition, Jim Kurose and Keith Ross, 2022	EE-347-Computer_Networks_A_2K25-BSAI-2::References
+What is Chapter 1?	Computer Networks and the Internet	EE-347-Computer_Networks_A_2K25-BSAI-2::References
+What is Scenario?	Alice sends e-mail to Bob	EE-347-Computer_Networks_A_2K25-BSAI-2::Slide_6
+What is SMTP?	Comparison with HTTP	EE-347-Computer_Networks_A_2K25-BSAI-2::SMTP_-_Comparison_with_HTTP
+What is Body?	the “message” , ASCII characters only	EE-347-Computer_Networks_A_2K25-BSAI-2::Mail_message_format
+What is Retrieving email?	mail access protocols	EE-347-Computer_Networks_A_2K25-BSAI-2::Slide_10
+What is IMAP?	Internet Mail Access Protocol [RFC 3501]:	EE-347-Computer_Networks_A_2K25-BSAI-2::Slide_10
+What is Application-layer protocol?	hosts, DNS servers communicate to resolve names (address/name translation)	EE-347-Computer_Networks_A_2K25-BSAI-2::DNS_-_Domain_Name_System
+What is Note?	core Internet function, implemented as application-layer protocol	EE-347-Computer_Networks_A_2K25-BSAI-2::DNS_-_Domain_Name_System
+What is DNS?	translating host names to IP addresses	EE-347-Computer_Networks_A_2K25-BSAI-2::DNS_-_translating_host_names_to_IP_addresses
+What is Comcast DNS servers alone?	600B DNS queries/day	EE-347-Computer_Networks_A_2K25-BSAI-2::DNS:_services,_structure
+What is Akamai DNS servers alone?	2.2T DNS queries/day	EE-347-Computer_Networks_A_2K25-BSAI-2::DNS:_services,_structure
+What is Top?	Level Domain, and authoritative servers	EE-347-Computer_Networks_A_2K25-BSAI-2::Slide_17
+What is Network Solutions?	authoritative registry for .com, .net TLD	EE-347-Computer_Networks_A_2K25-BSAI-2::Slide_17
+What is Example?	host at engineering.nyu.edu wants IP address for gaia.cs.umass.edu	EE-347-Computer_Networks_A_2K25-BSAI-2::DNS_name_resolution:_iterated_query
+What is RR format?	(name, value, type, ttl)	EE-347-Computer_Networks_A_2K25-BSAI-2::Slide_22
+What is RFC 4033?	DNSSEC authentication services	EE-347-Computer_Networks_A_2K25-BSAI-2::DNS_security
+What is BSAI?	2 [CR-23-Acad Block]	EE-347-Computer_Networks_A_2K25-BSAI-2::COURSE_OUTLINE
+What is Conducted through in?	class or lab activities.	EE-347-Computer_Networks_A_2K25-BSAI-2::CLO_4
+What is Topic 0 and 1?	Introduction (Chapter 1)	EE-347-Computer_Networks_A_2K25-BSAI-2::CLO_4
+What is Topic 1?	Standardization and Layering (Chapter 1)	EE-347-Computer_Networks_A_2K25-BSAI-2::CLO_4
+What is Topic 2?	Application Layer [DNS] (Chapter 2)	EE-347-Computer_Networks_A_2K25-BSAI-2::CLO_4
+What is Topic 3?	Transport Layer [UDP] (Chapter 3)	EE-347-Computer_Networks_A_2K25-BSAI-2::CLO_4
+What is Topic 4?	Network Layer [IP addressing, Sub-netting] (Chapter 4)	EE-347-Computer_Networks_A_2K25-BSAI-2::CLO_4
+What is Topic 5?	Data Link Layer [Framing, Addressing, ARP] (Chapter 6)	EE-347-Computer_Networks_A_2K25-BSAI-2::CLO_4
+What is End?	Semester Exam (40-50%)	EE-347-Computer_Networks_A_2K25-BSAI-2::Lab_Experiments_(if_applicable):
+What is Textbook?	Computer Networking: A Top-Down Approach 8th Edition, Jim Kurose and Keith Ross, 2022	EE-347-Computer_Networks_A_2K25-BSAI-2::Textbook:_Computer_Networking:_A_Top-Down_Approach_8th_Edition,_Jim_Kurose_and_K
+What is SEECS maintains a zero?	tolerance policy towards plagiarism. While collaboration in this course is highly encouraged, you	EE-347-Computer_Networks_A_2K25-BSAI-2::Textbook:_Computer_Networking:_A_Top-Down_Approach_8th_Edition,_Jim_Kurose_and_K
+What is The Internet?	a “nuts and bolts” view	EE-347-Computer_Networks_A_2K25-BSAI-2::Slide_8
+What is Computer Networking?	A Top-Down Approach	EE-347-Computer_Networks_A_2K25-BSAI-2::Learning_resources
+Explain the principle of EE-347 Computer networks	EE-347 Computer networks Instructor:  Asst Prof Mobeena shahzad Course Introduction	EE-347-Computer_Networks_A_2K25-BSAI-2::EE-347_Computer_networks
+Explain the principle of COURSE Introduction	COURSE Introduction [Presenter Notes: CS:  Enrollment Code : 064978123  AI: Enrollment Code : 960837421]	EE-347-Computer_Networks_A_2K25-BSAI-2::COURSE_Introduction
+Explain the principle of Course Description	Course Description The field of computer networking is evolving rapidly, making it crucial to understand not just the current state of networks, but also the underlying principles and reasoning behind their design.   Thi	EE-347-Computer_Networks_A_2K25-BSAI-2::Course_Description
+Explain the principle of Course Learning Outcomes (CLO)	Course Learning Outcomes (CLO)	EE-347-Computer_Networks_A_2K25-BSAI-2::Course_Learning_Outcomes_(CLO)
+Explain the principle of Focus of the subject	Focus of the subject Focus on conceptual introduction of computer networks and more importantly their underlying design principles  A top-down approach Architectures Algorithms Protocols  More emphasis on theory and fund	EE-347-Computer_Networks_A_2K25-BSAI-2::Focus_of_the_subject
+Explain the principle of Slide 8	Internet The Internet: a “nuts and bolts” view	EE-347-Computer_Networks_A_2K25-BSAI-2::Slide_8
+Explain the principle of Slide 9	Internet-connected devices Web-enabled toaster + weather forecaster Others?	EE-347-Computer_Networks_A_2K25-BSAI-2::Slide_9
+Explain the principle of Slide 10	Weekly Schedule	EE-347-Computer_Networks_A_2K25-BSAI-2::Slide_10
+Explain the principle of Slide 11	Assessment Methods	EE-347-Computer_Networks_A_2K25-BSAI-2::Slide_11
+Explain the principle of Learning resources	Learning resources Computer Networking: A Top-Down Approach Jim Kurose, Keith RossPearson, 2025	EE-347-Computer_Networks_A_2K25-BSAI-2::Learning_resources
+Explain the principle of Slide 13	Lab Experiments	EE-347-Computer_Networks_A_2K25-BSAI-2::Slide_13
+Explain the principle of Why study Computer networks?	Why study Computer networks? Modern software and AI systems are inherently networked — web/mobile applications, cloud platforms, databases, APIs, and intelligent services all depend on connectivity.  Networking is fundam	EE-347-Computer_Networks_A_2K25-BSAI-2::Why_study_Computer_networks?
+What is Network edge?	hosts, access network, physical media	EE-347-Computer_Networks_A_2K25-BSAI-2::Chapter_1:_roadmap
+What is Network core?	packet/circuit switching, internet structure	EE-347-Computer_Networks_A_2K25-BSAI-2::Chapter_1:_roadmap
+What is Performance?	loss, delay, throughput	EE-347-Computer_Networks_A_2K25-BSAI-2::Chapter_1:_roadmap
+What is Packet-switching?	hosts break application-layer messages into packets	EE-347-Computer_Networks_A_2K25-BSAI-2::The_network_core
+What is Local action?	move arriving packets from router’s input link to appropriate router output link	EE-347-Computer_Networks_A_2K25-BSAI-2::Two_key_network-core_functions
+What is Global action?	determine source-destination paths taken by packets	EE-347-Computer_Networks_A_2K25-BSAI-2::Two_key_network-core_functions
+What is Packet?	switching: store-and-forward	EE-347-Computer_Networks_A_2K25-BSAI-2::Packet-switching:_store-and-forward
+What is Packet queuing and loss?	if arrival rate (in bps) to link exceeds transmission rate (bps) of link for some period of time:	EE-347-Computer_Networks_A_2K25-BSAI-2::Packet-switching:_queueing
+What is End-to?	end resources allocated to, reserved for “call” between source and destination	EE-347-Computer_Networks_A_2K25-BSAI-2::Alternative_to_packet_switching:_circuit_switching
+What is Excessive congestion possible?	packet delay and loss due to buffer overflow	EE-347-Computer_Networks_A_2K25-BSAI-2::Packet_switching_versus_circuit_switching
+What is Internet structure?	a “network of networks”	EE-347-Computer_Networks_A_2K25-BSAI-2::Internet_structure:_a_“network_of_networks”
+What is Question?	given millions of access ISPs, how to connect them together?	EE-347-Computer_Networks_A_2K25-BSAI-2::Internet_structure:_a_“network_of_networks”
+What is Option?	connect each access ISP to one global transit ISP?	EE-347-Computer_Networks_A_2K25-BSAI-2::Internet_structure:_a_“network_of_networks”
+What is Class Activity?	Understanding delays, bottlenecks, and routing	EE-347-Computer_Networks_A_2K25-BSAI-2::Slide_24
+What is Suppose?	cars now “propagate” at 1000 km/hr	EE-347-Computer_Networks_A_2K25-BSAI-2::Slide_30
+What is Real?	time video conferencing (e.g., Zoom)	EE-347-Computer_Networks_A_2K25-BSAI-2::Some_network_apps
+What is P2P?	students exchange notes among themselves.]	EE-347-Computer_Networks_A_2K25-BSAI-2::Peer-peer_architecture
+What is Process?	program running within a host	EE-347-Computer_Networks_A_2K25-BSAI-2::Processes_communicating
+What is Note?	Applications with P2P architectures have client processes & server processes	EE-347-Computer_Networks_A_2K25-BSAI-2::Processes_communicating
+What is UDP?	quickly dropping individually addressed postcards into the mail system.]	EE-347-Computer_Networks_A_2K25-BSAI-2::Internet_transport_protocols_services
+What is HTTP?	HyperText Transfer Protocol	EE-347-Computer_Networks_A_2K25-BSAI-2::HTTP_overview
+What is Non?	persistent HTTP: example	EE-347-Computer_Networks_A_2K25-BSAI-2::Slide_23
+What is Host?	www-net.cs.umass.edu\r\n	EE-347-Computer_Networks_A_2K25-BSAI-2::Slide_27
+What is User-Agent?	Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:80.0) Gecko/20100101 Firefox/80.0 \r\n	EE-347-Computer_Networks_A_2K25-BSAI-2::Slide_27
+What is Accept?	text/html,application/xhtml+xml\r\n	EE-347-Computer_Networks_A_2K25-BSAI-2::Slide_27
+What is Date?	Tue, 08 Sep 2020 00:53:20 GMT	EE-347-Computer_Networks_A_2K25-BSAI-2::Slide_30
+What is Server?	Apache/2.4.6 (CentOS) OpenSSL/1.0.2k-fips PHP/7.4.9 mod_perl/2.0.11 Perl/v5.16.3	EE-347-Computer_Networks_A_2K25-BSAI-2::Slide_30
+What is Last-Modified?	Tue, 01 Mar 2016 18:57:50 GMT	EE-347-Computer_Networks_A_2K25-BSAI-2::Slide_30
+What is ETag?	"a5b-52d015789ee9e"	EE-347-Computer_Networks_A_2K25-BSAI-2::Slide_30
+What is Content-Type?	text/html; charset=UTF-8	EE-347-Computer_Networks_A_2K25-BSAI-2::Slide_30
+What is Network edge?	hosts, access network, physical media	EE-347-Computer_Networks_A_2K25-BSAI-2::Overview
+What is Network core?	packet/circuit switching, internet structure	EE-347-Computer_Networks_A_2K25-BSAI-2::Overview
+What is Performance?	loss, delay, throughput	EE-347-Computer_Networks_A_2K25-BSAI-2::Overview
+What is The Internet?	a “nuts and bolts” view	EE-347-Computer_Networks_A_2K25-BSAI-2::Slide_3
+What is Internet?	“network of networks”	EE-347-Computer_Networks_A_2K25-BSAI-2::Slide_4
+What is RFC?	Request for Comments	EE-347-Computer_Networks_A_2K25-BSAI-2::Slide_4
+What is IETF?	Internet Engineering Task Force	EE-347-Computer_Networks_A_2K25-BSAI-2::Slide_4
+What is Access networks?	digital subscriber line (DSL)	EE-347-Computer_Networks_A_2K25-BSAI-2::Slide_16
+What is Ethernet?	wired access at 100Mbps, 1Gbps, 10Gbps	EE-347-Computer_Networks_A_2K25-BSAI-2::Slide_19
+What is WiFi?	wireless access points at 11, 54, 450 Mbps	EE-347-Computer_Networks_A_2K25-BSAI-2::Slide_19
+What is Courtesy?	Massachusetts Green High Performance Computing Center (mghpcc.org)	EE-347-Computer_Networks_A_2K25-BSAI-2::Slide_20
+What is Host?	send packets of data	EE-347-Computer_Networks_A_2K25-BSAI-2::Host:_send_packets_of_data
+What is Computer Networking?	A Top-Down Approach 8th Edition, Jim Kurose and Keith Ross, 2022	EE-347-Computer_Networks_A_2K25-BSAI-2::References
+What is Chapter 1?	Computer Networks and the Internet	EE-347-Computer_Networks_A_2K25-BSAI-2::References
+What is Scenario?	Alice sends e-mail to Bob	EE-347-Computer_Networks_A_2K25-BSAI-2::Slide_6
+What is SMTP?	Comparison with HTTP	EE-347-Computer_Networks_A_2K25-BSAI-2::SMTP_-_Comparison_with_HTTP
+What is Body?	the “message” , ASCII characters only	EE-347-Computer_Networks_A_2K25-BSAI-2::Mail_message_format
+What is Retrieving email?	mail access protocols	EE-347-Computer_Networks_A_2K25-BSAI-2::Slide_10
+What is IMAP?	Internet Mail Access Protocol [RFC 3501]:	EE-347-Computer_Networks_A_2K25-BSAI-2::Slide_10
+What is Application-layer protocol?	hosts, DNS servers communicate to resolve names (address/name translation)	EE-347-Computer_Networks_A_2K25-BSAI-2::DNS_-_Domain_Name_System
+What is Note?	core Internet function, implemented as application-layer protocol	EE-347-Computer_Networks_A_2K25-BSAI-2::DNS_-_Domain_Name_System
+What is DNS?	translating host names to IP addresses	EE-347-Computer_Networks_A_2K25-BSAI-2::DNS_-_translating_host_names_to_IP_addresses
+What is Comcast DNS servers alone?	600B DNS queries/day	EE-347-Computer_Networks_A_2K25-BSAI-2::DNS:_services,_structure
+What is Akamai DNS servers alone?	2.2T DNS queries/day	EE-347-Computer_Networks_A_2K25-BSAI-2::DNS:_services,_structure
+What is Top?	Level Domain, and authoritative servers	EE-347-Computer_Networks_A_2K25-BSAI-2::Slide_17
+What is Network Solutions?	authoritative registry for .com, .net TLD	EE-347-Computer_Networks_A_2K25-BSAI-2::Slide_17
+What is Example?	host at engineering.nyu.edu wants IP address for gaia.cs.umass.edu	EE-347-Computer_Networks_A_2K25-BSAI-2::DNS_name_resolution:_iterated_query
+What is RR format?	(name, value, type, ttl)	EE-347-Computer_Networks_A_2K25-BSAI-2::Slide_22
+What is RFC 4033?	DNSSEC authentication services	EE-347-Computer_Networks_A_2K25-BSAI-2::DNS_security
+What is BSAI?	2 [CR-23-Acad Block]	EE-347-Computer_Networks_A_2K25-BSAI-2::COURSE_OUTLINE
+What is Conducted through in?	class or lab activities.	EE-347-Computer_Networks_A_2K25-BSAI-2::CLO_4
+What is Topic 0 and 1?	Introduction (Chapter 1)	EE-347-Computer_Networks_A_2K25-BSAI-2::CLO_4
+What is Topic 1?	Standardization and Layering (Chapter 1)	EE-347-Computer_Networks_A_2K25-BSAI-2::CLO_4
+What is Topic 2?	Application Layer [DNS] (Chapter 2)	EE-347-Computer_Networks_A_2K25-BSAI-2::CLO_4
+What is Topic 3?	Transport Layer [UDP] (Chapter 3)	EE-347-Computer_Networks_A_2K25-BSAI-2::CLO_4
+What is Topic 4?	Network Layer [IP addressing, Sub-netting] (Chapter 4)	EE-347-Computer_Networks_A_2K25-BSAI-2::CLO_4
+What is Topic 5?	Data Link Layer [Framing, Addressing, ARP] (Chapter 6)	EE-347-Computer_Networks_A_2K25-BSAI-2::CLO_4
+What is End?	Semester Exam (40-50%)	EE-347-Computer_Networks_A_2K25-BSAI-2::Lab_Experiments_(if_applicable):
+What is Textbook?	Computer Networking: A Top-Down Approach 8th Edition, Jim Kurose and Keith Ross, 2022	EE-347-Computer_Networks_A_2K25-BSAI-2::Textbook:_Computer_Networking:_A_Top-Down_Approach_8th_Edition,_Jim_Kurose_and_K
+What is SEECS maintains a zero?	tolerance policy towards plagiarism. While collaboration in this course is highly encouraged, you	EE-347-Computer_Networks_A_2K25-BSAI-2::Textbook:_Computer_Networking:_A_Top-Down_Approach_8th_Edition,_Jim_Kurose_and_K
+What is The Internet?	a “nuts and bolts” view	EE-347-Computer_Networks_A_2K25-BSAI-2::Slide_8
+What is Computer Networking?	A Top-Down Approach	EE-347-Computer_Networks_A_2K25-BSAI-2::Learning_resources
+Explain the principle of EE-347 Computer networks	EE-347 Computer networks Instructor:  Asst Prof Mobeena shahzad Course Introduction	EE-347-Computer_Networks_A_2K25-BSAI-2::EE-347_Computer_networks
+Explain the principle of COURSE Introduction	COURSE Introduction [Presenter Notes: CS:  Enrollment Code : 064978123  AI: Enrollment Code : 960837421]	EE-347-Computer_Networks_A_2K25-BSAI-2::COURSE_Introduction
+Explain the principle of Course Description	Course Description The field of computer networking is evolving rapidly, making it crucial to understand not just the current state of networks, but also the underlying principles and reasoning behind their design.   Thi	EE-347-Computer_Networks_A_2K25-BSAI-2::Course_Description
+Explain the principle of Course Learning Outcomes (CLO)	Course Learning Outcomes (CLO)	EE-347-Computer_Networks_A_2K25-BSAI-2::Course_Learning_Outcomes_(CLO)
+Explain the principle of Focus of the subject	Focus of the subject Focus on conceptual introduction of computer networks and more importantly their underlying design principles  A top-down approach Architectures Algorithms Protocols  More emphasis on theory and fund	EE-347-Computer_Networks_A_2K25-BSAI-2::Focus_of_the_subject
+Explain the principle of Slide 8	Internet The Internet: a “nuts and bolts” view	EE-347-Computer_Networks_A_2K25-BSAI-2::Slide_8
+Explain the principle of Slide 9	Internet-connected devices Web-enabled toaster + weather forecaster Others?	EE-347-Computer_Networks_A_2K25-BSAI-2::Slide_9
+Explain the principle of Slide 10	Weekly Schedule	EE-347-Computer_Networks_A_2K25-BSAI-2::Slide_10
+Explain the principle of Slide 11	Assessment Methods	EE-347-Computer_Networks_A_2K25-BSAI-2::Slide_11
+Explain the principle of Learning resources	Learning resources Computer Networking: A Top-Down Approach Jim Kurose, Keith RossPearson, 2025	EE-347-Computer_Networks_A_2K25-BSAI-2::Learning_resources
+Explain the principle of Slide 13	Lab Experiments	EE-347-Computer_Networks_A_2K25-BSAI-2::Slide_13
+Explain the principle of Why study Computer networks?	Why study Computer networks? Modern software and AI systems are inherently networked — web/mobile applications, cloud platforms, databases, APIs, and intelligent services all depend on connectivity.  Networking is fundam	EE-347-Computer_Networks_A_2K25-BSAI-2::Why_study_Computer_networks?

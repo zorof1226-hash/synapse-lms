@@ -1,0 +1,162 @@
+What is Source?	William Stallings, Cryptography and Network Security: Principles and Practice, 7th Edition, published by Pearson Education, Inc., publishing as Prentice Hall, 2017.	CS-353-Information_Security_A_2K25-BSAI-2::CHAPTER_4_Block_Ciphers_and_Data_Encryption_Standard_(DES)
+What is A block cipher?	type of symmetric encryption which operates on blocks of data. Modern block ciphers typically use a block length of 64,128, 256 bits	CS-353-Information_Security_A_2K25-BSAI-2::Block_Cipher
+What is Confusion?	making the relationship between the key and the ciphertext as complex and involved as possible	CS-353-Information_Security_A_2K25-BSAI-2::Block_Ciphers_Properties
+What is Diffusion?	the property that redundancy in the statistics of the plaintext is "dissipated" in the statistics of the ciphertext	CS-353-Information_Security_A_2K25-BSAI-2::Block_Ciphers_Properties
+What is S-P network?	a special form of substitution-transposition product cipher	CS-353-Information_Security_A_2K25-BSAI-2::Slide_13
+What is Substitution?	Permutation (S-P) networks form the basis of modern block ciphers.	CS-353-Information_Security_A_2K25-BSAI-2::Block_Cipher_Principles
+What is Data encrypted in 64?	bit blocks using a 56-bit key (effective key); Ciphertext is of 64-bit long	CS-353-Information_Security_A_2K25-BSAI-2::DES_–_Data_Encryption_Standard
+What is Data?	need to be broken into 64-bit blocks; add pad bits at the last message if necessary.	CS-353-Information_Security_A_2K25-BSAI-2::Input_of_DES
+What is DES operates on 64?	bit blocks of plaintext. After an initial permutation the block is broken into right half and left half, each being 32 bits long	CS-353-Information_Security_A_2K25-BSAI-2::Description
+What is Takes 32?	bit R half and 48-bit sub-key and:	CS-353-Information_Security_A_2K25-BSAI-2::DES_Round_Structure
+What is Permutation?	size of input and output are the same; used in DES’ Initial permutation, Inverse permutation, etc	CS-353-Information_Security_A_2K25-BSAI-2::Permutation
+What is Expansion?	size of output is greater than input stream, some input bits appear at two places in output	CS-353-Information_Security_A_2K25-BSAI-2::Permutation
+What is Compression box?	size of output is smaller than input stream, then some input stream will not appear in the output	CS-353-Information_Security_A_2K25-BSAI-2::Permutation
+What is There are 8 S?	boxes in DES, each accepts a 6-bit input and returns a 4-bit output	CS-353-Information_Security_A_2K25-BSAI-2::Substitution
+What is Consider a 48?	bit input stream, first 6 bits input will be input to the first S box, next 6 bits will be for the second S box, and so on.	CS-353-Information_Security_A_2K25-BSAI-2::Substitution
+What is Analyze real?	world scenarios from an information security perspective and model them using different security measures.	CS-353-Information_Security_A_2K25-BSAI-2::Course_Learning_Objectives
+What is Ref?	elearningindustry.com/modern-student-learning-life-infographic	CS-353-Information_Security_A_2K25-BSAI-2::The_Learning_Life
+What is This?	classic example of an unintentional breach of availability.	CS-353-Information_Security_A_2K25-BSAI-2::The_Power_Outage
+What is The email?	scam. The hacker is not directly trying to steal data (yet); their immediate goal is to deceive the student into believing the email is authentic.	CS-353-Information_Security_A_2K25-BSAI-2::The_Deceiving_Email
+What is Examples?	password, ACL, firewall	CS-353-Information_Security_A_2K25-BSAI-2::Eight_Security_Dimensions_Address_the_Breadth_of_Vulnerabilities
+What is MPLS  Multi?	Protocol Label Switching	CS-353-Information_Security_A_2K25-BSAI-2::Eight_Security_Dimensions_Address_the_Breadth_of_Vulnerabilities
+What is Source?	Whitman, M. E., & Mattord, H. J. (2018). Principles of information security (7th ed.). Cengage Learning.	CS-353-Information_Security_A_2K25-BSAI-2::History_of_Information_Security
+What is Active Attacks?	These involve the attacker trying to modify, disrupt, or destroy information or services. The goal is to change the state of the system.	CS-353-Information_Security_A_2K25-BSAI-2::Active_vs._Passive_Attacks
+What is Example?	A Denial of Service (DoS) attack that floods a server with traffic to make a website unavailable is an active attack. A hacker changing a student's grade in a database is also an active attack.	CS-353-Information_Security_A_2K25-BSAI-2::Active_vs._Passive_Attacks
+What is Passive Attacks?	These involve the attacker trying to monitor or eavesdrop on a system or network without changing anything. The goal is to gain information without being detected.	CS-353-Information_Security_A_2K25-BSAI-2::Active_vs._Passive_Attacks
+What is Bottom-Up Approach?	system administrator improves system security. (lack of participation, better management against threats)	CS-353-Information_Security_A_2K25-BSAI-2::Approaches_to_Information_Security_Implementation
+What is Top-Down Approach?	CEO develops the policy, management implements it and development team trains the users (part of SDLC).	CS-353-Information_Security_A_2K25-BSAI-2::Approaches_to_Information_Security_Implementation
+What is Chief Information Officer?	The CIO is primarily responsible for advising the Chief Executive Officer (CEO),on strategic planning that affects the management of information in the organization.	CS-353-Information_Security_A_2K25-BSAI-2::Security_Professionals_and_the_Organization
+What is Security policy developers?	People who understand the organizational culture, existing policies, and requirements for developing and implementing successful policies.	CS-353-Information_Security_A_2K25-BSAI-2::Security_Professionals_and_the_Organization
+What is Risk assessment specialists?	People who understand financial risk assessment techniques, the value of organizational assets, and the security methods to be used .	CS-353-Information_Security_A_2K25-BSAI-2::Security_Professionals_and_the_Organization
+What is Source?	Whitman, M. E., & Mattord, H. J. (2018). Principles of information security (7th ed.). Cengage Learning.	CS-353-Information_Security_A_2K25-BSAI-2::●cryptanalysis_→_the_process_of_obtaining_the
+What is Example?	In a “three-character substitution to the right”	CS-353-Information_Security_A_2K25-BSAI-2::Cipher_Methods
+What is Shift cipher?	each letter is replaced by shifting alphabets few positions to the right. i.e. shift of 1,2,3,5..	CS-353-Information_Security_A_2K25-BSAI-2::Mono-alphabetic_cipher
+What is PT?	larger key size means greater security	CS-353-Information_Security_A_2K25-BSAI-2::Mono-alphabetic_cipher
+What is CT?	WKJHV JUVZO DGVQV KNOHJ VKIVJ OVPXJ DIZ	CS-353-Information_Security_A_2K25-BSAI-2::Mono-alphabetic_cipher
+What is Initial alphabet?	ABCDEFGHIJKLMNOPQRSTUVWXYZ	CS-353-Information_Security_A_2K25-BSAI-2::12
+What is Table 8?	2 can be used in different ways, e.g.:	CS-353-Information_Security_A_2K25-BSAI-2::Table_8-2_can_be_used_in_different_ways,_e.g.:
+What is the total message?	multiple of 8 bytes (or 16 hexadecimal digits, or 64 bits).	CS-353-Information_Security_A_2K25-BSAI-2::some_extra_bytes_at_the_tail_end_for_the_encryption._Once_the_encrypted_message_
+What is Example?	Let M be the plain text message M = 0123456789ABCDEF, where M is in	CS-353-Information_Security_A_2K25-BSAI-2::some_extra_bytes_at_the_tail_end_for_the_encryption._Once_the_encrypted_message_
+What is Step 1?	Create 16 subkeys, each of which is 48-bits long.	CS-353-Information_Security_A_2K25-BSAI-2::Example:_Let_K_be_the_hexadecimal_key_K_=_133457799BBCDFF1._This_gives_us_as_the
+What is The 64?	bit key is permuted according to the following table, PC-1. Since the first entry	CS-353-Information_Security_A_2K25-BSAI-2::Example:_Let_K_be_the_hexadecimal_key_K_=_133457799BBCDFF1._This_gives_us_as_the
+What is Step 2?	Encode each 64-bit block of data.	CS-353-Information_Security_A_2K25-BSAI-2::K9_=_111000_001101_101111_101011_111011_011110_011110_000001
+What is where each Bi?	group of six bits. We now calculate	CS-353-Information_Security_A_2K25-BSAI-2::We_have_not_yet_finished_calculating_the_function_f_._To_this_point_we_have_expa
+What is Triple?	DES is just DES with two 56-bit keys applied. Given a plaintext message, the first	CS-353-Information_Security_A_2K25-BSAI-2::with_a_longer_key;_there_isn't_enough_silicon_in_the_galaxy_or_enough_time_befor
+What is Homepage?	http://orlingrabbe.com/	CS-353-Information_Security_A_2K25-BSAI-2::with_a_longer_key;_there_isn't_enough_silicon_in_the_galaxy_or_enough_time_befor
+What is Laissez Faire City Times?	http://zolatimes.com/	CS-353-Information_Security_A_2K25-BSAI-2::with_a_longer_key;_there_isn't_enough_silicon_in_the_galaxy_or_enough_time_befor
+What is Source?	William Stallings, Cryptography and Network Security: Principles and Practice, 7th Edition, published by Pearson Education, Inc., publishing as Prentice Hall, 2017.	CS-353-Information_Security_A_2K25-BSAI-2::CHAPTER_4_Block_Ciphers_and_Data_Encryption_Standard_(DES)
+
+CHAPTER_6_Advanced_E
+What is A block cipher?	type of symmetric encryption which operates on blocks of data. Modern block ciphers typically use a block length of 128 bits or more	CS-353-Information_Security_A_2K25-BSAI-2::Block_Cipher
+What is Confusion?	making the relationship between the key and the ciphertext as complex and involved as possible	CS-353-Information_Security_A_2K25-BSAI-2::Block_Ciphers_Properties
+What is Diffusion?	the property that redundancy in the statistics of the plaintext is "dissipated" in the statistics of the ciphertext	CS-353-Information_Security_A_2K25-BSAI-2::Block_Ciphers_Properties
+What is S-P network?	a special form of substitution-transposition product cipher	CS-353-Information_Security_A_2K25-BSAI-2::Slide_13
+What is Substitution?	Permutation (S-P) networks form the basis of modern block ciphers.	CS-353-Information_Security_A_2K25-BSAI-2::Block_Cipher_Principles
+What is Data encrypted in 64?	bit blocks using a 56-bit key (effective key); Ciphertext is of 64-bit long	CS-353-Information_Security_A_2K25-BSAI-2::DES_–_Data_Encryption_Standard
+What is Data?	need to be broken into 64-bit blocks; add pad bits at the last message if necessary.	CS-353-Information_Security_A_2K25-BSAI-2::Input_of_DES
+What is DES operates on 64?	bit blocks of plaintext. After an initial permutation the block is broken into right half and left half, each being 32 bits long	CS-353-Information_Security_A_2K25-BSAI-2::Description
+What is Takes 32?	bit R half and 48-bit sub-key and:	CS-353-Information_Security_A_2K25-BSAI-2::DES_Round_Structure
+What is Permutation?	size of input and output are the same; used in DES’ Initial permutation, Inverse permutation, etc	CS-353-Information_Security_A_2K25-BSAI-2::Permutation
+What is Expansion?	size of output is greater than input stream, some input bits appear at two places in output	CS-353-Information_Security_A_2K25-BSAI-2::Permutation
+What is Compression box?	size of output is smaller than input stream, then some input stream will not appear in the output	CS-353-Information_Security_A_2K25-BSAI-2::Permutation
+What is There are 8 S?	boxes in DES, each accepts a 6-bit input and returns a 4-bit output	CS-353-Information_Security_A_2K25-BSAI-2::Substitution
+What is Consider a 48?	bit input stream, first 6 bits input will be input to the first S box, next 6 bits will be for the second S box, and so on.	CS-353-Information_Security_A_2K25-BSAI-2::Substitution
+What is Source?	Whitman, M. E., & Mattord, H. J. (2018). Principles of information security (7th ed.). Cengage Learning.	CS-353-Information_Security_A_2K25-BSAI-2::●cryptanalysis_→_the_process_of_obtaining_the
+What is Example?	In a “three-character substitution to the right”	CS-353-Information_Security_A_2K25-BSAI-2::Cipher_Methods
+What is Shift cipher?	each letter is replaced by shifting alphabets few positions to the right. i.e. shift of 1,2,3,5..	CS-353-Information_Security_A_2K25-BSAI-2::Mono-alphabetic_cipher
+What is PT?	larger key size means greater security	CS-353-Information_Security_A_2K25-BSAI-2::Mono-alphabetic_cipher
+What is CT?	WKJHV JUVZO DGVQV KNOHJ VKIVJ OVPXJ DIZ	CS-353-Information_Security_A_2K25-BSAI-2::Mono-alphabetic_cipher
+What is Initial alphabet?	ABCDEFGHIJKLMNOPQRSTUVWXYZ	CS-353-Information_Security_A_2K25-BSAI-2::11
+What is Table 8?	2 can be used in different ways, e.g.:	CS-353-Information_Security_A_2K25-BSAI-2::Table_8-2_can_be_used_in_different_ways,_e.g.:
+What is English language?	Relative Letter Frequencies	CS-353-Information_Security_A_2K25-BSAI-2::English_language_:_Relative_Letter_Frequencies
+What is The Affine cipher?	monoalphabetic substitution cipher. It is similar	CS-353-Information_Security_A_2K25-BSAI-2::Affine_Cipher
+What is We normally use?	A=0, B=1, C=2,…,Z=25	CS-353-Information_Security_A_2K25-BSAI-2::Affine_Cipher
+What is After k?	1 is found, it is easy to find the corresponding plaintext, which is “JULY” in our case.	CS-353-Information_Security_A_2K25-BSAI-2::The_Hill_Cipher
+What is Step 2?	Apply transposition (rearrange columns) based on	CS-353-Information_Security_A_2K25-BSAI-2::Transposition_Cipher
+What is Step 3?	Read cipher text, row wise	CS-353-Information_Security_A_2K25-BSAI-2::Transposition_Cipher
+What is Plain Text?	SACK GAUL SPARE NO ONE	CS-353-Information_Security_A_2K25-BSAI-2::Transposition_Cipher
+What is Step1?	Write down your plaintext in the form of	CS-353-Information_Security_A_2K25-BSAI-2::Transposition_Cipher
+What is Use of AI?	Direct copy-pasting from AI tools is strictly prohibited and will result in zero marks. AI tools may only be	CS-353-Information_Security_A_2K25-BSAI-2::INFORMATION_SECURITY_LAB_GUIDELINES_&_POLICY
+What is Plagiarism Policy?	Plagiarism is strictly not allowed. If any two lab reports are found to be similar, zero marks will be	CS-353-Information_Security_A_2K25-BSAI-2::INFORMATION_SECURITY_LAB_GUIDELINES_&_POLICY
+Explain the principle of INFORMATION SECURITY LAB GUIDELINES & POLICY	INFORMATION SECURITY LAB GUIDELINES & POLICY 1. Lab Timings & Attendance : The lab starts at 9:00 AM, so all students must arrive on time. Attendance may be taken at any time between 9:15 AM to 9:30 AM or right after exp	CS-353-Information_Security_A_2K25-BSAI-2::INFORMATION_SECURITY_LAB_GUIDELINES_&_POLICY
+What is Source?	William Stallings, Cryptography and Network Security: Principles and Practice, 7th Edition, published by Pearson Education, Inc., publishing as Prentice Hall, 2017.	CS-353-Information_Security_A_2K25-BSAI-2::CHAPTER_4_Block_Ciphers_and_Data_Encryption_Standard_(DES)
+What is A block cipher?	type of symmetric encryption which operates on blocks of data. Modern block ciphers typically use a block length of 64,128, 256 bits	CS-353-Information_Security_A_2K25-BSAI-2::Block_Cipher
+What is Confusion?	making the relationship between the key and the ciphertext as complex and involved as possible	CS-353-Information_Security_A_2K25-BSAI-2::Block_Ciphers_Properties
+What is Diffusion?	the property that redundancy in the statistics of the plaintext is "dissipated" in the statistics of the ciphertext	CS-353-Information_Security_A_2K25-BSAI-2::Block_Ciphers_Properties
+What is S-P network?	a special form of substitution-transposition product cipher	CS-353-Information_Security_A_2K25-BSAI-2::Slide_13
+What is Substitution?	Permutation (S-P) networks form the basis of modern block ciphers.	CS-353-Information_Security_A_2K25-BSAI-2::Block_Cipher_Principles
+What is Data encrypted in 64?	bit blocks using a 56-bit key (effective key); Ciphertext is of 64-bit long	CS-353-Information_Security_A_2K25-BSAI-2::DES_–_Data_Encryption_Standard
+What is Data?	need to be broken into 64-bit blocks; add pad bits at the last message if necessary.	CS-353-Information_Security_A_2K25-BSAI-2::Input_of_DES
+What is DES operates on 64?	bit blocks of plaintext. After an initial permutation the block is broken into right half and left half, each being 32 bits long	CS-353-Information_Security_A_2K25-BSAI-2::Description
+What is Takes 32?	bit R half and 48-bit sub-key and:	CS-353-Information_Security_A_2K25-BSAI-2::DES_Round_Structure
+What is Permutation?	size of input and output are the same; used in DES’ Initial permutation, Inverse permutation, etc	CS-353-Information_Security_A_2K25-BSAI-2::Permutation
+What is Expansion?	size of output is greater than input stream, some input bits appear at two places in output	CS-353-Information_Security_A_2K25-BSAI-2::Permutation
+What is Compression box?	size of output is smaller than input stream, then some input stream will not appear in the output	CS-353-Information_Security_A_2K25-BSAI-2::Permutation
+What is There are 8 S?	boxes in DES, each accepts a 6-bit input and returns a 4-bit output	CS-353-Information_Security_A_2K25-BSAI-2::Substitution
+What is Consider a 48?	bit input stream, first 6 bits input will be input to the first S box, next 6 bits will be for the second S box, and so on.	CS-353-Information_Security_A_2K25-BSAI-2::Substitution
+What is Analyze real?	world scenarios from an information security perspective and model them using different security measures.	CS-353-Information_Security_A_2K25-BSAI-2::Course_Learning_Objectives
+What is Ref?	elearningindustry.com/modern-student-learning-life-infographic	CS-353-Information_Security_A_2K25-BSAI-2::The_Learning_Life
+What is This?	classic example of an unintentional breach of availability.	CS-353-Information_Security_A_2K25-BSAI-2::The_Power_Outage
+What is The email?	scam. The hacker is not directly trying to steal data (yet); their immediate goal is to deceive the student into believing the email is authentic.	CS-353-Information_Security_A_2K25-BSAI-2::The_Deceiving_Email
+What is Examples?	password, ACL, firewall	CS-353-Information_Security_A_2K25-BSAI-2::Eight_Security_Dimensions_Address_the_Breadth_of_Vulnerabilities
+What is MPLS  Multi?	Protocol Label Switching	CS-353-Information_Security_A_2K25-BSAI-2::Eight_Security_Dimensions_Address_the_Breadth_of_Vulnerabilities
+What is Source?	Whitman, M. E., & Mattord, H. J. (2018). Principles of information security (7th ed.). Cengage Learning.	CS-353-Information_Security_A_2K25-BSAI-2::History_of_Information_Security
+What is Active Attacks?	These involve the attacker trying to modify, disrupt, or destroy information or services. The goal is to change the state of the system.	CS-353-Information_Security_A_2K25-BSAI-2::Active_vs._Passive_Attacks
+What is Example?	A Denial of Service (DoS) attack that floods a server with traffic to make a website unavailable is an active attack. A hacker changing a student's grade in a database is also an active attack.	CS-353-Information_Security_A_2K25-BSAI-2::Active_vs._Passive_Attacks
+What is Passive Attacks?	These involve the attacker trying to monitor or eavesdrop on a system or network without changing anything. The goal is to gain information without being detected.	CS-353-Information_Security_A_2K25-BSAI-2::Active_vs._Passive_Attacks
+What is Bottom-Up Approach?	system administrator improves system security. (lack of participation, better management against threats)	CS-353-Information_Security_A_2K25-BSAI-2::Approaches_to_Information_Security_Implementation
+What is Top-Down Approach?	CEO develops the policy, management implements it and development team trains the users (part of SDLC).	CS-353-Information_Security_A_2K25-BSAI-2::Approaches_to_Information_Security_Implementation
+What is Chief Information Officer?	The CIO is primarily responsible for advising the Chief Executive Officer (CEO),on strategic planning that affects the management of information in the organization.	CS-353-Information_Security_A_2K25-BSAI-2::Security_Professionals_and_the_Organization
+What is Security policy developers?	People who understand the organizational culture, existing policies, and requirements for developing and implementing successful policies.	CS-353-Information_Security_A_2K25-BSAI-2::Security_Professionals_and_the_Organization
+What is Risk assessment specialists?	People who understand financial risk assessment techniques, the value of organizational assets, and the security methods to be used .	CS-353-Information_Security_A_2K25-BSAI-2::Security_Professionals_and_the_Organization
+What is Source?	Whitman, M. E., & Mattord, H. J. (2018). Principles of information security (7th ed.). Cengage Learning.	CS-353-Information_Security_A_2K25-BSAI-2::●cryptanalysis_→_the_process_of_obtaining_the
+What is Example?	In a “three-character substitution to the right”	CS-353-Information_Security_A_2K25-BSAI-2::Cipher_Methods
+What is Shift cipher?	each letter is replaced by shifting alphabets few positions to the right. i.e. shift of 1,2,3,5..	CS-353-Information_Security_A_2K25-BSAI-2::Mono-alphabetic_cipher
+What is PT?	larger key size means greater security	CS-353-Information_Security_A_2K25-BSAI-2::Mono-alphabetic_cipher
+What is CT?	WKJHV JUVZO DGVQV KNOHJ VKIVJ OVPXJ DIZ	CS-353-Information_Security_A_2K25-BSAI-2::Mono-alphabetic_cipher
+What is Initial alphabet?	ABCDEFGHIJKLMNOPQRSTUVWXYZ	CS-353-Information_Security_A_2K25-BSAI-2::12
+What is Table 8?	2 can be used in different ways, e.g.:	CS-353-Information_Security_A_2K25-BSAI-2::Table_8-2_can_be_used_in_different_ways,_e.g.:
+What is the total message?	multiple of 8 bytes (or 16 hexadecimal digits, or 64 bits).	CS-353-Information_Security_A_2K25-BSAI-2::some_extra_bytes_at_the_tail_end_for_the_encryption._Once_the_encrypted_message_
+What is Example?	Let M be the plain text message M = 0123456789ABCDEF, where M is in	CS-353-Information_Security_A_2K25-BSAI-2::some_extra_bytes_at_the_tail_end_for_the_encryption._Once_the_encrypted_message_
+What is Step 1?	Create 16 subkeys, each of which is 48-bits long.	CS-353-Information_Security_A_2K25-BSAI-2::Example:_Let_K_be_the_hexadecimal_key_K_=_133457799BBCDFF1._This_gives_us_as_the
+What is The 64?	bit key is permuted according to the following table, PC-1. Since the first entry	CS-353-Information_Security_A_2K25-BSAI-2::Example:_Let_K_be_the_hexadecimal_key_K_=_133457799BBCDFF1._This_gives_us_as_the
+What is Step 2?	Encode each 64-bit block of data.	CS-353-Information_Security_A_2K25-BSAI-2::K9_=_111000_001101_101111_101011_111011_011110_011110_000001
+What is where each Bi?	group of six bits. We now calculate	CS-353-Information_Security_A_2K25-BSAI-2::We_have_not_yet_finished_calculating_the_function_f_._To_this_point_we_have_expa
+What is Triple?	DES is just DES with two 56-bit keys applied. Given a plaintext message, the first	CS-353-Information_Security_A_2K25-BSAI-2::with_a_longer_key;_there_isn't_enough_silicon_in_the_galaxy_or_enough_time_befor
+What is Homepage?	http://orlingrabbe.com/	CS-353-Information_Security_A_2K25-BSAI-2::with_a_longer_key;_there_isn't_enough_silicon_in_the_galaxy_or_enough_time_befor
+What is Laissez Faire City Times?	http://zolatimes.com/	CS-353-Information_Security_A_2K25-BSAI-2::with_a_longer_key;_there_isn't_enough_silicon_in_the_galaxy_or_enough_time_befor
+What is Source?	William Stallings, Cryptography and Network Security: Principles and Practice, 7th Edition, published by Pearson Education, Inc., publishing as Prentice Hall, 2017.	CS-353-Information_Security_A_2K25-BSAI-2::CHAPTER_4_Block_Ciphers_and_Data_Encryption_Standard_(DES)
+
+CHAPTER_6_Advanced_E
+What is A block cipher?	type of symmetric encryption which operates on blocks of data. Modern block ciphers typically use a block length of 128 bits or more	CS-353-Information_Security_A_2K25-BSAI-2::Block_Cipher
+What is Confusion?	making the relationship between the key and the ciphertext as complex and involved as possible	CS-353-Information_Security_A_2K25-BSAI-2::Block_Ciphers_Properties
+What is Diffusion?	the property that redundancy in the statistics of the plaintext is "dissipated" in the statistics of the ciphertext	CS-353-Information_Security_A_2K25-BSAI-2::Block_Ciphers_Properties
+What is S-P network?	a special form of substitution-transposition product cipher	CS-353-Information_Security_A_2K25-BSAI-2::Slide_13
+What is Substitution?	Permutation (S-P) networks form the basis of modern block ciphers.	CS-353-Information_Security_A_2K25-BSAI-2::Block_Cipher_Principles
+What is Data encrypted in 64?	bit blocks using a 56-bit key (effective key); Ciphertext is of 64-bit long	CS-353-Information_Security_A_2K25-BSAI-2::DES_–_Data_Encryption_Standard
+What is Data?	need to be broken into 64-bit blocks; add pad bits at the last message if necessary.	CS-353-Information_Security_A_2K25-BSAI-2::Input_of_DES
+What is DES operates on 64?	bit blocks of plaintext. After an initial permutation the block is broken into right half and left half, each being 32 bits long	CS-353-Information_Security_A_2K25-BSAI-2::Description
+What is Takes 32?	bit R half and 48-bit sub-key and:	CS-353-Information_Security_A_2K25-BSAI-2::DES_Round_Structure
+What is Permutation?	size of input and output are the same; used in DES’ Initial permutation, Inverse permutation, etc	CS-353-Information_Security_A_2K25-BSAI-2::Permutation
+What is Expansion?	size of output is greater than input stream, some input bits appear at two places in output	CS-353-Information_Security_A_2K25-BSAI-2::Permutation
+What is Compression box?	size of output is smaller than input stream, then some input stream will not appear in the output	CS-353-Information_Security_A_2K25-BSAI-2::Permutation
+What is There are 8 S?	boxes in DES, each accepts a 6-bit input and returns a 4-bit output	CS-353-Information_Security_A_2K25-BSAI-2::Substitution
+What is Consider a 48?	bit input stream, first 6 bits input will be input to the first S box, next 6 bits will be for the second S box, and so on.	CS-353-Information_Security_A_2K25-BSAI-2::Substitution
+What is Source?	Whitman, M. E., & Mattord, H. J. (2018). Principles of information security (7th ed.). Cengage Learning.	CS-353-Information_Security_A_2K25-BSAI-2::●cryptanalysis_→_the_process_of_obtaining_the
+What is Example?	In a “three-character substitution to the right”	CS-353-Information_Security_A_2K25-BSAI-2::Cipher_Methods
+What is Shift cipher?	each letter is replaced by shifting alphabets few positions to the right. i.e. shift of 1,2,3,5..	CS-353-Information_Security_A_2K25-BSAI-2::Mono-alphabetic_cipher
+What is PT?	larger key size means greater security	CS-353-Information_Security_A_2K25-BSAI-2::Mono-alphabetic_cipher
+What is CT?	WKJHV JUVZO DGVQV KNOHJ VKIVJ OVPXJ DIZ	CS-353-Information_Security_A_2K25-BSAI-2::Mono-alphabetic_cipher
+What is Initial alphabet?	ABCDEFGHIJKLMNOPQRSTUVWXYZ	CS-353-Information_Security_A_2K25-BSAI-2::11
+What is Table 8?	2 can be used in different ways, e.g.:	CS-353-Information_Security_A_2K25-BSAI-2::Table_8-2_can_be_used_in_different_ways,_e.g.:
+What is English language?	Relative Letter Frequencies	CS-353-Information_Security_A_2K25-BSAI-2::English_language_:_Relative_Letter_Frequencies
+What is The Affine cipher?	monoalphabetic substitution cipher. It is similar	CS-353-Information_Security_A_2K25-BSAI-2::Affine_Cipher
+What is We normally use?	A=0, B=1, C=2,…,Z=25	CS-353-Information_Security_A_2K25-BSAI-2::Affine_Cipher
+What is After k?	1 is found, it is easy to find the corresponding plaintext, which is “JULY” in our case.	CS-353-Information_Security_A_2K25-BSAI-2::The_Hill_Cipher
+What is Step 2?	Apply transposition (rearrange columns) based on	CS-353-Information_Security_A_2K25-BSAI-2::Transposition_Cipher
+What is Step 3?	Read cipher text, row wise	CS-353-Information_Security_A_2K25-BSAI-2::Transposition_Cipher
+What is Plain Text?	SACK GAUL SPARE NO ONE	CS-353-Information_Security_A_2K25-BSAI-2::Transposition_Cipher
+What is Step1?	Write down your plaintext in the form of	CS-353-Information_Security_A_2K25-BSAI-2::Transposition_Cipher
+What is Use of AI?	Direct copy-pasting from AI tools is strictly prohibited and will result in zero marks. AI tools may only be	CS-353-Information_Security_A_2K25-BSAI-2::INFORMATION_SECURITY_LAB_GUIDELINES_&_POLICY
+What is Plagiarism Policy?	Plagiarism is strictly not allowed. If any two lab reports are found to be similar, zero marks will be	CS-353-Information_Security_A_2K25-BSAI-2::INFORMATION_SECURITY_LAB_GUIDELINES_&_POLICY
+Explain the principle of INFORMATION SECURITY LAB GUIDELINES & POLICY	INFORMATION SECURITY LAB GUIDELINES & POLICY 1. Lab Timings & Attendance : The lab starts at 9:00 AM, so all students must arrive on time. Attendance may be taken at any time between 9:15 AM to 9:30 AM or right after exp	CS-353-Information_Security_A_2K25-BSAI-2::INFORMATION_SECURITY_LAB_GUIDELINES_&_POLICY
