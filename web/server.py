@@ -267,6 +267,62 @@ def add_exam(course_id: str = Form(...), exam_title: str = Form(...),
     exam_id = exam_engine.add_exam(course_id, exam_title, exam_date, target_score, notes)
     return {"status": "success", "exam_id": exam_id}
 
+@app.delete("/api/mcqs/heuristic")
+def delete_low_quality_mcqs(course_id: Optional[str] = None):
+    """Purges all low-quality, template, or administrative MCQs and flashcards from database."""
+    from generation.quality_filter import QualityFilter
+    qf = QualityFilter()
+    course_filter = None if (course_id == "all" or not course_id) else course_id
+
+    with db.get_connection() as conn:
+        cur = conn.cursor()
+        if course_filter:
+            cur.execute("SELECT id, question, options, answer_idx, source FROM mcqs WHERE course_id = ?", (course_filter,))
+        else:
+            cur.execute("SELECT id, question, options, answer_idx, source FROM mcqs")
+        mcqs = [dict(r) for r in cur.fetchall()]
+
+        bad_mcq_ids = []
+        for m in mcqs:
+            try:
+                opts = json.loads(m["options"]) if isinstance(m["options"], str) else m["options"]
+            except Exception:
+                opts = []
+            formatted = [{
+                "q": m["question"],
+                "options": opts,
+                "answer": m["answer_idx"],
+                "source": m["source"]
+            }]
+            if not qf.filter_mcqs(formatted):
+                bad_mcq_ids.append(m["id"])
+
+        if course_filter:
+            cur.execute("SELECT id, front, back FROM flashcards WHERE course_id = ?", (course_filter,))
+        else:
+            cur.execute("SELECT id, front, back FROM flashcards")
+        cards = [dict(r) for r in cur.fetchall()]
+
+        bad_card_ids = []
+        for c in cards:
+            formatted = [{"front": c["front"], "back": c["back"]}]
+            if not qf.filter_flashcards(formatted):
+                bad_card_ids.append(c["id"])
+
+        if bad_mcq_ids:
+            cur.executemany("DELETE FROM mcqs WHERE id = ?", [(i,) for i in bad_mcq_ids])
+        if bad_card_ids:
+            cur.executemany("DELETE FROM flashcards WHERE id = ?", [(i,) for i in bad_card_ids])
+
+        conn.commit()
+
+    return {
+        "status": "success",
+        "deleted_mcqs": len(bad_mcq_ids),
+        "deleted_flashcards": len(bad_card_ids),
+        "message": f"Purged {len(bad_mcq_ids)} low-quality MCQs and {len(bad_card_ids)} flashcards."
+    }
+
 @app.get("/api/mock_exam")
 def get_mock_exam(course_id: str, question_count: int = 15, time_limit_minutes: int = 25):
     return exam_engine.generate_mock_exam(course_id, question_count, time_limit_minutes)

@@ -7,14 +7,19 @@ from config import GEMINI_API_KEY, OPENAI_API_KEY
 
 STRICT_STUDY_PROMPT = """
 You are an expert university professor and exam creator.
-Analyze the following lecture chunks and generate high-yield study materials in strict JSON.
+Analyze the following lecture chunks and generate high-yield, academically rigorous study materials in strict JSON.
 
-CRITICAL INSTRUCTIONS:
-1. Grounding: Only use facts explicitly stated in the provided text. Never hallucinate.
-2. Citations: Every MCQ and Short Answer must include the exact source citation (e.g. "{lecture_title}, Slide 4").
-3. Question Quality: MCQs must have exactly 4 plausible options, with strictly ONE unambiguously correct answer.
-4. Generate at least 10 MCQs and 15 flashcards. More is better.
-5. Output Schema: You MUST respond ONLY with valid, parseable JSON matching this schema:
+CRITICAL QUALITY CONSTRAINTS:
+1. Academic Rigor: Focus strictly on core scientific, algorithmic, mathematical, or theoretical concepts, mechanisms, and problem-solving.
+2. ABSOLUTELY NO ADMINISTRATIVE QUESTIONS: Never ask questions about instructors, office hours, grading percentages, credit hours, prerequisites, course codes, due dates, textbook editions, or syllabus policies.
+3. NO TRIVIAL META QUESTIONS: Never ask "What is on slide 1?", "What is the title of this lecture?", or cite slide numbers in the question stem itself.
+4. Plausible Distractors: Every MCQ must have exactly 4 plausible, realistic options. Distractors must reflect real common student misconceptions or closely related technical terms. NEVER provide joke, absurd, or obvious filler distractors (e.g. do NOT use "to avoid computational overhead" or "none of the above").
+5. Option Balance: All 4 options must be comparable in length and grammatical structure so the correct answer is not an obvious giveaway.
+6. Citations: Every MCQ and Short Answer must include the exact source citation (e.g. "{lecture_title}, Slide 4").
+7. Explanations: Detail why the correct option is true and clarify why the other options are false.
+8. Flashcards: Focus on high-yield definitions, fundamental principles, formulas, and conceptual contrasts. Never create flashcards for slide titles, agenda items, or administrative details.
+
+Output Schema: You MUST respond ONLY with valid, parseable JSON matching this schema:
 {{
   "summary": "High-level 2-3 paragraph summary synthesizing the lecture core themes.",
   "key_terms": [
@@ -46,12 +51,14 @@ MCQ_FOCUSED_PROMPT = """
 You are an expert university professor and exam creator for {course_id}.
 Analyze the following lecture content and generate exactly {count} high-yield, conceptual multiple choice questions in strict JSON.
 
-CRITICAL INSTRUCTIONS:
-1. Grounding: Only test facts, mechanisms, formulas, and concepts explicitly stated in the provided text. Never hallucinate.
-2. Question Quality: Each MCQ must test deep conceptual understanding, analytical thinking, or problem-solving.
-3. Options: Provide exactly 4 plausible, distinct options. Strictly ONE unambiguously correct answer.
-4. Explanations: Detail why the correct option is right and clarify the core principle.
-5. Citations: Include the exact source/slide reference whenever available.
+CRITICAL QUALITY CONSTRAINTS:
+1. Academic Rigor: Each MCQ must test deep conceptual understanding, analytical thinking, formula applications, or algorithmic problem-solving.
+2. ZERO ADMINISTRATIVE QUESTIONS: Never generate questions about course policies, instructors, office hours, grading weightage, deadlines, syllabus outlines, or prerequisites.
+3. ZERO TRIVIAL STEMS: Never start questions with "According to Slide X" or ask superficial presentation trivia.
+4. High-Yield Distractors: Provide exactly 4 plausible, distinct options. Distractors must be believable technical alternatives based on genuine student misconceptions. Never use joke options, "all of the above", or "none of the above".
+5. Balanced Length: Options must be roughly equal in length so the answer is never visually obvious.
+6. Detailed Explanations: Explain precisely why the correct answer holds and why the specific distractors are incorrect.
+7. Citations: Include the exact source/slide reference whenever available.
 
 Output Schema: Respond ONLY with valid, parseable JSON matching this schema:
 {{

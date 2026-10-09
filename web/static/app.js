@@ -8,9 +8,91 @@ let mockTimerInterval = null;
 let revisionModeActive = false;
 let flashcardRevisionModeActive = false;
 
+// ==================== DYNAMIC BACKEND CONFIGURATION ====================
+let API_BASE = "";
+if (window.location.hostname.includes("github.io") || window.location.protocol === "file:") {
+  API_BASE = localStorage.getItem("synapse_api_base") || "http://127.0.0.1:8000";
+}
+
+async function apiFetch(endpoint, options = {}) {
+  const url = endpoint.startsWith("http") ? endpoint : `${API_BASE}${endpoint}`;
+  try {
+    const res = await fetch(url, options);
+    const contentType = res.headers.get("content-type") || "";
+    
+    if (!contentType.includes("application/json")) {
+      const text = await res.text();
+      if (text.trim().startsWith("<")) {
+        const isGhPages = window.location.hostname.includes("github.io");
+        throw new Error(
+          isGhPages
+            ? `Cannot connect to SynapseLMS backend at ${url}.\n\n` +
+              `• You are viewing the GitHub Pages frontend.\n` +
+              `• Ensure your local backend is running ('python main.py run') at ${API_BASE}.\n` +
+              `• Click the 'Local (8000)' badge in the top right to change backend URL if needed.`
+            : `Backend returned HTML instead of JSON. Ensure the FastAPI server is running on port 8000.`
+        );
+      }
+      throw new Error(`Unexpected non-JSON response from server: ${text.slice(0, 150)}`);
+    }
+
+    const data = await res.json();
+    if (!res.ok) {
+      throw new Error(data.detail || data.message || `Server error (${res.status})`);
+    }
+    return data;
+  } catch (err) {
+    if (err.message.includes("Failed to fetch") || err.name === "TypeError") {
+      throw new Error(
+        `Backend unreachable at ${API_BASE || window.location.origin}.\n\n` +
+        `• Make sure 'python main.py run' is currently running in your terminal.\n` +
+        `• If you are accessing via browser, you can also open http://127.0.0.1:8000 directly.`
+      );
+    }
+    throw err;
+  }
+}
+
+function updateBackendStatus() {
+  const pill = document.getElementById("backendStatusLabel");
+  const dot = document.getElementById("backendStatusDot");
+  if (!pill) return;
+  if (!API_BASE) {
+    pill.textContent = "Local (8000)";
+    if (dot) dot.className = "status-dot online";
+  } else {
+    const cleanDisplay = API_BASE.replace(/^https?:\/\//, "");
+    pill.textContent = cleanDisplay.length > 18 ? cleanDisplay.slice(0, 15) + "..." : cleanDisplay;
+    fetch(`${API_BASE}/api/overview`)
+      .then(res => res.json())
+      .then(() => { if (dot) dot.className = "status-dot online"; })
+      .catch(() => { if (dot) dot.className = "status-dot offline"; });
+  }
+}
+
+function promptBackendUrl() {
+  const current = API_BASE || "http://127.0.0.1:8000";
+  const newUrl = prompt(
+    "Configure SynapseLMS Backend API URL:\n" +
+    "(e.g. http://127.0.0.1:8000 for your local machine, or your deployed cloud server)",
+    current
+  );
+  if (newUrl !== null) {
+    const cleanUrl = newUrl.trim().replace(/\/+$/, "");
+    localStorage.setItem("synapse_api_base", cleanUrl);
+    API_BASE = cleanUrl;
+    updateBackendStatus();
+    loadOverview();
+    loadCourses();
+    loadMCQs();
+    loadFlashcards();
+  }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   initTabs();
   initModals();
+  updateBackendStatus();
   loadOverview();
   loadCourses();
   loadMCQs();
@@ -34,7 +116,6 @@ function initTabs() {
       const targetContent = document.getElementById(targetId);
       if (targetContent) targetContent.classList.add("active");
 
-      // Specific tab triggers
       if (targetId === "tab-mcq") loadMCQs();
       if (targetId === "tab-flashcards") loadFlashcards();
       if (targetId === "tab-weak") loadWeakTopics();
@@ -47,16 +128,14 @@ function initTabs() {
 // ==================== COURSES & OVERVIEW ====================
 async function loadCourses() {
   try {
-    const res = await fetch("/api/courses");
-    const data = await res.json();
+    const data = await apiFetch("/api/courses");
     const selector = document.getElementById("courseSelector");
     const cheatSelect = document.getElementById("cheatSheetCourseSelect");
     
-    // Clear dynamic options
     selector.innerHTML = '<option value="all">📚 All Enrolled Courses</option>';
     cheatSelect.innerHTML = '';
 
-    data.courses.forEach(c => {
+    (data.courses || []).forEach(c => {
       const opt = document.createElement("option");
       opt.value = c;
       opt.textContent = `📖 ${c}`;
@@ -82,8 +161,7 @@ async function loadCourses() {
 
 async function loadOverview() {
   try {
-    const res = await fetch("/api/overview");
-    const data = await res.json();
+    const data = await apiFetch("/api/overview");
 
     document.getElementById("statFiles").textContent = data.stats.total_files || 0;
     document.getElementById("statMCQs").textContent = data.stats.total_mcqs || 0;
@@ -91,7 +169,6 @@ async function loadOverview() {
     document.getElementById("statAccuracy").textContent = `${data.stats.accuracy || 0}%`;
     document.getElementById("statExams").textContent = data.stats.upcoming_exams || 0;
 
-    // Deadline banner
     const banner = document.getElementById("deadlineBanner");
     if (data.deadlines && data.deadlines.length > 0) {
       banner.style.display = "block";
@@ -102,14 +179,13 @@ async function loadOverview() {
       banner.style.display = "none";
     }
 
-    // Exam countdown spotlight
     const examList = document.getElementById("overviewExamList");
     if (data.upcoming_exams && data.upcoming_exams.length > 0) {
       examList.innerHTML = data.upcoming_exams.map(ex => `
         <div class="exam-card">
           <div>
-            <strong>${ex.exam_title} (${ex.course_id})</strong>
-            <p class="text-muted">${ex.strategy}</p>
+            <strong>${escapeHtml(ex.exam_title)} (${escapeHtml(ex.course_id)})</strong>
+            <p class="text-muted">${escapeHtml(ex.strategy)}</p>
           </div>
           <div class="days-badge">${ex.days_left}d</div>
         </div>
@@ -123,14 +199,13 @@ async function loadOverview() {
 // ==================== QUIZ & MCQS ====================
 async function loadMCQs() {
   const container = document.getElementById("quizContainer");
-  container.innerHTML = '<div class="loading-spinner">Loading AI-generated lecture questions...</div>';
+  container.innerHTML = '<div class="loading-spinner">Loading high-yield lecture questions...</div>';
   revisionModeActive = false;
   document.getElementById("revisionModeBanner").style.display = "none";
 
   try {
-    const res = await fetch(`/api/mcqs?course_id=${currentCourse}&limit=10`);
-    const data = await res.json();
-    currentMCQs = data.questions;
+    const data = await apiFetch(`/api/mcqs?course_id=${currentCourse}&limit=10`);
+    currentMCQs = data.questions || [];
 
     if (!currentMCQs || currentMCQs.length === 0) {
       container.innerHTML = `
@@ -143,7 +218,7 @@ async function loadMCQs() {
 
     renderMCQCards(currentMCQs, container);
   } catch (err) {
-    container.innerHTML = `<div class="empty-state">Failed to load questions: ${err.message}</div>`;
+    container.innerHTML = `<div class="empty-state">Failed to load questions: ${escapeHtml(err.message)}</div>`;
   }
 }
 
@@ -171,11 +246,10 @@ async function generateTenMCQs() {
   formData.append("count", 10);
 
   try {
-    const res = await fetch("/api/mcqs/generate", {
+    const data = await apiFetch("/api/mcqs/generate", {
       method: "POST",
       body: formData
     });
-    const data = await res.json();
 
     if (data.status === "success" && data.questions && data.questions.length > 0) {
       currentMCQs = data.questions;
@@ -184,14 +258,13 @@ async function generateTenMCQs() {
     } else {
       container.innerHTML = `
         <div class="glass-panel text-center">
-          <h3>⚠️ Could Not Generate MCQs</h3>
-          <p class="text-muted">Please ensure you have configured a valid Gemini API key in your .env file.</p>
-          <button class="btn btn-primary" onclick="loadMCQs()" style="margin-top:0.8rem;">Load Existing Questions</button>
+          <h3>No lecture materials found</h3>
+          <p class="text-muted">${escapeHtml(data.message || "Please upload slides first.")}</p>
         </div>
       `;
     }
   } catch (err) {
-    container.innerHTML = `<div class="empty-state">Generation failed: ${err.message}</div>`;
+    container.innerHTML = `<div class="empty-state">Generation error: ${escapeHtml(err.message)}</div>`;
   } finally {
     btn.disabled = false;
     btn.innerHTML = origHtml;
@@ -200,402 +273,363 @@ async function generateTenMCQs() {
 
 async function enterRevisionMode() {
   const container = document.getElementById("quizContainer");
-  const banner = document.getElementById("revisionModeBanner");
-  container.innerHTML = '<div class="loading-spinner">Loading all MCQs from question bank...</div>';
+  container.innerHTML = '<div class="loading-spinner">Loading all historical questions...</div>';
   revisionModeActive = true;
 
   try {
-    const res = await fetch(`/api/mcqs/all?course_id=${currentCourse}&limit=100`);
-    const data = await res.json();
-    currentMCQs = data.questions;
+    const data = await apiFetch(`/api/mcqs/all?course_id=${currentCourse}&limit=100`);
+    currentMCQs = data.questions || [];
 
     if (!currentMCQs || currentMCQs.length === 0) {
-      container.innerHTML = `<div class="glass-panel text-center"><h3>No MCQs in the bank yet.</h3><p class="text-muted">Ingest lecture slides to generate AI MCQs first.</p></div>`;
-      banner.style.display = "none";
+      container.innerHTML = `
+        <div class="glass-panel text-center">
+          <h3>No historical questions found</h3>
+          <p class="text-muted">Generate or ingest questions first to practice in revision mode.</p>
+        </div>`;
       return;
     }
 
-    document.getElementById("revisionCount").textContent = currentMCQs.length;
+    const banner = document.getElementById("revisionModeBanner");
     banner.style.display = "block";
+    banner.textContent = `📖 Revision Mode: Practicing ${currentMCQs.length} Questions for ${currentCourse === 'all' ? 'All Courses' : currentCourse}`;
+
     renderMCQCards(currentMCQs, container);
   } catch (err) {
-    container.innerHTML = `<div class="empty-state">Error loading MCQs: ${err.message}</div>`;
+    container.innerHTML = `<div class="empty-state">Failed to load revision questions: ${escapeHtml(err.message)}</div>`;
   }
-}
-
-function exitRevisionMode() {
-  loadMCQs();
 }
 
 function renderMCQCards(questions, container) {
   container.innerHTML = questions.map((q, idx) => `
-    <div class="quiz-card" id="mcq-card-${q.id}">
-      <div class="quiz-meta">
-        <span class="tag-course">${q.course_id}</span>
-        <span class="tag-source">📍 ${q.source}</span>
-        <span class="text-muted">Topic: ${q.topic}</span>
-        ${q.generated_by === 'heuristic' ? '<span style="color:#f59e0b;font-size:0.75rem;">⚠️ Template</span>' : '<span style="color:#10b981;font-size:0.75rem;">✨ AI</span>'}
+    <div class="mcq-card" id="mcq-${q.id}">
+      <div class="mcq-header">
+        <span class="mcq-topic-tag">${escapeHtml(q.topic || 'General')}</span>
+        <span class="mcq-source-tag">📌 ${escapeHtml(q.source || 'Lecture Notes')}</span>
       </div>
-      <div class="quiz-question">${idx + 1}. ${escapeHtml(q.question)}</div>
-      <div class="quiz-options" id="opts-${q.id}">
-        ${q.options.map((opt, oIdx) => `
-          <button class="opt-btn" onclick="submitMCQAnswer(${q.id}, ${oIdx})">
-            <strong>${String.fromCharCode(65 + oIdx)}.</strong> ${escapeHtml(opt)}
+      <div class="mcq-question">${idx + 1}. ${escapeHtml(q.question)}</div>
+      <div class="mcq-options">
+        ${(q.options || []).map((opt, optIdx) => `
+          <button class="option-btn" onclick="submitAnswer(${q.id}, ${optIdx}, ${q.answer_idx})">
+            <span class="opt-letter">${String.fromCharCode(65 + optIdx)}</span>
+            <span class="opt-text">${escapeHtml(opt)}</span>
           </button>
         `).join("")}
       </div>
-      <div class="quiz-feedback" id="feedback-${q.id}" style="display: none;"></div>
+      <div class="mcq-explanation" id="exp-${q.id}">
+        <strong>💡 Explanation:</strong> ${escapeHtml(q.explanation || 'Refer to referenced lecture slide.')}
+        <div style="margin-top:0.8rem;">
+          <button class="btn btn-secondary btn-sm" onclick="explainLikeStuck(${q.id}, '${escapeHtml(q.topic || '')}')">
+            👶 Explain Like I'm Stuck (ELIS)
+          </button>
+        </div>
+      </div>
     </div>
   `).join("");
 }
 
-async function submitMCQAnswer(mcqId, chosenIdx) {
-  const feedbackEl = document.getElementById(`feedback-${mcqId}`);
-  const optsContainer = document.getElementById(`opts-${mcqId}`);
-  const btns = optsContainer.querySelectorAll(".opt-btn");
+async function submitAnswer(questionId, selectedIdx, correctIdx) {
+  const card = document.getElementById(`mcq-${questionId}`);
+  const buttons = card.querySelectorAll(".option-btn");
+  const exp = document.getElementById(`exp-${questionId}`);
 
-  btns.forEach(b => b.disabled = true);
+  buttons.forEach(b => b.disabled = true);
+  const isCorrect = (selectedIdx === correctIdx);
+
+  if (isCorrect) {
+    buttons[selectedIdx].classList.add("correct");
+  } else {
+    buttons[selectedIdx].classList.add("wrong");
+    buttons[correctIdx].classList.add("correct");
+  }
+
+  exp.classList.add("visible");
 
   const formData = new FormData();
-  formData.append("mcq_id", mcqId);
-  formData.append("user_answer", chosenIdx);
+  formData.append("question_id", questionId);
+  formData.append("selected_idx", selectedIdx);
+  formData.append("is_correct", isCorrect);
 
   try {
-    const res = await fetch("/api/mcq/attempt", { method: "POST", body: formData });
-    const result = await res.json();
-
-    btns[result.correct_answer].classList.add("correct");
-    if (!result.is_correct) {
-      btns[chosenIdx].classList.add("wrong");
-    }
-
-    feedbackEl.style.display = "block";
-    if (result.is_correct) {
-      feedbackEl.innerHTML = `
-        <p style="color: #34d399; font-weight: 600;">✅ Excellent! That's correct.</p>
-        <p class="text-muted" style="margin-top: 0.4rem;">${escapeHtml(result.explanation)}</p>
-      `;
-    } else {
-      feedbackEl.innerHTML = `
-        <p style="color: #f87171; font-weight: 600;">❌ Incorrect.</p>
-        <p class="text-muted" style="margin-top: 0.4rem;">${escapeHtml(result.explanation)}</p>
-        <button class="btn btn-sm btn-outline" style="margin-top: 0.8rem;" 
-                onclick="openStuckExplainer(${mcqId}, ${result.correct_answer}, ${chosenIdx})">
-          💡 Explain Like I'm Stuck
-        </button>
-      `;
-    }
-
+    await apiFetch("/api/mcq/attempt", { method: "POST", body: formData });
     loadOverview();
   } catch (err) {
-    console.error("Attempt error:", err);
+    console.error("Failed to record answer attempt:", err);
   }
 }
 
-// ==================== EXPLAIN LIKE I'M STUCK ====================
-async function openStuckExplainer(mcqId, correctIdx, userIdx) {
+async function explainLikeStuck(questionId, topic) {
   const modal = document.getElementById("stuckModal");
-  const loading = document.getElementById("stuckLoading");
   const content = document.getElementById("stuckContent");
-
   modal.style.display = "flex";
-  loading.style.display = "block";
-  content.innerHTML = "";
-
-  const mcq = currentMCQs.find(q => q.id === mcqId);
-  if (!mcq) return;
+  content.innerHTML = '<div class="loading-spinner">Simplifying principle & building analogy...</div>';
 
   const formData = new FormData();
-  formData.append("question", mcq.question);
-  formData.append("correct_option", mcq.options[correctIdx]);
-  formData.append("user_option", mcq.options[userIdx]);
-  formData.append("explanation", mcq.explanation);
+  formData.append("question_id", questionId);
+  formData.append("topic", topic);
 
   try {
-    const res = await fetch("/api/explain_stuck", { method: "POST", body: formData });
-    const data = await res.json();
-    loading.style.display = "none";
-    content.innerHTML = `<pre style="white-space: pre-wrap; font-family: var(--font-body); line-height: 1.6;">${escapeHtml(data.simple_explanation)}</pre>`;
+    const data = await apiFetch("/api/explain_stuck", { method: "POST", body: formData });
+    content.innerHTML = `
+      <div class="elis-box">
+        <h4>🎈 Simplified Concept</h4>
+        <p>${escapeHtml(data.simple_explanation || '')}</p>
+        <h4>🌍 Real-World Analogy</h4>
+        <p>${escapeHtml(data.analogy || '')}</p>
+        <h4>🎯 Key Rule to Remember</h4>
+        <p>${escapeHtml(data.takeaway || '')}</p>
+      </div>
+    `;
   } catch (err) {
-    loading.style.display = "none";
-    content.textContent = "Error generating analogy: " + err.message;
+    content.textContent = "Could not generate simplification: " + err.message;
   }
 }
 
 // ==================== FLASHCARDS (SM-2) ====================
 async function loadFlashcards() {
+  flashcardRevisionModeActive = false;
   try {
-    const res = await fetch(`/api/flashcards?course_id=${currentCourse}`);
-    const data = await res.json();
-    dueCards = data.flashcards || [];
+    const data = await apiFetch(`/api/flashcards?course_id=${currentCourse}`);
+    dueCards = data.cards || [];
     currentCardIdx = 0;
-    flashcardRevisionModeActive = false;
-
-    const banner = document.getElementById("flashcardModeBanner");
-    if (banner) banner.style.display = "none";
-
-    const counter = document.getElementById("flashcardCounter");
-    counter.textContent = `${dueCards.length} cards due`;
-
-    showCard();
+    renderFlashcard();
   } catch (err) {
-    console.error("Error loading flashcards:", err);
+    console.error("Failed to load flashcards:", err);
   }
 }
 
 async function loadAllFlashcardsForRevision() {
+  flashcardRevisionModeActive = true;
   try {
-    const res = await fetch(`/api/flashcards?course_id=${currentCourse}&mode=all`);
-    const data = await res.json();
-    dueCards = data.flashcards || [];
+    const data = await apiFetch(`/api/flashcards?course_id=${currentCourse}&mode=all`);
+    dueCards = data.cards || [];
     currentCardIdx = 0;
-    flashcardRevisionModeActive = true;
-
-    const banner = document.getElementById("flashcardModeBanner");
-    if (banner) {
-      document.getElementById("flashcardRevCount").textContent = dueCards.length;
-      banner.style.display = "block";
-    }
-
-    const counter = document.getElementById("flashcardCounter");
-    counter.textContent = `${dueCards.length} total cards`;
-
-    showCard();
+    renderFlashcard();
   } catch (err) {
-    console.error("Error loading all flashcards:", err);
+    console.error("Failed to load revision flashcards:", err);
   }
 }
 
-function exitFlashcardRevisionMode() {
-  loadFlashcards();
-}
+function renderFlashcard() {
+  const card = document.getElementById("flashcard");
+  const countEl = document.getElementById("cardCount");
+  card.classList.remove("flipped");
 
-function showCard() {
-  const flipCard = document.getElementById("flipCard");
-  const frontText = document.getElementById("cardFrontText");
-  const backText = document.getElementById("cardBackText");
-  const topicFront = document.getElementById("cardTopicFront");
-  const controls = document.getElementById("sm2Controls");
-
-  flipCard.classList.remove("flipped");
-
-  if (!dueCards || dueCards.length === 0 || currentCardIdx >= dueCards.length) {
-    frontText.textContent = "🎉 All caught up! No flashcards due.";
-    backText.textContent = "Great work! Return tomorrow for your scheduled SM-2 review.";
-    topicFront.textContent = "Done";
-    controls.style.display = "none";
+  if (!dueCards || dueCards.length === 0) {
+    document.getElementById("cardFront").textContent = "🎉 All caught up!";
+    document.getElementById("cardBack").textContent = "No flashcards due right now.";
+    document.getElementById("cardTopic").textContent = "Completed";
+    countEl.textContent = "0 of 0";
     return;
   }
 
-  const card = dueCards[currentCardIdx];
-  topicFront.textContent = `${card.course_id} • ${card.topic}`;
-  frontText.textContent = card.front;
-  backText.textContent = card.back;
-  controls.style.display = "flex";
+  const c = dueCards[currentCardIdx];
+  document.getElementById("cardTopic").textContent = c.topic || "Concept";
+  document.getElementById("cardFront").textContent = c.front;
+  document.getElementById("cardBack").textContent = c.back;
+  countEl.textContent = `${currentCardIdx + 1} of ${dueCards.length} ${flashcardRevisionModeActive ? '(Revision Mode)' : ''}`;
 }
 
-document.getElementById("flipCard").addEventListener("click", () => {
-  document.getElementById("flipCard").classList.toggle("flipped");
+document.getElementById("flashcard").addEventListener("click", () => {
+  document.getElementById("flashcard").classList.toggle("flipped");
 });
 
-document.querySelectorAll(".btn-sm2").forEach(btn => {
+document.querySelectorAll(".rating-btn").forEach(btn => {
   btn.addEventListener("click", async (e) => {
     e.stopPropagation();
-    if (!dueCards[currentCardIdx]) return;
-    const quality = btn.getAttribute("data-quality");
-    const cardId = dueCards[currentCardIdx].id;
+    if (!dueCards || dueCards.length === 0) return;
+
+    const rating = parseInt(btn.getAttribute("data-rating"));
+    const card = dueCards[currentCardIdx];
 
     const formData = new FormData();
-    formData.append("card_id", cardId);
-    formData.append("quality", quality);
+    formData.append("card_id", card.id);
+    formData.append("rating", rating);
 
-    await fetch("/api/flashcard/review", { method: "POST", body: formData });
+    try {
+      await apiFetch("/api/flashcard/review", { method: "POST", body: formData });
+    } catch (err) {
+      console.error(err);
+    }
 
     currentCardIdx++;
-    showCard();
-    const remaining = dueCards.length - currentCardIdx;
-    const label = flashcardRevisionModeActive ? `${remaining} of ${dueCards.length} cards` : `${remaining} cards due`;
-    document.getElementById("flashcardCounter").textContent = label;
+    if (currentCardIdx >= dueCards.length) {
+      dueCards = [];
+      renderFlashcard();
+      loadOverview();
+    } else {
+      renderFlashcard();
+    }
   });
 });
 
 // ==================== WEAK TOPICS RADAR ====================
 async function loadWeakTopics() {
-  const list = document.getElementById("weakTopicsList");
-  list.innerHTML = '<div class="loading-spinner">Analyzing question attempt history...</div>';
+  const container = document.getElementById("weakTopicsContainer");
+  container.innerHTML = '<div class="loading-spinner">Analyzing recall errors...</div>';
 
   try {
-    const res = await fetch(`/api/weak_topics?course_id=${currentCourse}`);
-    const data = await res.json();
+    const data = await apiFetch(`/api/weak_topics?course_id=${currentCourse}`);
     const topics = data.weak_topics || [];
 
-    if (topics.length === 0) {
-      list.innerHTML = '<div class="empty-state">No weak topics logged yet. Answer quiz questions to build your radar!</div>';
+    if (!topics || topics.length === 0) {
+      container.innerHTML = `
+        <div class="glass-panel text-center">
+          <p class="text-muted">✨ No weak topics detected yet! Complete more quizzes to calibrate radar.</p>
+        </div>`;
       return;
     }
 
-    list.innerHTML = topics.map(t => {
-      const color = t.accuracy < 50 ? "#f43f5e" : (t.accuracy < 75 ? "#f59e0b" : "#10b981");
-      return `
-        <div class="weak-topic-item">
-          <div>
-            <strong>${escapeHtml(t.topic)}</strong>
-            <span class="text-muted" style="margin-left: 0.5rem;">(${t.course_id})</span>
-            <div style="font-size: 0.8rem; color: var(--text-muted);">
-              ${t.correct_count} correct / ${t.total_attempts} attempts
-            </div>
-          </div>
-          <div class="weak-topic-bar-wrap">
-            <div class="accuracy-bar-bg">
-              <div class="accuracy-bar-fill" style="width: ${t.accuracy}%; background: ${color};"></div>
-            </div>
-          </div>
-          <div style="font-weight: 700; color: ${color}; min-width: 50px; text-align: right;">
-            ${t.accuracy}%
+    container.innerHTML = topics.map(t => `
+      <div class="glass-panel" style="margin-bottom:0.8rem; display:flex; justify-content:space-between; align-items:center;">
+        <div>
+          <strong>${escapeHtml(t.topic)}</strong> (${escapeHtml(t.course_id)})
+          <div class="text-muted" style="font-size:0.8rem;">
+            Total Attempts: ${t.total_attempts} | Incorrect: ${t.incorrect_attempts}
           </div>
         </div>
-      `;
-    }).join("");
+        <div style="text-align:right;">
+          <span class="badge badge-danger">${t.error_rate}% Error Rate</span>
+          <div style="font-size:0.8rem; margin-top:0.2rem; color:var(--text-muted)">Priority: ${t.priority_score}</div>
+        </div>
+      </div>
+    `).join("");
   } catch (err) {
-    list.innerHTML = `<div class="empty-state">Error loading weak topics: ${err.message}</div>`;
+    container.innerHTML = `<div class="empty-state">Error: ${escapeHtml(err.message)}</div>`;
   }
 }
 
 document.getElementById("btnStartWeekendQuiz").addEventListener("click", async () => {
-  const container = document.getElementById("quizContainer");
-  document.getElementById("tabBtnMCQ").click();
-  container.innerHTML = '<div class="loading-spinner">Synthesizing 15 targeted questions from your weak areas...</div>';
+  const container = document.getElementById("weakTopicsContainer");
+  container.innerHTML = '<div class="loading-spinner">Assembling targeted weak-topic recovery quiz...</div>';
 
   try {
-    const res = await fetch(`/api/weekend_quiz?course_id=${currentCourse}`);
-    const data = await res.json();
-    currentMCQs = data.questions;
+    const data = await apiFetch(`/api/weekend_quiz?course_id=${currentCourse}`);
+    const questions = data.questions || [];
 
-    if (!currentMCQs || currentMCQs.length === 0) {
-      container.innerHTML = '<div class="empty-state">Not enough questions to compile weekend quiz.</div>';
+    if (!questions || questions.length === 0) {
+      container.innerHTML = `
+        <div class="glass-panel text-center">
+          <h3>No weak-topic questions found</h3>
+          <p class="text-muted">Complete more quizzes to identify weak areas first.</p>
+        </div>`;
       return;
     }
 
     container.innerHTML = `
-      <div class="glass-panel" style="margin-bottom: 1.5rem; border-color: var(--accent-rose);">
-        <h3>🎯 Targeted Weekend Diagnostic Quiz</h3>
-        <p class="text-muted">15 questions heavily weighted on the topics you previously missed.</p>
+      <div style="margin-bottom: 1.5rem;">
+        <span class="badge badge-accent">🎯 Targeted Weak-Topic Calibration (${questions.length} Questions)</span>
       </div>
-    ` + currentMCQs.map((q, idx) => `
-      <div class="quiz-card" id="mcq-card-${q.id}">
-        <div class="quiz-meta">
-          <span class="tag-course">${q.course_id}</span>
-          <span class="tag-source">📍 ${q.source}</span>
-          <span class="text-muted">Targeted Weak Topic: ${q.topic}</span>
-        </div>
-        <div class="quiz-question">${idx + 1}. ${escapeHtml(q.question)}</div>
-        <div class="quiz-options" id="opts-${q.id}">
-          ${q.options.map((opt, oIdx) => `
-            <button class="opt-btn" onclick="submitMCQAnswer(${q.id}, ${oIdx})">
-              <strong>${String.fromCharCode(65 + oIdx)}.</strong> ${escapeHtml(opt)}
-            </button>
-          `).join("")}
-        </div>
-        <div class="quiz-feedback" id="feedback-${q.id}" style="display: none;"></div>
-      </div>
-    `).join("");
+      <div id="weekendQuizList"></div>
+    `;
+
+    renderMCQCards(questions, document.getElementById("weekendQuizList"));
   } catch (err) {
-    container.innerHTML = `<div class="empty-state">Error: ${err.message}</div>`;
+    container.innerHTML = `<div class="empty-state">Error: ${escapeHtml(err.message)}</div>`;
   }
 });
 
-// ==================== EXAM TAB & TIMED MOCKS ====================
+// ==================== EXAMS & MOCK ENGINE ====================
 async function loadExamTab() {
-  const grid = document.getElementById("examScheduleGrid");
-  try {
-    const res = await fetch("/api/exams");
-    const data = await res.json();
+  const container = document.getElementById("examListContainer");
+  container.innerHTML = '<div class="loading-spinner">Loading exam schedule...</div>';
 
-    if (!data.exams || data.exams.length === 0) {
-      grid.innerHTML = '<div class="empty-state">No exams registered. Add an exam to see your countdown timeline.</div>';
+  try {
+    const data = await apiFetch("/api/exams");
+    const exams = data.exams || [];
+
+    if (!exams || exams.length === 0) {
+      container.innerHTML = `
+        <div class="glass-panel text-center">
+          <p class="text-muted">No exams scheduled. Click '+ Add Exam' to track your midterm and final exam deadlines.</p>
+        </div>`;
       return;
     }
 
-    grid.innerHTML = data.exams.map(ex => `
-      <div class="glass-panel">
-        <div class="panel-header">
-          <div>
-            <h3>${ex.exam_title} (${ex.course_id})</h3>
-            <span class="pill pill-success">${ex.phase}</span>
+    container.innerHTML = exams.map(ex => `
+      <div class="glass-panel" style="margin-bottom: 1rem; display: flex; justify-content:space-between; align-items:center;">
+        <div>
+          <h3>${escapeHtml(ex.exam_title)} (${escapeHtml(ex.course_id)})</h3>
+          <p class="text-muted">Exam Date: ${escapeHtml(ex.exam_date)} | Target: ${ex.target_score}%</p>
+          <div style="margin-top:0.4rem;">
+            <span class="badge badge-accent">${escapeHtml(ex.strategy_badge || ex.strategy || 'Normal')}</span>
           </div>
-          <div class="days-badge">${ex.days_left} Days Left</div>
         </div>
-        <p class="text-muted"><strong>Target Score:</strong> ${ex.target_score}%</p>
-        <p class="text-muted"><strong>Recommended Strategy:</strong> ${ex.strategy}</p>
-        <button class="btn btn-sm btn-accent" style="margin-top: 1rem;" 
-                onclick="startMockExam('${ex.course_id}')">
-          ⚡ Launch Timed Mock for ${ex.course_id}
-        </button>
+        <div>
+          <button class="btn btn-primary glow-button" onclick="launchMockExam('${escapeHtml(ex.course_id)}')">
+            ⏱️ Launch Mock Exam
+          </button>
+        </div>
       </div>
     `).join("");
   } catch (err) {
-    console.error(err);
+    container.innerHTML = `<div class="empty-state">Error: ${escapeHtml(err.message)}</div>`;
   }
 }
 
-async function startMockExam(courseId) {
-  const container = document.getElementById("mockExamContainer");
-  const area = document.getElementById("mockQuestionsArea");
-  container.style.display = "block";
-  window.scrollTo({ top: container.offsetTop - 80, behavior: 'smooth' });
+async function launchMockExam(courseId) {
+  const modal = document.getElementById("mockExamModal");
+  const content = document.getElementById("mockQuestionsContainer");
+  modal.style.display = "flex";
+  content.innerHTML = '<div class="loading-spinner">Assembling timed mock exam...</div>';
 
-  const res = await fetch(`/api/mock_exam?course_id=${courseId}&question_count=15&time_limit_minutes=20`);
-  const data = await res.json();
+  try {
+    const data = await apiFetch(`/api/mock_exam?course_id=${courseId}&question_count=15&time_limit_minutes=20`);
+    const questions = data.questions || [];
 
-  let seconds = 20 * 60;
-  clearInterval(mockTimerInterval);
-  const timerEl = document.getElementById("mockTimer");
-
-  mockTimerInterval = setInterval(() => {
-    seconds--;
-    const mins = Math.floor(seconds / 60);
-    const secs = seconds % 60;
-    timerEl.textContent = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
-    if (seconds <= 0) {
-      clearInterval(mockTimerInterval);
-      alert("Time is up! Exam auto-submitted.");
+    if (!questions || questions.length === 0) {
+      content.innerHTML = '<p class="text-muted text-center">Not enough lecture questions to assemble a full mock exam.</p>';
+      return;
     }
-  }, 1000);
 
-  area.innerHTML = data.questions.map((q, idx) => `
-    <div class="quiz-card" style="margin-top: 1rem;">
-      <div class="quiz-question">${idx + 1}. ${escapeHtml(q.question)}</div>
-      <div class="quiz-options">
-        ${q.options.map((opt, oIdx) => `
-          <button class="opt-btn" onclick="this.classList.toggle('correct')">
-            ${String.fromCharCode(65 + oIdx)}. ${escapeHtml(opt)}
-          </button>
-        `).join("")}
-      </div>
-    </div>
-  `).join("");
+    let remainingSeconds = data.time_limit_minutes * 60;
+    const timerDisplay = document.getElementById("mockTimerDisplay");
+
+    if (mockTimerInterval) clearInterval(mockTimerInterval);
+    mockTimerInterval = setInterval(() => {
+      remainingSeconds--;
+      const mins = Math.floor(remainingSeconds / 60);
+      const secs = remainingSeconds % 60;
+      timerDisplay.textContent = `⏱️ ${mins}:${secs < 10 ? '0' : ''}${secs}`;
+
+      if (remainingSeconds <= 0) {
+        clearInterval(mockTimerInterval);
+        alert("⏰ Time's up! Submitting your mock exam answers.");
+      }
+    }, 1000);
+
+    renderMCQCards(questions, content);
+  } catch (err) {
+    content.innerHTML = `<div class="empty-state">Error: ${escapeHtml(err.message)}</div>`;
+  }
 }
+
+document.getElementById("btnCloseMockModal").addEventListener("click", () => {
+  if (mockTimerInterval) clearInterval(mockTimerInterval);
+  document.getElementById("mockExamModal").style.display = "none";
+});
 
 // ==================== AUDIO DIGESTS ====================
 async function loadAudioDigests() {
-  const container = document.getElementById("audioDigestsContainer");
+  const container = document.getElementById("audioListContainer");
   try {
-    const res = await fetch("/api/audio_digests");
-    const data = await res.json();
+    const data = await apiFetch("/api/audio_digests");
     const digests = data.digests || [];
 
-    if (digests.length === 0) {
-      container.innerHTML = '<div class="empty-state">No audio digests generated yet. Ingest lectures to synthesize daily briefs!</div>';
+    if (!digests || digests.length === 0) {
+      container.innerHTML = `
+        <div class="glass-panel text-center">
+          <p class="text-muted">No synthesized audio lecture digests yet. Run sync to generate.</p>
+        </div>`;
       return;
     }
 
     container.innerHTML = digests.map(d => `
       <div class="audio-item">
-        <strong>${escapeHtml(d.title)}</strong>
-        <p class="text-muted" style="margin: 0.5rem 0;">${escapeHtml(d.script_text.substring(0, 200))}...</p>
+        <strong>🎧 ${escapeHtml(d.lecture_title)}</strong>
+        <p class="text-muted" style="font-size:0.8rem;">${escapeHtml(d.course_id)}</p>
         ${d.audio_path ? `
           <div class="audio-controls">
-            <audio controls src="/api/audio/play/${encodeURIComponent(d.audio_path.split('\\\\').pop().split('/').pop())}"></audio>
+            <audio controls src="${API_BASE}/api/audio/play/${encodeURIComponent(d.audio_path.split('\\\\').pop().split('/').pop())}"></audio>
           </div>
         ` : '<p class="text-muted" style="font-size:0.8rem;">Text transcript generated.</p>'}
       </div>
@@ -615,8 +649,7 @@ document.getElementById("btnLoadCheatSheet").addEventListener("click", async () 
   contentEl.innerHTML = '<div class="loading-spinner">Generating 1-page formula & definition matrix...</div>';
 
   try {
-    const res = await fetch(`/api/cheatsheet?course_id=${course}`);
-    const data = await res.json();
+    const data = await apiFetch(`/api/cheatsheet?course_id=${course}`);
     contentEl.textContent = data.content || "No concepts extracted yet.";
   } catch (err) {
     contentEl.textContent = "Error: " + err.message;
@@ -634,8 +667,7 @@ function initModals() {
     try {
       const formData = new FormData();
       formData.append("lms_type", "folder");
-      const res = await fetch("/api/sync", { method: "POST", body: formData });
-      const data = await res.json();
+      const data = await apiFetch("/api/sync", { method: "POST", body: formData });
       alert(`Sync completed! ${data.synced_count} files checked, ${data.processed_count} new lectures processed.`);
       loadOverview();
       loadCourses();
@@ -666,18 +698,15 @@ function initModals() {
     formData.append("password", document.getElementById("nustPassword").value);
 
     try {
-      const res = await fetch("/api/moodle/login", { method: "POST", body: formData });
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.detail || "Authentication failed");
-
+      const data = await apiFetch("/api/moodle/login", { method: "POST", body: formData });
       nustModal.style.display = "none";
-      alert(`🎉 Connected to NUST LMS!\nDiscovered ${data.enrolled_courses.length} courses: ${data.enrolled_courses.join(", ")}\nIngested ${data.synced_files} slide decks.`);
+      alert(`🎉 Connected to NUST LMS!\nDiscovered ${(data.enrolled_courses || []).length} courses: ${(data.enrolled_courses || []).join(", ")}\nIngested ${data.synced_files || 0} slide decks.`);
       loadOverview();
       loadCourses();
       loadMCQs();
       loadFlashcards();
     } catch (err) {
-      alert("NUST LMS Connection Error: " + err.message);
+      alert("NUST LMS Connection Error:\n\n" + err.message);
     } finally {
       progress.style.display = "none";
       submitBtn.disabled = false;
@@ -702,10 +731,9 @@ function initModals() {
     formData.append("file", document.getElementById("uploadFile").files[0]);
 
     try {
-      const res = await fetch("/api/upload_lecture", { method: "POST", body: formData });
-      const data = await res.json();
+      await apiFetch("/api/upload_lecture", { method: "POST", body: formData });
       uploadModal.style.display = "none";
-      alert(`Lecture ingested successfully! Study materials generated.`);
+      alert("Lecture ingested successfully! High-quality study materials generated.");
       loadOverview();
       loadCourses();
       loadMCQs();
@@ -732,7 +760,7 @@ function initModals() {
     formData.append("target_score", document.getElementById("modalExamScore").value);
 
     try {
-      await fetch("/api/exams/add", { method: "POST", body: formData });
+      await apiFetch("/api/exams/add", { method: "POST", body: formData });
       examModal.style.display = "none";
       loadOverview();
       loadExamTab();
@@ -763,25 +791,22 @@ function initModals() {
   // Review All Flashcards (Revision Mode)
   document.getElementById("btnReviewAllCards").addEventListener("click", () => loadAllFlashcardsForRevision());
 
-  // Delete Low-Quality (heuristic/template) MCQs and Flashcards
+  // Delete Low-Quality MCQs and Flashcards
   document.getElementById("btnDeleteLowQuality").addEventListener("click", async () => {
-    if (!confirm("This will permanently DELETE all template-generated (non-AI) MCQs and flashcards.\n\nOnly AI-generated content (Gemini/OpenAI) will be kept. This action cannot be undone.\n\nContinue?")) return;
+    if (!confirm("This will permanently DELETE all template-generated or low-quality questions.\n\nOnly verified, high-quality questions will be kept. Continue?")) return;
 
     const btn = document.getElementById("btnDeleteLowQuality");
-    btn.innerHTML = '<span class="btn-icon">⏳</span> Deleting...';
+    btn.innerHTML = '<span class="btn-icon">⏳</span> Filtering...';
     btn.disabled = true;
 
     try {
-      const res = await fetch(`/api/mcqs/heuristic?course_id=${currentCourse}`, { method: "DELETE" });
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.detail || "Deletion failed");
-
-      alert(`✅ Cleanup Complete!\n\n🗑️ Deleted: ${data.deleted_mcqs} low-quality MCQs\n🗑️ Deleted: ${data.deleted_flashcards} heuristic flashcards\n\nOnly high-quality AI-generated content remains.`);
+      const data = await apiFetch(`/api/mcqs/heuristic?course_id=${currentCourse}`, { method: "DELETE" });
+      alert(`✅ Cleanup Complete!\n\n🗑️ Filtered: ${data.deleted_mcqs || 0} low-quality MCQs\n🗑️ Filtered: ${data.deleted_flashcards || 0} low-quality flashcards\n\nOnly high-quality academic study content remains.`);
       loadOverview();
       loadMCQs();
       loadFlashcards();
     } catch (err) {
-      alert("Deletion failed: " + err.message);
+      alert("Cleanup failed: " + err.message);
     } finally {
       btn.innerHTML = '<span class="btn-icon">🗑️</span> Delete Low-Quality';
       btn.disabled = false;
@@ -790,18 +815,15 @@ function initModals() {
 
   // AI Regeneration button — wipes old MCQs and calls Gemini for all lectures
   document.getElementById("btnRegenAI").addEventListener("click", async () => {
-    if (!confirm("This will DELETE all current MCQs and regenerate them using Gemini AI from your lecture slides.\n\nThis may take several minutes. Continue?")) return;
+    if (!confirm("This will regenerate questions using Gemini AI from your lecture slides.\n\nThis will take a moment. Continue?")) return;
 
     const btn = document.getElementById("btnRegenAI");
     btn.innerHTML = '<span class="btn-icon">⏳</span> Generating...';
     btn.disabled = true;
 
     try {
-      const res = await fetch("/api/regenerate_mcqs", { method: "POST" });
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.detail || "Regeneration failed");
-
-      alert(`✅ AI Generation Complete!\n\n📝 New MCQs: ${data.new_mcqs}\n🗂️ New Flashcards: ${data.new_flashcards}\n📁 Files processed: ${data.files_reprocessed}`);
+      const data = await apiFetch("/api/regenerate_mcqs", { method: "POST" });
+      alert(`✅ AI Generation Complete!\n\n📝 New MCQs: ${data.new_mcqs || 0}\n🗂️ New Flashcards: ${data.new_flashcards || 0}\n📁 Files processed: ${data.files_reprocessed || 0}`);
       loadOverview();
       loadMCQs();
       loadFlashcards();
@@ -813,7 +835,6 @@ function initModals() {
       btn.disabled = false;
     }
   });
-
 }
 
 function escapeHtml(text) {

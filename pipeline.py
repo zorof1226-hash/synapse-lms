@@ -14,6 +14,22 @@ from generation.llm_generator import LLMGenerator
 from generation.quality_filter import QualityFilter
 from repetition.anki_exporter import AnkiAndMarkdownExporter
 
+ADMIN_FILE_PATTERNS = [
+    r"course\s*outline",
+    r"syllabus",
+    r"policy",
+    r"guideline",
+    r"cover\s*page",
+    r"lecture\s*links",
+    r"lecture\s*0\b",
+    r"course\s*intro",
+    r"rubric",
+]
+
+def is_administrative_file(filename: str) -> bool:
+    name_lower = filename.lower()
+    return any(re.search(pat, name_lower) for pat in ADMIN_FILE_PATTERNS)
+
 class StudyPipeline:
     """The central orchestrator connecting LMS ingestion, slide extraction,
     LLM study package generation, spaced repetition, and exports.
@@ -76,6 +92,12 @@ class StudyPipeline:
             lecture_title = file_row["lecture_title"] or file_path.stem
 
             print(f"\n[Pipeline] ---> Processing: {course_id} | {lecture_title} ({file_path.name})")
+
+            # Check if file is administrative (syllabus, course outline, policy, cover page)
+            if is_administrative_file(file_path.name) or is_administrative_file(lecture_title):
+                print(f"  [!] Skipping administrative document from MCQ generation: {file_path.name}")
+                self.db.mark_file_processed(file_id)
+                continue
 
             # 1. Extraction & Slide Chunking
             chunks = self.extractor.extract_file(file_path, course_id=course_id, lecture_title=lecture_title)
@@ -154,6 +176,10 @@ class StudyPipeline:
             files = cursor.fetchall()
 
         for f in files:
+            lt = f["lecture_title"] or ""
+            fp_name = Path(f["file_path"]).name
+            if is_administrative_file(lt) or is_administrative_file(fp_name):
+                continue
             fpath = Path(f["file_path"])
             if fpath.exists():
                 file_chunks = self.extractor.extract_file(fpath, course_id=f["course_id"], lecture_title=f["lecture_title"])
